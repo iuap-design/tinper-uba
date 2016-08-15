@@ -1,3 +1,37 @@
 # uba
 
-`uba`是一个前端集成开发工具，基于Nodejs开发，集前端开发、构建、调试、发布等功能于一体，让前端开发更加高效和便捷。
+`uba` is a open-source tool based node.js for building resource. u can use it to `init project` `build resource` `server a web service` `publish to maven`. `uba` make fe engineering work better.
+
+
+## install
+
+```
+$ npm install uba -g
+```
+
+## development
+
+get help
+```
+$ uba --help
+```
+
+init project
+```
+$ uba init
+```
+
+build your project
+```
+$ uba build
+```
+
+create a server for develop
+```
+$ uba server -p 8080
+```
+
+publish your public resource
+```
+$ uba publish
+```
