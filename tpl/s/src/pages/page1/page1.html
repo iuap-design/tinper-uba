@@ -1,0 +1,56 @@
+
+<div class="page1">
+     <div>
+       <h2 class="title">添加信息</h2>
+       <ul id="formInfo">
+         <li class="u-text"  u-meta='{"id":"enterprise","type":"u-text","dataType":"string","data":"infoData","field":"enterprise"}'>
+               <input type="text" class="u-input" id='enterprise'/>
+               <label class="u-label" for="enterprise">公司</label>
+         </li>
+         <li class="u-text"  u-meta='{"id":"depart","type":"u-text","dataType":"string","data":"infoData","field":"depart"}'>
+                <input type="text" class="u-input" id='depart' />
+               <label class="u-label" for="depart">部门</label>
+         </li>
+         <li class="u-text" u-meta='{"id":"name","type":"u-text","dataType":"string","data":"infoData","field":"name"}'>
+               <input type="text" class="u-input" id='name' />
+               <label class="u-label" for="name">姓名</label>
+         </li>
+         <li >
+               <label  class="u-radio" for="sex-1" u-meta='{"id":"sex1","type":"u-radio","data":"infoData","field":"sex"}'>
+                   <input type="radio" id="sex-1" class="u-radio-button" name="options" value="test1">
+                   <span class="u-radio-label">男</span>
+               </label>
+               <label class="u-radio" for="sex-2" u-meta='{"id":"sex2","type":"u-radio","data":"infoData","field":"sex"}'>
+                   <input type="radio" id="sex-2" class="u-radio-button" name="options" value="test2">
+                   <span class="u-radio-label">女</span>
+               </label>
+         </li>
+         <li>
+               <div class="opt-btn">
+                      <button class="u-button raised primary stb" data-bind='click:addAction'>提交</button>
+               </div>
+              
+         </li>
+       </ul>  
+       <div class="rslistInfo">
+         <table class="u-table  tsty">
+              <thead>
+                <tr>
+                  <th class="mdl-data-table__cell--non-numeric">公司</th>
+                  <th>部门</th>
+                  <th>姓名</th>
+                </tr>
+              </thead>
+              <tbody data-bind="foreach:{data:listData.rows(), as: 'row'}">
+                <tr>
+                  <td class="mdl-data-table__cell--non-numeric" data-bind="text:row.ref('enterprise')"></td>
+                  <td data-bind="text: row.ref('depart')"></td>
+                  <td data-bind="text: row.ref('name')"></td>
+                </tr>
+              </tbody>
+            </table>
+       </div>
+         
+         
+   </div>
+</div>

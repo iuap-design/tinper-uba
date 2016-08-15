@@ -1,0 +1,8 @@
+{
+  "entry": {
+    "main": "./index"
+  },
+  "exports": {
+    "comp1": "./component/comp1/comp1"
+  }
+}

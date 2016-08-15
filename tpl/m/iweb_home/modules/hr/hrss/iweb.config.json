@@ -1,0 +1,10 @@
+{
+  "entry": {
+    "main": "index"
+  },
+  "exports": {
+    "comp1": "component/oacomp1/oacomp1"
+  }
+
+
+}

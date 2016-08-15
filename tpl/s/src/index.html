@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- Head -->
+<head>
+    <meta charset="utf-8"/>
+    <title>iUAP Demo</title>
+
+    <meta name="description" content="Dashboard"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    {% for (var chunk in o.htmlWebpackPlugin.files.chunks['index'].css) { %}
+        <link href="{%=o.htmlWebpackPlugin.files.chunks['index'].css[chunk]%}" rel="stylesheet">
+    {% } %}
+
+     <script>
+        window.$ctx = '{%=o.htmlWebpackPlugin.options.webContext%}';
+    </script>
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+    <div class="demo-layout u-navlayout u-navlayout-fixed-drawer u-navlayout-fixed-header">
+      <header class="demo-header u-navlayout-header u-bg-grey-100 u-text-grey-600">
+        <div class="u-navlayout-header-row">
+          <span class="u-navlayout-title">Home</span>
+          <div class="u-navlayout-spacer"></div>
+          <button class="u-button flat floating" id="hdrbtn">
+            <i class="fa fa-ellipsis-v"></i>
+          </button>
+          <ul class="u-menu u-menu-bottom-right" for="hdrbtn">
+                <li class="u-menu-item">设置</li>
+                <li class="u-menu-item">关于</li>
+                <li class="u-menu-item">注销</li>
+          </ul>
+        </div>
+      </header>
+      <div class="demo-drawer u-navlayout-drawer u-bg-blue-grey-900 u-text-blue-grey-50">
+        <header class="demo-drawer-header">
+          <img id="userImg" class="demo-avatar">
+          <span>YY@yonyou.com</span>
+          <!-- <div class="demo-avatar-dropdown">
+            <span>YY@yonyou.com</span>
+            <div class="u-navlayout-spacer"></div>
+            <button id="accbtn" class="u-button flat floating">
+              <i class="fa fa-chevron-down" role="presentation"></i>
+              <span class="visuallyhidden"></span>
+            </button>
+
+            <ul class="u-menu u-menu-bottom-right" for="accbtn">
+              <li class="u-menu-item">licza@yonyou.com</li>
+              <li class="u-menu-item">liujmc@yonyou.com</li>
+            </ul>
+          </div> -->
+        </header>
+        <nav class="demo-navigation u-nav u-bg-blue-grey-800">
+            <a class="u-nav-link" href="#home"><i class="demo-menu-icon u-color-grey-400 fa fa-home fa-2x" role="presentation"></i>Home</a>
+            <a class="u-nav-link" href="#inbox"><i class="demo-menu-icon u-color-grey-400 fa fa-envelope-o fa-2x" role="presentation"></i>Inbox</a>
+            <a class="u-nav-link" href=""><i class="demo-menu-icon u-color-grey-400 fa fa-trash-o fa-2x" role="presentation"></i>Trash</a>
+        </nav>
+      </div>
+      <main class="u-navlayout-content u-color-grey-100">
+        <div class="mdl-grid demo-content" id="content">
+
+
+
+        </div>
+      </main>
+    </div>
+
+ <script src="{%=o.htmlWebpackPlugin.files.chunks['index'].entry %}"></script>
+</body>
+<!--  /Body -->
+</html>

@@ -1,8 +1,11 @@
 {
   "name": "uba",
   "version": "1.0.0",
-  "description": "uba ",
+  "description": "uba",
   "main": "index.js",
+  "bin": {
+    "uba": "./bin/uba.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +21,14 @@
   "bugs": {
     "url": "https://github.com/iuap-design/uba/issues"
   },
-  "homepage": "https://github.com/iuap-design/uba#readme"
+  "homepage": "https://github.com/iuap-design/uba#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "fs-extra": "^0.30.0",
+    "gulp": "^3.9.1",
+    "html-webpack-plugin": "^2.22.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "yargs": "^4.8.1"
+  }
 }
