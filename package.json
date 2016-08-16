@@ -1,10 +1,10 @@
 {
   "name": "uba",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "uba",
   "main": "index.js",
   "bin": {
-    "uba": "./bin/uba.js"
+    "uba": "./bin/uba"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,7 @@
   "keywords": [
     "uba"
   ],
-  "author": "GuoYongfeng",
+  "author": "Yonyou FED",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/iuap-design/uba/issues"
