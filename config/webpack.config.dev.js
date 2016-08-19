@@ -2,27 +2,18 @@ var path = require("path");
 var autoprefixer = require("autoprefixer");
 var webpack = require("webpack");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var url = require("url");
+var CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin");
+var WatchMissingNodeModulesPlugin = require("../scripts/utils/WatchMissingNodeModulesPlugin");
 var paths = require("./paths");
 var env = require("./env");
-if(env["process.env.NODE_ENV"] !== '"production"') {
-	throw new Error("Production builds must have NODE_ENV=production.")
-}
-var homepagePath = require(paths.appPackageJson).homepage;
-var publicPath = homepagePath ? url.parse(homepagePath).pathname : "/";
-if(!publicPath.endsWith("/")) {
-	publicPath += "/"
-}
 module.exports = {
-	bail: true,
-	devtool: "source-map",
-	entry: [require.resolve("./polyfills"), path.join(paths.appSrc, "index")],
+	devtool: "eval",
+	entry: [require.resolve("webpack-dev-server/client") + "?/", require.resolve("webpack/hot/dev-server"), require.resolve("./polyfills"), path.join(paths.appSrc, "index")],
 	output: {
 		path: paths.appBuild,
-		filename: "static/js/[name].[chunkhash:8].js",
-		chunkFilename: "static/js/[name].[chunkhash:8].chunk.js",
-		publicPath: publicPath
+		pathinfo: true,
+		filename: "static/js/bundle.js",
+		publicPath: "/"
 	},
 	resolve: {
 		extensions: [".js", ".json", ""],
@@ -39,25 +30,25 @@ module.exports = {
 		preLoaders: [{
 			test: /\.js$/,
 			loader: "eslint",
-			include: paths.appSrc
+			include: paths.appSrc,
 		}],
 		loaders: [{
 			test: /\.js$/,
 			include: paths.appSrc,
 			loader: "babel",
-			query: require("./babel.prod")
+			query: require("./babel.dev")
 		}, {
 			test: /\.css$/,
 			include: [paths.appSrc, paths.appNodeModules],
-			loader: ExtractTextPlugin.extract("style", "css?-autoprefixer!postcss")
+			loader: "style!css!postcss"
 		}, {
 			test: /\.json$/,
 			include: [paths.appSrc, paths.appNodeModules],
 			loader: "json"
 		}, {
 			test: /\.(ico|jpg|png|gif|eot|svg|ttf|woff|woff2)(\?.*)?$/,
-			exclude: /\/favicon.ico$/,
 			include: [paths.appSrc, paths.appNodeModules],
+			exclude: /\/favicon.ico$/,
 			loader: "file",
 			query: {
 				name: "static/media/[name].[hash:8].[ext]"
@@ -97,29 +88,5 @@ module.exports = {
 	plugins: [new HtmlWebpackPlugin({
 		inject: true,
 		template: paths.appHtml,
-		minify: {
-			removeComments: true,
-			collapseWhitespace: true,
-			removeRedundantAttributes: true,
-			useShortDoctype: true,
-			removeEmptyAttributes: true,
-			removeStyleLinkTypeAttributes: true,
-			keepClosingSlash: true,
-			minifyJS: true,
-			minifyCSS: true,
-			minifyURLs: true
-		}
-	}), new webpack.DefinePlugin(env), new webpack.optimize.OccurrenceOrderPlugin(), new webpack.optimize.DedupePlugin(), new webpack.optimize.UglifyJsPlugin({
-		compress: {
-			screw_ie8: true,
-			warnings: false
-		},
-		mangle: {
-			screw_ie8: true
-		},
-		output: {
-			comments: false,
-			screw_ie8: true
-		}
-	}), new ExtractTextPlugin("static/css/[name].[contenthash:8].css")]
+	}), new webpack.DefinePlugin(env), new webpack.HotModuleReplacementPlugin(), new CaseSensitivePathsPlugin(), new WatchMissingNodeModulesPlugin(paths.appNodeModules)]
 };
