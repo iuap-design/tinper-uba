@@ -22,7 +22,7 @@ $ uba --help
 
 init project
 ```
-$ uba init
+$ uba init uba-demo
 ```
 
 build your project
@@ -32,7 +32,7 @@ $ uba build
 
 create a server for develop
 ```
-$ uba server -p 8080
+$ uba start
 ```
 
 publish your public resource
