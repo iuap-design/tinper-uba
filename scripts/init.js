@@ -76,7 +76,6 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
 
 		// Display the most elegant way to cd.
 		// This needs to handle an undefined originalDirectory for
-		// backward compatibility with old global-cli's.
 		var cdpath;
 		if(originalDirectory &&
 			path.join(originalDirectory, appName) === appPath) {

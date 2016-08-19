@@ -10,16 +10,16 @@ uba is a open-source tool based node.js for building resource.
 ### Getting Started
 
 ```sh
-npm install -g uba-cli
+npm install -g uba
 
-uba-cli my-app
+uba my-app
 cd my-app/
 $npm start
 
 ```
 ### Build
 ```sh
-npm run build
+$npm run build
 ```
 
 ### Start

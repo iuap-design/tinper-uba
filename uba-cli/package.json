@@ -1,6 +1,6 @@
 {
   "name": "uba",
-  "version": "1.2.0",
+  "version": "1.2.4",
   "description": "uba global cli",
   "main": "./index.js",
   "bin": {
@@ -9,13 +9,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "bugs": {
-    "url": "https://github.com/iuap-design/uba/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iuap-design/uba.git"
-  },
  "keywords": [
     "uba",
     "yonyou",
@@ -23,7 +16,6 @@
     "design"
   ],
   "author": "Yonyou FED",
-  "homepage": "https://github.com/iuap-design/uba#readme",
   "license": "ISC",
   "dependencies": {
     "chalk": "^1.1.3",

@@ -18,6 +18,6 @@ switch(script) {
 		break;
 	default:
 		console.log(chalk.cyan('Error script "' + script + '".'));
-		console.log(chalk.cyan('Please you need to update uba $npm install uba-cli -g'));
+		console.log(chalk.cyan('Please you need to update uba $npm install uba -g'));
 		break;
 }

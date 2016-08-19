@@ -37,8 +37,47 @@ if(commands.length === 0) {
 
 	process.exit(1);
 }
+switch (commands[0]){
+	case 'init':
+		if(commands[1]===undefined){
+			console.log(chalk.red('command error! tips : uba init example'));
+			break;
+		}
+		createApp(commands[0], argv.verbose, argv['scripts-version']);
+		break;
+	case 'build':
+		var args = [
+			'run',
+			'build'
+		].filter(function(e) {
+			return e;
+		});
+		var proc = spawn('npm', args, {
+			stdio: 'inherit'
+		});
+		proc.on('close', function(code) {
+			
+		});
+		break;
+	case 'start':
+		var args = [
+			'start'
+		].filter(function(e) {
+			return e;
+		});
+		var proc = spawn('npm', args, {
+			stdio: 'inherit'
+		});
+		proc.on('close', function(code) {
+			
+		});
+		break;
+	default:
+		console.log(chalk.red('command error! tips : uba --help'));
+		break;
+}
+return;
 
-createApp(commands[0], argv.verbose, argv['scripts-version']);
 
 function createApp(name, verbose, version) {
 	var root = path.resolve(name);

@@ -1,10 +1,7 @@
 {
 	"name": "uba-scripts",
-	"version": "1.2.0",
-	"description": "uba template",
-	"engines": {
-		"node": ">=4"
-	},
+	"version": "1.2.3",
+	"description": "uba scripts template",
 	"main": "./bin/uba-scripts.js",
 	"bin": {
 		"uba-scripts": "./bin/uba-scripts.js"
