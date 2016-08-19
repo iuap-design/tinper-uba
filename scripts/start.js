@@ -92,7 +92,7 @@ function setupCompiler(port) {
 			console.log('  ' + chalk.cyan('http://localhost:' + port + '/'));
 			console.log();
 			console.log('Note that the development build is not optimized.');
-			console.log('To create a production build, use ' + chalk.cyan('npm run build') + '.');
+			console.log('To create a production build, use ' + chalk.cyan('uba build') + '.');
 			console.log();
 			return;
 		}

@@ -14,17 +14,17 @@ npm install -g uba
 
 uba my-app
 cd my-app/
-$npm start
+$uba start
 
 ```
 ### Build
 ```sh
-$npm run build
+$uba build
 ```
 
 ### Start
 ```sh
-$npm start
+$uba start
 ```
 
 ### Help

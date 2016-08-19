@@ -21,29 +21,32 @@ if(commands.length === 0) {
 	if(argv.help) {
 		console.log(chalk.cyan('Welcome to uba help!'));
 		console.log(chalk.magenta('******************************************************************'));
-		console.log(chalk.green('1. $ uba <project name>   		init iuap design project'));
-		console.log(chalk.green('2. $ cd project && npm run build    	build iuap design project'));
-		console.log(chalk.green('3. $ cd project && npm start		startup a web develop server'));
-		console.log(chalk.green('4. $ uba --version'));
+		console.log(chalk.green('1. $ uba init <Project name>   		init iuap design project'));
+		console.log(chalk.green('2. $ uba build    			build iuap design project'));
+		console.log(chalk.green('3. $ uba start				startup a web develop server'));
+		console.log(chalk.green('4. $ uba --version			view current version'));
 		console.log(chalk.green('5. $ uba --help'));
 		console.log(chalk.magenta('******************************************************************'));
 		process.exit();
 	}
 
-	console.log(chalk.red('Usage: uba <project-directory>'));
-	console.log(chalk.magenta('******************************************************************'));
-	console.log(chalk.magenta('uba tips:	 $uba --help'));
-	console.log(chalk.magenta('******************************************************************'));
+	console.log(chalk.red('Usage: uba init <project-directory>'));
+	console.log(chalk.magenta('********************************************************'));
+	console.log(chalk.cyan('uba tips:	 $uba --help'));
+	console.log(chalk.magenta('********************************************************'));
 
 	process.exit(1);
 }
+
 switch (commands[0]){
 	case 'init':
 		if(commands[1]===undefined){
-			console.log(chalk.red('command error! tips : uba init example'));
+			console.log(chalk.magenta('********************************************************'));
+			console.log(chalk.cyan('command error! tips : uba init uba-demo'));
+			console.log(chalk.magenta('********************************************************'));
 			break;
 		}
-		createApp(commands[0], argv.verbose, argv['scripts-version']);
+		createApp(commands[1], argv.verbose, argv['scripts-version']);
 		break;
 	case 'build':
 		var args = [
@@ -56,7 +59,11 @@ switch (commands[0]){
 			stdio: 'inherit'
 		});
 		proc.on('close', function(code) {
-			
+			if(code!==0){
+				console.log(chalk.magenta('********************************************************'));
+				console.log(chalk.red('run build error ! Please run in the uba Project folder'));
+				console.log(chalk.magenta('********************************************************'));
+			}
 		});
 		break;
 	case 'start':
@@ -69,14 +76,20 @@ switch (commands[0]){
 			stdio: 'inherit'
 		});
 		proc.on('close', function(code) {
-			
+			if(code!==0){
+				console.log(chalk.magenta('********************************************************'));
+				console.log(chalk.red('run server error ! Please run in the uba Project folder'));
+				console.log(chalk.magenta('********************************************************'));
+			}
 		});
 		break;
 	default:
-		console.log(chalk.red('command error! tips : uba --help'));
+		console.log(chalk.magenta('********************************************************'));
+		console.log(chalk.cyan('command error! tips : uba --help'));
+		console.log(chalk.magenta('********************************************************'));
 		break;
 }
-return;
+
 
 
 function createApp(name, verbose, version) {
