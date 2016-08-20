@@ -24,8 +24,9 @@ if(commands.length === 0) {
 		console.log(chalk.green('1. $ uba init <Project name>   		init iuap design project'));
 		console.log(chalk.green('2. $ uba build    			build iuap design project'));
 		console.log(chalk.green('3. $ uba start				startup a web develop server'));
-		console.log(chalk.green('4. $ uba --version			view current version'));
-		console.log(chalk.green('5. $ uba --help'));
+		console.log(chalk.green('4. $ uba test				run test'));
+		console.log(chalk.green('5. $ uba --version			view current version'));
+		console.log(chalk.green('6. $ uba --help				view help'));
 		console.log(chalk.magenta('******************************************************************'));
 		process.exit();
 	}
@@ -79,6 +80,24 @@ switch (commands[0]){
 			if(code!==0){
 				console.log(chalk.magenta('********************************************************'));
 				console.log(chalk.red('run server error ! Please run in the uba Project folder'));
+				console.log(chalk.magenta('********************************************************'));
+			}
+		});
+		break;
+	case 'test' :
+		var args = [
+			'run',
+			'test'
+		].filter(function(e) {
+			return e;
+		});
+		var proc = spawn('npm', args, {
+			stdio: 'inherit'
+		});
+		proc.on('close', function(code) {
+			if(code!==0){
+				console.log(chalk.magenta('********************************************************'));
+				console.log(chalk.red('run test error ! Please run in the uba Project folder'));
 				console.log(chalk.magenta('********************************************************'));
 			}
 		});
