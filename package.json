@@ -1,15 +1,16 @@
 {
 	"name": "uba-scripts",
-	"version": "1.2.4",
+	"version": "1.2.5",
 	"description": "uba scripts template",
 	"main": "./bin/uba-scripts.js",
 	"bin": {
 		"uba-scripts": "./bin/uba-scripts.js"
 	},
 	"scripts": {
-		"build": "node scripts/build.js --debug-template",
-		"start": "node scripts/start.js --debug-template",
-		"test": "node scripts/test.js --debug-template"
+		"build": "node scripts/build.js",
+		"start": "node scripts/start.js",
+		"test": "node scripts/test.js",
+		"publish" : "node scripts/publish.js"
 	},
 	"files": [
 		"bin",
