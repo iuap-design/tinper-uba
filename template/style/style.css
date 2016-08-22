@@ -1,0 +1,557 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+html,
+body {
+    /*font-family: 'Roboto', 'Helvetica', sans-serif;*/
+    color: rgba(0, 0, 0, .87);
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    background-color: #FFFFFF;
+    word-wrap: break-word;
+    color: #424242;
+}
+
+.demo-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 64px;
+}
+
+.demo-layout .demo-header .u-text {
+    padding: 0px;
+    margin-top: 41px;
+}
+
+.demo-layout .demo-header .u-text .u-text-expandable-holder {
+    bottom: 19px;
+}
+
+.demo-layout .u-navlayout-header .u-navlayout-drawer-button {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.u-navlayout-drawer .avatar {
+    margin-bottom: 16px;
+}
+
+.demo-drawer {
+    border: none;
+}
+
+
+/* iOS Safari specific workaround */
+
+.demo-drawer .u-menu-container {
+    z-index: 1;
+}
+
+.demo-drawer .demo-navigation {
+    z-index: -2;
+}
+
+
+/* END iOS Safari specific workaround */
+
+.demo-drawer .u-menu .u-menu-item {
+    display: flex;
+    align-items: center;
+}
+
+.demo-drawer-header {
+    box-sizing: border-box;
+    padding: 16px;
+    height: 151px;
+    background-image: url('../static/images/bg.png');
+    background-size: cover;
+}
+
+.demo-avatar-dropdown {
+    display: flex;
+    margin-top: 8px;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.demo-navigation {
+    flex-grow: 1;
+}
+
+.demo-layout .demo-navigation .u-nav-link {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    color: rgba(0, 0, 0, .87);
+    font-weight: normal;
+}
+
+.demo-navigation .u-nav-link .material-icons {
+    font-size: 24px;
+    color: rgba(0, 0, 0, .87);
+    margin-right: 32px;
+}
+
+.demo-charts {
+    align-items: center;
+}
+
+.demo-chart:nth-child(1) {
+    color: #ACEC00;
+}
+
+.demo-chart:nth-child(2) {
+    color: #00BBD6;
+}
+
+.demo-chart:nth-child(3) {
+    color: #BA65C9;
+}
+
+.demo-chart:nth-child(4) {
+    color: #EF3C79;
+}
+
+.demo-graphs {
+    padding: 16px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+
+/* TODO: Find a proper solution to have the graphs
+ * not float around outside their container in IE10/11.
+ * Using a browserhacks.com solution for now.
+ */
+
+_:-ms-input-placeholder,
+:root .demo-graphs {
+    min-height: 664px;
+}
+
+_:-ms-input-placeholder,
+:root .demo-graph {
+    max-height: 300px;
+}
+
+
+/* TODO end */
+
+.demo-graph:nth-child(1) {
+    color: #00b9d8;
+}
+
+.demo-graph:nth-child(2) {
+    color: #d9006e;
+}
+
+.demo-cards {
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.demo-cards .demo-separator {
+    height: 32px;
+}
+
+.demo-cards .u-card-title.u-card-title {
+    color: white;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.demo-cards ul {
+    padding: 0;
+}
+
+.demo-cards h3 {
+    font-size: 1em;
+}
+
+.demo-updates .u-card-title {
+    min-height: 200px;
+    background-image: url('../static/images/dog.png');
+    background-position: 90% 100%;
+    background-repeat: no-repeat;
+}
+
+.demo-cards .u-card-actions a {
+    color: #00BCD4;
+    text-decoration: none;
+}
+
+.demo-options h3 {
+    margin: 0;
+}
+
+.demo-options .u-checkbox-box-outline {
+    border-color: rgba(255, 255, 255, 0.89);
+}
+
+.demo-options ul {
+    margin: 0;
+    list-style-type: none;
+}
+
+.demo-options li {
+    margin: 4px 0;
+}
+
+.demo-options .material-icons {
+    color: rgba(255, 255, 255, 0.89);
+}
+
+.demo-options .u-card-actions {
+    height: 64px;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.demo-drawer-nav-brand {
+    display: block;
+    height: 64px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 16px;
+    line-height: 64px;
+}
+
+/*.u-navlayout-drawer .demo-navigation .u-nav-link {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}*/
+
+@media (min-width: 992px) {
+    .demo-folded-support .demo-folded {
+        width: 64px;
+    }
+    .demo-folded-support .demo-folded .u-nav-link {
+        padding-left: 20px;
+    }
+    .demo-folded-support .demo-folded:hover {
+        width: 240px;
+    }
+    .demo-folded-support .demo-folded:hover .demo-folded-support .demo-hidden-folded {
+        display: initial;
+    }
+    .demo-folded-support .demo-folded:hover .demo-folded-support .demo-hidden-folded-flex {
+        display: flex;
+    }
+    .demo-folded-support .demo-hidden-folded,
+    .demo-folded-support .demo-hidden-folded-flex {
+        display: none;
+    }
+    .demo-folded-support .demo-content,
+    .demo-folded-support .demo-header {
+        margin-left: 64px !important;
+        width: calc(100% - 64px) !important;
+    }
+    .demo-actions .u-button {
+        margin: 0 4px;
+    }
+    .demo-form-item {
+        margin: 8px;
+    }
+    .demo-show-item dt,
+    .demo-show-item dd {
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 13px;
+    }
+    .demo-show-item {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+    }
+    .demo-show-item dt {
+        flex: 1;
+    }
+    .demo-show-item dd {
+        flex: 2;
+        text-align: left;
+        margin-left: 8px;
+        font-weight: bold;
+    }
+}
+
+
+/*响应式布局*/
+
+.table-container {
+    width: 100%;
+    overflow-y: auto;
+    _overflow: auto;
+    margin: 0 0 1em;
+}
+
+
+/*table{border:0; border-collapse:collapse;}
+table td,table th{border:1px solid #999; padding:.5em 1em}*/
+
+//添加IOS下滚动条
+.table-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 3px solid #fff;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+
+/*nav*/
+
+
+/*
+@media screen and (max-width: 1024px) {
+    .u-navlayout-header-row {
+        padding: 0px 110px;
+    }
+    .u-mdlayout-header-func span {
+        padding: 0.25rem 0.8rem;
+        left: 3rem;
+    }
+}*/
+
+
+/*样式重写*/
+
+
+/*.u-mdlayout-page-section{
+  height: calc(100% - 64px);
+}*/
+
+.u-mdlayout-page-section {
+    top: 0px;
+    bottom: 0px;
+}
+
+
+/*修改样式*/
+
+
+/*.u-button{
+    line-height: initial;
+    padding: 8px 15px;
+}
+*/
+
+.u-button{
+    font-family: inherit;
+}
+.u-button-pa {
+    line-height: initial;
+    padding: 6px 13px;
+    height: 30px;
+}
+
+.u-button.raised {
+    box-shadow: none;
+}
+
+.u-navlayout-header {
+    min-height: 44px;
+}
+
+.u-navlayout-header {
+    height: 44px;
+    box-shadow: none;
+}
+
+.u-navlayout-header-row {
+    height: 44px;
+}
+
+.demo-drawer-nav-brand {
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+@media screen and (max-width: 1024px) .u-navlayout-header-row {
+    height: 44px;
+}
+
+.u-button-icon .fa {
+    font-size: 16px;
+}
+
+.demo-navigation .u-nav-link .material-icons {
+    font-size: 16px;
+    color: #757575;
+    margin-right: 15px;
+}
+
+.u-table {
+    border: none;
+}
+
+.material-icons {
+    font-size: 16px;
+}
+
+.u-table th {
+    height: 36px;
+    font-size: inherit;
+    text-align: left;
+    font-weight: bold;
+}
+
+.u-table tbody tr {
+    height: 36px;
+}
+
+.u-table td {
+    height: 36px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-align: left;
+}
+
+.text-r{
+    text-align: right;
+}
+
+.u-checkbox {
+    height: 16px;
+}
+
+.u-checkbox-focus-helper {
+    width: 13px;
+    height: 13px;
+}
+
+.u-checkbox-outline {
+    width: 13px;
+    height: 13px;
+    border: 1px solid #9e9e9e;
+}
+
+.pad-t5 {
+    padding-top: 5px;
+}
+
+.u-checkbox-floatl {
+    float: left;
+}
+
+.u-card-title-cen {
+    justify-content: center;
+}
+
+.go-back {
+    display: block;
+    color: #D4D4D4;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.u-navlayout-title {
+    font-family: inherit;
+    font-size: 16px;
+}
+.u-card-title-text{
+    font-size: 16px;
+}
+
+.u-navlayout-drawer-button{
+    top: -9px;
+}
+.u-navlayout-drawer-button>.fa{
+    color: #FFF;
+    font-size: 20px;
+}
+.u-label {
+    font-size: 13px;
+}
+.u-input {
+    font-size: 13px;
+}
+/*.u-navlayout-drawer {
+
+    width: 200px;
+}*/
+
+.u-navlayout-fixed-drawer.is-upgraded:not(.is-small-screen) > .u-navlayout-header {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+}
+
+
+.u-nav-link .fa {
+	margin-right: 15px;
+    font-size: 16px;
+    color: #757575;
+}
+
+.form-container{
+	padding:30px 0 0;
+}
+.table-right-button{
+	min-width: 0px !important;
+	width: 1.5rem !important;
+	height: 1.5rem !important;
+}
+
+.u-navlayout > .u-navlayout-header{
+	margin-left: 200px \9;
+}
+/* 教师信息-附件上传 */
+.filelist_title_p{
+	height: 50px;
+}
+.filelist_title{
+	width: 70px;
+	float: left;
+}
+.inputfile {
+    width: 0.1px; 
+    height: 0.1px; 
+    opacity: 0; 
+    overflow: hidden; 
+    position: absolute; 
+    z-index: -1;
+}
+.mt-10{
+	margin-top: 10px;
+}
+
+
+.u-navlayout-drawer {
+	left: 0px;
+}
+
+.u-navlayout-fixed-drawer.is-upgraded:not(.is-small-screen) > .u-navlayout-header {
+    margin-left: 240px;
+    width: calc(100% - 240px); 
+}

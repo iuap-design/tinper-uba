@@ -1,0 +1,237 @@
+
+ <!---
+ 
+ <div class="u-text">
+    <input class="u-input"/>
+    <label class="u-label">Hello World！</label>
+ </div>
+<!----------------------------------------------->
+
+<div class="u-mdlayout" id="demo-mdlayout">
+
+	<div class="u-mdlayout-master" style="display:none"></div>
+
+	<div class="u-mdlayout-detail">
+		<div class="u-mdlayout-page u-navlayout-fixed-header current" id="list">
+			<div class="u-mdlayout-page-section">
+				
+					<div class="u-container-fluid u-widget-bg">
+						<div class="u-row">
+							<div class="u-col-12">
+								<div class="u-widget" style="background-color:transparent">
+									<button class="u-button raised primary m-r-sm" data-bind="click: events.beforeAdd">
+										新增
+									</button>
+									<button class="u-button raised" data-bind="click: events.delRow">
+										删除
+									</button>
+									<div class="u-input-group u-has-feedback u-right m-r-sm">
+										<input type="text" class="u-form-control sm" placeholder="搜索" data-bind="value:searchText,event:{keyup: events.searchKeyUp}"/>
+										<span class="u-form-control-feedback sm fa fa-search" data-bind="click:events.search"></span>
+									</div>
+								</div>
+							</div>
+						</div>				
+						
+						<div class="u-row">
+							<div class="u-col-12">
+								<div class="u-widget">
+
+									<div class="u-widget-heading">
+										<h3 class="u-widget-title">班级信息列表</h3>
+									</div>
+									<div class="u-widget-body">
+										<table class="u-table" style="width:100%;">
+											<thead>
+												<tr>
+													<th><label class="u-checkbox only-style" data-bind="click: mainDataTable.toggleAllSelect.bind(mainDataTable), css:{'is-checked': mainDataTable.allSelected()}">
+														<input id="checkInput" type="checkbox" class="u-checkbox-input">
+														<span class="u-checkbox-label"></span> </label></th>
+
+                                       
+                                        <th>班级编码</th>
+                                        <th>班级名称</th>
+                                        <th>院系</th>
+                                        <th>专业</th>
+                                         <th>班级人数</th>  
+                                         <th>指导员</th>
+                                                                             
+
+
+
+												</tr>
+											</thead>
+											<tbody data-bind="foreach:{data:mainDataTable.rows(),as:'row', afterAdd: events.afterAdd}" >
+												<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+													<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}">
+														<input type="checkbox" class="u-checkbox-input">
+														<span class="u-checkbox-label"></span> </label></td>
+                                        <td data-bind="text: row.ref('class_code')"></td><!--xzn-->
+                                        <td data-bind="text: row.ref('class_name')"></td>
+                                        <td data-bind="text: row.ref('class_depart')"></td>
+                                        <td data-bind="text: row.ref('class_section')"></td>
+                                        <td data-bind="text: row.ref('class_sum')"></td>
+                                        <td data-bind="text: row.ref('class_fdname')"></td>
+      <!--xzn-->
+													<td><a href="javascript:;" class="m-r-sm" data-bind="click:$parent.events.beforeEdit.bind($data,  $index())">修改</a><a href="javascript:;" data-bind="click:$parent.events.viewRow.bind($data, $index())">查看</a></td>
+												</tr>
+											</tbody>
+										</table>
+										<div id='pagination' class='u-pagination pagination' u-meta='{"type":"pagination","data":"mainDataTable","pageChange":"events.pageChangeFunc","sizeChange":"events.sizeChangeFunc"}'></div>
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				
+			</div>
+		</div>
+		<!--编辑/新增-->
+		<div class="u-mdlayout-page u-navlayout-fixed-header" id="addPage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget" style="background-color:transparent">
+								<button class="u-button raised m-r-sm" data-bind="click: events.goBack">
+									返回
+								</button>
+								<button class="u-button raised primary" data-bind='click:events.addOrEditRow'>
+									保存
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="u-widget-heading">
+									<h3 class="u-widget-title">班级信息</h3>
+								</div>
+								<div class="u-widget-body form-container">
+									<div class="u-container-fluid">
+										<div class="u-row">
+											<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">班级编码:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="班级编码" u-meta='{"id":"class_code","type":"string","data":"infodata","field":"class_code"}'>
+											</div>
+											<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">班级名称:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="班级名称" u-meta='{"id":"class_name","type":"string","data":"infodata","field":"class_name"}'>
+											</div>
+											
+											<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">院系:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="院系" u-meta='{"id":"class_depart","type":"string","data":"infodata","field":"class_depart"}'>
+											</div>
+																						<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">专业:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="专业" u-meta='{"id":"class_section","type":"string","data":"infodata","field":"class_section"}'>
+											</div>											
+																													<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">班级人数:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="班级人数" u-meta='{"id":"class_sum","type":"integer","data":"infodata","field":"class_sum"}'>
+											</div>			
+											<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">指导员:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="指导员" u-meta='{"id":"class_fdname","type":"string","data":"infodata","field":"class_fdname"}'>
+											</div>								
+											
+											
+				<!--							<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">参加工作时间:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<div class="u-input-group u-has-feedback" u-meta='{"id":"class_enroll","type":"u-date","data":"infodata","field":"class_enroll"}'>
+													<input type="text" class="u-form-control"/>
+													<span class="u-form-control-feedback fa fa-calendar" data-role="date-button"></span>
+												</div>
+											</div>
+										-->
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="u-mdlayout-page u-navlayout-fixed-header" id="showPage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget" style="background-color:transparent">
+								<button class="u-button raised primary m-r-sm" data-bind="click: events.goBack">
+									返回
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="u-widget-heading">
+									<h3 class="u-widget-title">班级信息</h3>
+								</div>
+								<div class="u-widget-body form-container">
+									<ul class="u-form-browse">
+										<li class="m-v">
+											<label class="u-control-label w-sm">班级编码:</label>
+											<span data-bind="text:mainDataTable.ref('class_code')"></span>
+										</li>
+										<li class="m-v">
+											<label class="u-control-label w-sm">班级名称:</label>
+											<span data-bind="text:mainDataTable.ref('class_name')"></span>
+										</li>
+										<li class="m-v">
+											<label class="u-control-label w-sm">院系:</label>
+											<span data-bind="text:mainDataTable.ref('class_depart')"></span>
+										</li>
+										<li class="m-v">
+											<label class="u-control-label w-sm">专业:</label>
+											<span data-bind="text:mainDataTable.ref('class_section')"></span>
+										</li>
+										
+										
+										<li class="m-v">
+											<label class="u-control-label w-sm">班级人数:</label>
+											<span data-bind="text:mainDataTable.ref('class_sum')"></span>
+										</li>
+										
+										<li class="m-v">
+											<label class="u-control-label w-sm">指导员:</label>
+											<span data-bind="text:mainDataTable.ref('class_fdname')"></span>
+										</li>
+
+										</ul>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

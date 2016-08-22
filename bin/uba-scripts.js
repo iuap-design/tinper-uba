@@ -15,7 +15,10 @@ switch(script) {
 	case 'build':
 	case 'start':
 	case 'test':
-	case 'publish':
+	case 'publish-maven':
+		if(script == 'publish-maven'){
+			script = 'publish';
+		}
 		var result = spawn.sync(
 			'node', [require.resolve('../scripts/' + script)].concat(args), {
 				stdio: 'inherit'

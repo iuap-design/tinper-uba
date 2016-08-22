@@ -1,0 +1,63 @@
+{
+  "flag" : "success",
+  "data" : {
+    "details" : [ {
+      "metaDefinedName" : "test_order_b",
+      "namespace" : "iuap_product_boot",
+      "status" : 0,
+      "changedPropertyNames" : null,
+      "orderbid" : "b7e91942-50db-4fa4-a5f9-011a20fb342d",
+      "tprice" : 11.0,
+      "orderid" : "74b9fd5c-4700-4ef8-8d75-5d1c2b9a3e0d",
+      "testitemid" : "afc82537-a5da-413d-a9fc-9835fc8193bb",
+      "testitemcode" : "T10010",
+      "testitemname" : null,
+      "tnumber" : 1.0,
+      "tsum" : 1.0,
+      "requirement" : null,
+      "fromtime" : 1470153600000,
+      "totime" : 1470153600000,
+      "dr" : 0,
+      "ts" : 1470195956000
+    }, {
+      "metaDefinedName" : "test_order_b",
+      "namespace" : "iuap_product_boot",
+      "status" : 0,
+      "changedPropertyNames" : null,
+      "orderbid" : "70e873e6-f91a-41f6-b6bc-e8a59dc1547c",
+      "tprice" : 2.0,
+      "orderid" : "74b9fd5c-4700-4ef8-8d75-5d1c2b9a3e0d",
+      "testitemid" : "d8311137-aeae-4eac-ac29-8be66109a48e",
+      "testitemcode" : "T10008",
+      "testitemname" : null,
+      "tnumber" : 2.0,
+      "tsum" : 2.0,
+      "requirement" : null,
+      "fromtime" : null,
+      "totime" : null,
+      "dr" : 0,
+      "ts" : 1470195956000
+    } ],
+    "order" : {
+      "metaDefinedName" : "Testorder",
+      "namespace" : "iuap_product_boot",
+      "status" : null,
+      "changedPropertyNames" : null,
+      "id" : "74b9fd5c-4700-4ef8-8d75-5d1c2b9a3e0d",
+      "code" : "xxxx",
+      "billdate" : 1470153600000,
+      "fromtime" : 1470153600000,
+      "totime" : 1471968000000,
+      "type" : "11",
+      "budget" : 888,
+      "information" : "33337",
+      "memo" : "3333",
+      "content" : "3333",
+      "creatorid" : null,
+      "auditorid" : null,
+      "dr" : 0,
+      "ts" : 1471394064000
+    }
+  },
+  "msg" : "查询数据详情成功!"
+}

@@ -1,0 +1,685 @@
+<div class="u-mdlayout" id="demo-mdlayout">
+
+	<div class="u-mdlayout-master" style="display:none"></div>
+
+	<div class="u-mdlayout-detail">
+		<div class="u-mdlayout-page u-navlayout-fixed-header current" id="list">
+			<div class="u-mdlayout-page-section">
+
+				<div class="u-container-fluid u-widget-bg">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget" style="background-color:transparent">
+								<button class="u-button raised primary m-r-sm" data-bind="click: events.beforeAdd">
+									添加预置数据
+								</button>
+								<button class="u-button raised" data-bind="click: events.delRow">
+									删除
+								</button>
+								<button class="u-button raised" data-bind="click: events.print">
+									打印
+								</button>
+								<!--button class="u-button raised" data-bind="click: events.print2">
+								PDF-打印
+								</button-->
+								<button class="u-button raised" data-bind="click: events.share">
+									分享
+								</button>
+								<div class="u-input-group u-has-feedback u-right m-r-sm">
+									<input type="text" class="u-form-control sm" placeholder="搜索" data-bind="value:searchText,event:{keyup: events.searchKeyUp}"/>
+									<span class="u-form-control-feedback sm fa fa-search" data-bind="click:events.search"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="u-widget-heading">
+									<h3 class="u-widget-title">预置游戏列表</h3>
+								</div>
+								<div class="u-widget-body" id="table-list">
+									<table class="u-table" style="width:100%;">
+										<thead>
+											<tr>
+												<th><label class="u-checkbox only-style" data-bind="click: mainDataTable.toggleAllSelect.bind(mainDataTable), css:{'is-checked': mainDataTable.allSelected()}">
+													<input id="checkInput" type="checkbox" class="u-checkbox-input">
+													<span class="u-checkbox-label"></span> </label></th>
+
+												<th>游戏编号</th>
+												<th>游戏名称</th>
+
+											</tr>
+										</thead>
+										<tbody data-bind="foreach:{data:mainDataTable.rows(),as:'row', afterAdd: events.afterAdd}" >
+											<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+												<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}">
+													<input type="checkbox" class="u-checkbox-input">
+													<span class="u-checkbox-label"></span> </label></td>
+													
+												<td data-bind="text: row.ref('nggcode')"></td><!--xzn-->
+												<td data-bind="text: row.ref('nggname')"></td><!--xzn-->												
+
+												<td><a href="javascript:;" class="m-r-sm" data-bind="click:$parent.events.beforeEdit.bind($data,  $index())">修改</a><a href="javascript:;" data-bind="click:$parent.events.viewRow.bind($data, $index())">查看</a></td>
+											</tr>
+										</tbody>
+									</table>
+									<div id='pagination' class='u-pagination pagination' u-meta='{"type":"pagination","data":"mainDataTable","pageChange":"events.pageChangeFunc","sizeChange":"events.sizeChangeFunc"}'></div>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+		<!--编辑/新增-->
+
+		<div class="u-mdlayout-page u-navlayout-fixed-header" id="addPage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget" style="background-color:transparent">
+								<button class="u-button raised m-r-sm" data-bind="click: events.goBack">
+									返回
+								</button>
+								<button class="u-button raised primary" data-bind='click:events.addOrEditRow'>
+									保存
+								</button>
+								<button class="u-button raised primary" data-bind='click:events.addAttachRow'>
+									附件
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="u-widget-heading">
+									<h3 class="u-widget-title">九宫格增加信息</h3>
+								</div>
+								<div class="u-widget-body form-container">
+									<div class="u-container-fluid">
+										<div class="u-row">
+											<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">九宫格编号:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="九宫格编号" u-meta='{"id":"nggcode","type":"string","data":"infodata","field":"nggcode"}'>
+											</div>
+											<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">九宫格名称:</label>
+											</div>											
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="九宫格名称" u-meta='{"id":"nggname","type":"string","data":"infodata","field":"nggname"}'>
+											</div>
+									</div>
+									
+									
+									<!--  ninegg -->
+
+
+<table class="u-table" style="width:100%;">
+	<thead>
+		<tr>
+					<th>ngg11</th>
+					<th>ngg12</th>
+					<th>ngg13</th>
+					<th>ngg14</th>
+					<th>ngg15</th>
+					<th>ngg16</th>
+					<th>ngg17</th>
+					<th>ngg18</th>
+					<th>ngg19</th>
+					<th>ngg21</th>
+					<th>ngg28</th>
+					<th>ngg27</th>
+					<th>ngg26</th>
+					<th>ngg25</th>
+					<th>ngg24</th>
+					<th>ngg23</th>
+					<th>ngg22</th>
+					<th>ngg29</th>
+					<th>ngg31</th>
+					<th>ngg38</th>
+					<th>ngg37</th>
+					<th>ngg36</th>
+					<th>ngg35</th>
+					<th>ngg34</th>
+					<th>ngg33</th>
+					<th>ngg32</th>
+					<th>ngg39</th>
+					<th>ngg41</th>
+					<th>ngg48</th>
+					<th>ngg47</th>
+					<th>ngg46</th>
+					<th>ngg45</th>
+					<th>ngg44</th>
+					<th>ngg43</th>
+					<th>ngg42</th>
+					<th>ngg49</th>
+					<th>ngg51</th>
+					<th>ngg58</th>
+					<th>ngg57</th>
+					<th>ngg56</th>
+					<th>ngg55</th>
+					<th>ngg54</th>
+					<th>ngg53</th>
+					<th>ngg52</th>
+					<th>ngg59</th>
+					<th>ngg61</th>
+					<th>ngg68</th>
+					<th>ngg67</th>
+					<th>ngg66</th>
+					<th>ngg65</th>
+					<th>ngg64</th>
+					<th>ngg63</th>
+					<th>ngg62</th>
+					<th>ngg69</th>
+					<th>ngg71</th>
+					<th>ngg79</th>
+					<th>ngg78</th>
+					<th>ngg77</th>
+					<th>ngg76</th>
+					<th>ngg75</th>
+					<th>ngg74</th>
+					<th>ngg73</th>
+					<th>ngg72</th>
+					<th>ngg81</th>
+					<th>ngg89</th>
+					<th>ngg88</th>
+					<th>ngg87</th>
+					<th>ngg86</th>
+					<th>ngg85</th>
+					<th>ngg84</th>
+					<th>ngg83</th>
+					<th>ngg82</th>
+					<th>ngg91</th>
+					<th>ngg99</th>
+					<th>ngg98</th>
+					<th>ngg97</th>
+					<th>ngg96</th>
+					<th>ngg95</th>
+					<th>ngg94</th>
+					<th>ngg93</th>
+					<th>ngg92</th>
+				</tr>
+	</thead>
+	<tbody data-bind="foreach:{data:mainDataTable.rows(),as:'row', afterAdd: events.addPage}" >
+			<tr>
+					<!--<td data-bind="text: row.ref('nggcode')"></td> -->
+					<td data-bind="text:row.ref('ngg11')"></td>
+					<td data-bind="text:row.ref('ngg12')"></td>
+					<td data-bind="text:row.ref('ngg13')"></td>
+					<td data-bind="text:row.ref('ngg14')"></td>
+					<td data-bind="text:row.ref('ngg15')"></td>
+					<td data-bind="text:row.ref('ngg16')"></td>
+					<td data-bind="text:row.ref('ngg17')"></td>
+					<td data-bind="text:row.ref('ngg18')"></td>
+					<td data-bind="text:row.ref('ngg19')"></td>
+					<td data-bind="text:row.ref('ngg21')"></td>
+					<td data-bind="text:row.ref('ngg28')"></td>
+					<td data-bind="text:row.ref('ngg27')"></td>
+					<td data-bind="text:row.ref('ngg26')"></td>
+					<td data-bind="text:row.ref('ngg25')"></td>
+					<td data-bind="text:row.ref('ngg24')"></td>
+					<td data-bind="text:row.ref('ngg23')"></td>
+					<td data-bind="text:row.ref('ngg22')"></td>
+					<td data-bind="text:row.ref('ngg29')"></td>
+					<td data-bind="text:row.ref('ngg31')"></td>
+					<td data-bind="text:row.ref('ngg38')"></td>
+					<td data-bind="text:row.ref('ngg37')"></td>
+					<td data-bind="text:row.ref('ngg36')"></td>
+					<td data-bind="text:row.ref('ngg35')"></td>
+					<td data-bind="text:row.ref('ngg34')"></td>
+					<td data-bind="text:row.ref('ngg33')"></td>
+					<td data-bind="text:row.ref('ngg32')"></td>
+					<td data-bind="text:row.ref('ngg39')"></td>
+					<td data-bind="text:row.ref('ngg41')"></td>
+					<td data-bind="text:row.ref('ngg48')"></td>
+					<td data-bind="text:row.ref('ngg47')"></td>
+					<td data-bind="text:row.ref('ngg46')"></td>
+					<td data-bind="text:row.ref('ngg45')"></td>
+					<td data-bind="text:row.ref('ngg44')"></td>
+					<td data-bind="text:row.ref('ngg43')"></td>
+					<td data-bind="text:row.ref('ngg42')"></td>
+					<td data-bind="text:row.ref('ngg49')"></td>
+					<td data-bind="text:row.ref('ngg51')"></td>
+					<td data-bind="text:row.ref('ngg58')"></td>
+					<td data-bind="text:row.ref('ngg57')"></td>
+					<td data-bind="text:row.ref('ngg56')"></td>
+					<td data-bind="text:row.ref('ngg55')"></td>
+					<td data-bind="text:row.ref('ngg54')"></td>
+					<td data-bind="text:row.ref('ngg53')"></td>
+					<td data-bind="text:row.ref('ngg52')"></td>
+					<td data-bind="text:row.ref('ngg59')"></td>
+					<td data-bind="text:row.ref('ngg61')"></td>
+					<td data-bind="text:row.ref('ngg68')"></td>
+					<td data-bind="text:row.ref('ngg67')"></td>
+					<td data-bind="text:row.ref('ngg66')"></td>
+					<td data-bind="text:row.ref('ngg65')"></td>
+					<td data-bind="text:row.ref('ngg64')"></td>
+					<td data-bind="text:row.ref('ngg63')"></td>
+					<td data-bind="text:row.ref('ngg62')"></td>
+					<td data-bind="text:row.ref('ngg69')"></td>
+					<td data-bind="text:row.ref('ngg71')"></td>
+					<td data-bind="text:row.ref('ngg79')"></td>
+					<td data-bind="text:row.ref('ngg78')"></td>
+					<td data-bind="text:row.ref('ngg77')"></td>
+					<td data-bind="text:row.ref('ngg76')"></td>
+					<td data-bind="text:row.ref('ngg75')"></td>
+					<td data-bind="text:row.ref('ngg74')"></td>
+					<td data-bind="text:row.ref('ngg73')"></td>
+					<td data-bind="text:row.ref('ngg72')"></td>
+					<td data-bind="text:row.ref('ngg81')"></td>
+					<td data-bind="text:row.ref('ngg89')"></td>
+					<td data-bind="text:row.ref('ngg88')"></td>
+					<td data-bind="text:row.ref('ngg87')"></td>
+					<td data-bind="text:row.ref('ngg86')"></td>
+					<td data-bind="text:row.ref('ngg85')"></td>
+					<td data-bind="text:row.ref('ngg84')"></td>
+					<td data-bind="text:row.ref('ngg83')"></td>
+					<td data-bind="text:row.ref('ngg82')"></td>
+					<td data-bind="text:row.ref('ngg91')"></td>
+					<td data-bind="text:row.ref('ngg99')"></td>
+					<td data-bind="text:row.ref('ngg98')"></td>
+					<td data-bind="text:row.ref('ngg97')"></td>
+					<td data-bind="text:row.ref('ngg96')"></td>
+					<td data-bind="text:row.ref('ngg95')"></td>
+					<td data-bind="text:row.ref('ngg94')"></td>
+					<td data-bind="text:row.ref('ngg93')"></td>
+					<td data-bind="text:row.ref('ngg92')"></td>
+				</tr>
+	</tbody>
+</table>				
+
+ 
+<!--  ninegg -->
+<section>
+	<style scoped="">
+		table {border-collapse:collapse;border:solid thick;}
+		colgroup,tbody {border:solid medium;}
+		td {border:solid thin;height:1.4em;width:1.4em;text-align:center;padding:0;}
+	</style>
+	<table>
+		<caption> Nine gong ge</caption>
+		<colgroup><col><col><col></colgroup>
+		<colgroup><col><col><col>
+		<colgroup><col><col><col>
+		<tbody>
+			<tr> <td><td><td><td><td><td><td><td><td>
+			<tr> <td><td><td><td><td><td><td><td><td>
+			<tr> <td><td><td><td><td><td><td><td><td>
+		
+		<tbody>
+			<tr> <td><td><td><td><td><td><td><td><td>
+			<tr> <td><td><td><td><td><td><td><td><td>
+			<tr> <td><td><td><td><td><td><td><td><td>
+	
+		<tbody>
+			<tr> <td><td><td><td><td><td><td><td><td>
+			<tr> <td><td><td><td><td><td><td><td><td>
+			<tr> <td><td><td><td><td><td><td><td><td>
+
+	</table>
+	
+</section>
+
+<!--  ninegg -->
+
+<div type="text" u-meta='{"id":"grid","data":"NgginitJdbc","type":"grid","editable":true,"multiSelect":true}'>
+	<div
+		options='{"field":"ngg11","dataType":"java.lang.String","title":"ngg11","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg12","dataType":"java.lang.String","title":"ngg12","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg13","dataType":"java.lang.String","title":"ngg13","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg14","dataType":"java.lang.String","title":"ngg14","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg15","dataType":"java.lang.String","title":"ngg15","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg16","dataType":"java.lang.String","title":"ngg16","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg17","dataType":"java.lang.String","title":"ngg17","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg18","dataType":"java.lang.String","title":"ngg18","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg19","dataType":"java.lang.String","title":"ngg19","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg21","dataType":"java.lang.String","title":"ngg21","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg28","dataType":"java.lang.String","title":"ngg28","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg27","dataType":"java.lang.String","title":"ngg27","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg26","dataType":"java.lang.String","title":"ngg26","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg25","dataType":"java.lang.String","title":"ngg25","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg24","dataType":"java.lang.String","title":"ngg24","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg23","dataType":"java.lang.String","title":"ngg23","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg22","dataType":"java.lang.String","title":"ngg22","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg29","dataType":"java.lang.String","title":"ngg29","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg31","dataType":"java.lang.String","title":"ngg31","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg38","dataType":"java.lang.String","title":"ngg38","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg37","dataType":"java.lang.String","title":"ngg37","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg36","dataType":"java.lang.String","title":"ngg36","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg35","dataType":"java.lang.String","title":"ngg35","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg34","dataType":"java.lang.String","title":"ngg34","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg33","dataType":"java.lang.String","title":"ngg33","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg32","dataType":"java.lang.String","title":"ngg32","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg39","dataType":"java.lang.String","title":"ngg39","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg41","dataType":"java.lang.String","title":"ngg41","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg48","dataType":"java.lang.String","title":"ngg48","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg47","dataType":"java.lang.String","title":"ngg47","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg46","dataType":"java.lang.String","title":"ngg46","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg45","dataType":"java.lang.String","title":"ngg45","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg44","dataType":"java.lang.String","title":"ngg44","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg43","dataType":"java.lang.String","title":"ngg43","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg42","dataType":"java.lang.String","title":"ngg42","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg49","dataType":"java.lang.String","title":"ngg49","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg51","dataType":"java.lang.String","title":"ngg51","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg58","dataType":"java.lang.String","title":"ngg58","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg57","dataType":"java.lang.String","title":"ngg57","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg56","dataType":"java.lang.String","title":"ngg56","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg55","dataType":"java.lang.String","title":"ngg55","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg54","dataType":"java.lang.String","title":"ngg54","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg53","dataType":"java.lang.String","title":"ngg53","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg52","dataType":"java.lang.String","title":"ngg52","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg59","dataType":"java.lang.String","title":"ngg59","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg61","dataType":"java.lang.String","title":"ngg61","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg68","dataType":"java.lang.String","title":"ngg68","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg67","dataType":"java.lang.String","title":"ngg67","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg66","dataType":"java.lang.String","title":"ngg66","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg65","dataType":"java.lang.String","title":"ngg65","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg64","dataType":"java.lang.String","title":"ngg64","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg63","dataType":"java.lang.String","title":"ngg63","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg62","dataType":"java.lang.String","title":"ngg62","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg69","dataType":"java.lang.String","title":"ngg69","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg71","dataType":"java.lang.String","title":"ngg71","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg79","dataType":"java.lang.String","title":"ngg79","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg78","dataType":"java.lang.String","title":"ngg78","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg77","dataType":"java.lang.String","title":"ngg77","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg76","dataType":"java.lang.String","title":"ngg76","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg75","dataType":"java.lang.String","title":"ngg75","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg74","dataType":"java.lang.String","title":"ngg74","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg73","dataType":"java.lang.String","title":"ngg73","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg72","dataType":"java.lang.String","title":"ngg72","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg81","dataType":"java.lang.String","title":"ngg81","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg89","dataType":"java.lang.String","title":"ngg89","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg88","dataType":"java.lang.String","title":"ngg88","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg87","dataType":"java.lang.String","title":"ngg87","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg86","dataType":"java.lang.String","title":"ngg86","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg85","dataType":"java.lang.String","title":"ngg85","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg84","dataType":"java.lang.String","title":"ngg84","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg83","dataType":"java.lang.String","title":"ngg83","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg82","dataType":"java.lang.String","title":"ngg82","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg91","dataType":"java.lang.String","title":"ngg91","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg99","dataType":"java.lang.String","title":"ngg99","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg98","dataType":"java.lang.String","title":"ngg98","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg97","dataType":"java.lang.String","title":"ngg97","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg96","dataType":"java.lang.String","title":"ngg96","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg95","dataType":"java.lang.String","title":"ngg95","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg94","dataType":"java.lang.String","title":"ngg94","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg93","dataType":"java.lang.String","title":"ngg93","editType":"String","editable":true}'></div>
+	<div
+		options='{"field":"ngg92","dataType":"java.lang.String","title":"ngg92","editType":"String","editable":true}'></div>
+</div>
+
+
+
+
+<!--  ninegg -->
+
+									
+									
+									
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="u-mdlayout-page u-navlayout-fixed-header" id="showPage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget" style="background-color:transparent">
+								<button class="u-button raised primary m-r-sm" data-bind="click: events.goBack">
+									返回
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="u-widget-heading">
+									<h3 class="u-widget-title">九宫格信息</h3>
+								</div>
+								<div class="u-widget-body form-container">
+									<ul class="u-form-browse">
+										<li class="m-v">
+											<label class="u-control-label w-sm">九宫格编号:</label>
+											<span data-bind="text:mainDataTable.ref('nggcode')"></span>
+										</li>
+										<li class="m-v">
+											<label class="u-control-label w-sm">九宫格名称:</label>
+											<span data-bind="text:mainDataTable.ref('nggname')"></span>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!--分享层 -->
+		<div id="light"
+		style="display: none; position: absolute; top: 100px; left: 30%; width: 40%; height: 350px; padding: 16px; border: 5px solid gray; background-color: white; z-index: 1002; overflow: auto;">
+			分享到 : <a href="javascript:void(0)"
+			onclick="document.getElementById('light').style.display='none'"> <img src="images/saas/x.png" border="0"
+			style="float: right;" alt="关闭"> </a>
+			<ul id="bsLogoList">
+				<div id="bp-qqmb" style="float: left; width: 50px; margin: 15px;">
+					<a href="javascript:void(0)"
+					onclick="ShareToTencent(document.title,location.href,document.title);"
+					class="tmblog"><img
+					src="images/saas/qqweibo.gif" border="0"
+					alt="腾讯微博"></a>
+					<div style="font-size: 10px;" title="腾讯微博">
+						腾讯微博
+					</div>
+				</div>
+				<div id="bp-sinaminiblog"
+				style="float: left; width: 50px; margin: 15px;">
+					<a href="javascript:void(0)"
+					onclick="ShareToSina(document.title,location.href,document.title);"
+					class="tmblog"><img
+					src="images/saas/sinaweibo.gif" border="0"
+					alt="新浪微博"></a>
+					<div style="font-size: 10px;" title="新浪微博">
+						新浪微博
+					</div>
+				</div>
+				<div id="bp-qqim" style="float: left; width: 50px; margin: 15px;">
+					<a href="javascript:void(0)"
+					onclick="ShareToQQIM(document.title,location.href,document.title);"
+					class="tmblog"><img src="images/saas/qqim.gif"
+					border="0" alt="QQ"></a>
+					<div style="font-size: 10px;" title="QQ">
+						QQ
+					</div>
+				</div>
+				<div id="bp-qzone" style="float: left; width: 50px; margin: 15px;">
+					<a href="javascript:void(0)"
+					onclick="ShareToQzone(document.title,location.href,document.title);"
+					class="tmblog"><img
+					src="images/saas/qzone.gif" border="0" alt="QQ空间"></a>
+					<div style="font-size: 10px;" title="QQ空间">
+						QQ空间
+					</div>
+				</div>
+
+				<div id="bp-baiduhi" style="float: left; width: 50px; margin: 15px;">
+					<a href="javascript:void(0)"
+					onclick="ShareToBaiduTieba(document.title,location.href,document.title);"
+					class="tmblog"><img
+					src="images/saas/baiduhi.gif" border="0" alt="百度"></a>
+					<div style="font-size: 10px;" title="百度贴吧">
+						百度贴吧
+					</div>
+				</div>
+				<div id="bp-douban" style="float: left; width: 50px; margin: 15px;">
+					<a href="javascript:void(0)"
+					onclick="ShareToDouban(document.title,location.href,document.title);"
+					class="tmblog"><img
+					src="images/saas/douban.gif" border="0" alt="豆瓣网"></a>
+					<div style="font-size: 10px;" title="豆瓣网">
+						豆瓣网
+					</div>
+				</div>
+				<div id="bp-wechart" style="float: left; width: 50px; margin: 15px;">
+					<a href="javascript:void(0)" onclick="ShareToWeChart();"
+					class='tmblog'> <img
+					src="images/saas/wechart.png" border="0"
+					alt="微信分享"> </a>
+					<div style="font-size: 10px;" title="微信分享">
+						微信
+					</div>
+				</div>
+			</ul>
+		</div>
+
+		<!-- 二维码展示层 -->
+		<div id="qrcode"
+		style="display: none; position: absolute; top: 300px; left: 40%; padding: 16px; border: 2px solid gray; background-color: white; z-index: 1003; overflow: auto;">
+			<a href="javascript:void(0)"
+			onclick="document.getElementById('qrcode').style.display='none'"> <img src="images/saas/x.png" border="0"
+			style="float: right;" alt="关闭"> </a>
+		</div>
+		<!--end分享层 -->
+
+	</div>
+</div>
+
+
+ 
+
+<!--
+<section>
+	<style scoped="">
+		table {border-collapse:collapse;border:solid thick;}
+		colgroup,tbody {border:solid medium;}
+		td {border:solid thin;height:1.4em;width:1.4em;text-align:center;padding:0;}
+	</style>
+	<table>
+		<caption> Nine gong ge</caption>
+		<colgroup><col><col><col></colgroup>
+		<colgroup><col><col><col>
+		<colgroup><col><col><col>
+		<tbody>
+			<tr> <td><td><td><td><td><td><td><td><td>
+			<tr> <td><td><td><td><td><td><td><td><td>
+			<tr> <td><td><td><td><td><td><td><td><td>
+		
+		<tbody>
+			<tr> <td><td><td><td><td><td><td><td><td>
+			<tr> <td><td><td><td><td><td><td><td><td>
+			<tr> <td><td><td><td><td><td><td><td><td>
+	
+		<tbody>
+			<tr> <td><td><td><td><td><td><td><td><td>
+			<tr> <td><td><td><td><td><td><td><td><td>
+			<tr> <td><td><td><td><td><td><td><td><td>
+
+	</table>
+	
+</section>
+
+-->
+
+ 
+ 
+

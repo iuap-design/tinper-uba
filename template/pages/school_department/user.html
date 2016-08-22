@@ -1,0 +1,325 @@
+
+ <!---
+ 
+ <div class="u-text">
+    <input class="u-input"/>
+    <label class="u-label">Hello World！</label>
+ </div>
+<!----------------------------------------------->
+
+<div class="u-mdlayout" id="demo-mdlayout">
+
+	<div class="u-mdlayout-master" style="display:none"></div>
+
+	<div class="u-mdlayout-detail">
+		<div class="u-mdlayout-page u-navlayout-fixed-header current" id="list">
+			<div class="u-mdlayout-page-section">
+				
+					<div class="u-container-fluid u-widget-bg">
+						<div class="u-row">
+							<div class="u-col-12">
+								<div class="u-widget" style="background-color:transparent">
+									<button class="u-button raised primary m-r-sm" data-bind="click: events.beforeAdd">
+										新增
+									</button>
+									<button class="u-button raised" data-bind="click: events.delRow">
+										删除
+									</button>
+									<button class="u-button raised" data-bind="click: events.print">
+										打印
+									</button>
+									<!--button class="u-button raised" data-bind="click: events.print2">
+										PDF-打印
+									</button-->
+									<button class="u-button raised" data-bind="click: events.share">
+										分享
+									</button>
+									<div class="u-input-group u-has-feedback u-right m-r-sm">
+										<input type="text" class="u-form-control sm" placeholder="搜索" data-bind="value:searchText,event:{keyup: events.searchKeyUp}"/>
+										<span class="u-form-control-feedback sm fa fa-search" data-bind="click:events.search"></span>
+									</div>
+								</div>
+							</div>
+						</div>				
+						
+						<div class="u-row">
+							<div class="u-col-12">
+								<div class="u-widget">
+									<div class="u-widget-heading">
+										<h3 class="u-widget-title">用户信息列表</h3>
+									</div>
+									<div class="u-widget-body" id="table-list">
+										<table class="u-table" style="width:100%;">
+											<thead>
+												<tr>
+													<th><label class="u-checkbox only-style" data-bind="click: mainDataTable.toggleAllSelect.bind(mainDataTable), css:{'is-checked': mainDataTable.allSelected()}">
+														<input id="checkInput" type="checkbox" class="u-checkbox-input">
+														<span class="u-checkbox-label"></span> </label></th>
+
+                                       
+                                        <th>用户编码</th>
+                                        <th>用户名称</th>
+                                        <th>email</th>
+                                        <th>mobile</th>
+                                         <th>用户类型</th>
+                                        <th>用户密码</th>                                        
+
+
+
+												</tr>
+											</thead>
+											<tbody data-bind="foreach:{data:mainDataTable.rows(),as:'row', afterAdd: events.afterAdd}" >
+												<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+													<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}">
+														<input type="checkbox" class="u-checkbox-input">
+														<span class="u-checkbox-label"></span> </label></td>
+                                        <td data-bind="text: row.ref('user_code')"></td><!--xzn-->
+                                        <td data-bind="text: row.ref('user_name')"></td>
+                                        <td data-bind="text: row.ref('user_email')"></td>
+                                        <td data-bind="text: row.ref('user_tele')"></td>
+                                        <td data-bind="text: row.ref('user_type')"></td>
+                                        <td data-bind="text: row.ref('user_password')"></td>
+      <!--xzn-->
+													<td><a href="javascript:;" class="m-r-sm" data-bind="click:$parent.events.beforeEdit.bind($data,  $index())">修改</a><a href="javascript:;" data-bind="click:$parent.events.viewRow.bind($data, $index())">查看</a></td>
+												</tr>
+											</tbody>
+										</table>
+										<div id='pagination' class='u-pagination pagination' u-meta='{"type":"pagination","data":"mainDataTable","pageChange":"events.pageChangeFunc","sizeChange":"events.sizeChangeFunc"}'></div>
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				
+			</div>
+		</div>
+		<!--编辑/新增-->
+		<div class="u-mdlayout-page u-navlayout-fixed-header" id="addPage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget" style="background-color:transparent">
+								<button class="u-button raised m-r-sm" data-bind="click: events.goBack">
+									返回
+								</button>
+								<button class="u-button raised primary" data-bind='click:events.addOrEditRow'>
+									保存
+								</button>
+								<button class="u-button raised primary" data-bind='click:events.addAttachRow'>
+									附件
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="u-widget-heading">
+									<h3 class="u-widget-title">会员信息</h3>
+								</div>
+								<div class="u-widget-body form-container">
+									<div class="u-container-fluid">
+										<div class="u-row">
+											<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">用户编码:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="用户编码" u-meta='{"id":"user_code","type":"string","data":"infodata","field":"user_code"}'>
+											</div>
+											<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">用户名称:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="用户名称" u-meta='{"id":"user_name","type":"string","data":"infodata","field":"user_name"}'>
+											</div>
+											
+											<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">email:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="email" u-meta='{"id":"user_email","type":"string","data":"infodata","field":"user_email"}'>
+											</div>
+																						<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">mobile:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="mobile" u-meta='{"id":"user_tele","type":"string","data":"infodata","field":"user_tele"}'>
+											</div>											
+																													<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">用户类型:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="用户类型" u-meta='{"id":"user_type","type":"string","data":"infodata","field":"user_type"}'>
+											</div>			
+											<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">用户密码:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="用户密码" u-meta='{"id":"user_password","type":"string","data":"infodata","field":"user_password"}'>
+											</div>								
+											
+											
+				<!--							<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">参加工作时间:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<div class="u-input-group u-has-feedback" u-meta='{"id":"user_enroll","type":"u-date","data":"infodata","field":"user_enroll"}'>
+													<input type="text" class="u-form-control"/>
+													<span class="u-form-control-feedback fa fa-calendar" data-role="date-button"></span>
+												</div>
+											</div>
+										-->
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="u-mdlayout-page u-navlayout-fixed-header" id="showPage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget" style="background-color:transparent">
+								<button class="u-button raised primary m-r-sm" data-bind="click: events.goBack">
+									返回
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="u-widget-heading">
+									<h3 class="u-widget-title">会员信息</h3>
+								</div>
+								<div class="u-widget-body form-container">
+									<ul class="u-form-browse">
+										<li class="m-v">
+											<label class="u-control-label w-sm">用户编码:</label>
+											<span data-bind="text:mainDataTable.ref('user_code')"></span>
+										</li>
+										<li class="m-v">
+											<label class="u-control-label w-sm">用户名称:</label>
+											<span data-bind="text:mainDataTable.ref('user_name')"></span>
+										</li>
+										<li class="m-v">
+											<label class="u-control-label w-sm">email:</label>
+											<span data-bind="text:mainDataTable.ref('user_email')"></span>
+										</li>
+										<li class="m-v">
+											<label class="u-control-label w-sm">mobile:</label>
+											<span data-bind="text:mainDataTable.ref('user_tele')"></span>
+										</li>
+										
+										
+										<li class="m-v">
+											<label class="u-control-label w-sm">用户类型:</label>
+											<span data-bind="text:mainDataTable.ref('user_type')"></span>
+										</li>
+										
+										<li class="m-v">
+											<label class="u-control-label w-sm">用户密码:</label>
+											<span data-bind="text:mainDataTable.ref('user_password')"></span>
+										</li>
+
+										</ul>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	    
+	    <!--分享层 -->
+		<div id="light"
+			style="display: none; position: absolute; top: 100px; left: 30%; width: 40%; height: 350px; padding: 16px; border: 5px solid gray; background-color: white; z-index: 1002; overflow: auto;">
+			分享到 : <a href="javascript:void(0)"
+				onclick="document.getElementById('light').style.display='none'">
+				<img src="images/saas/x.png" border="0"
+				style="float: right;" alt="关闭">
+			</a>
+			<ul id="bsLogoList">
+				<div id="bp-qqmb" style="float: left; width: 50px; margin: 15px;">
+					<a href="javascript:void(0)"
+						onclick="ShareToTencent(document.title,location.href,document.title);"
+						class="tmblog"><img
+						src="images/saas/qqweibo.gif" border="0"
+						alt="腾讯微博"></a>
+					<div style="font-size: 10px;" title="腾讯微博">腾讯微博</div>
+				</div>
+				<div id="bp-sinaminiblog"
+					style="float: left; width: 50px; margin: 15px;">
+					<a href="javascript:void(0)"
+						onclick="ShareToSina(document.title,location.href,document.title);"
+						class="tmblog"><img
+						src="images/saas/sinaweibo.gif" border="0"
+						alt="新浪微博"></a>
+					<div style="font-size: 10px;" title="新浪微博">新浪微博</div>
+				</div>
+				<div id="bp-qqim" style="float: left; width: 50px; margin: 15px;">
+					<a href="javascript:void(0)"
+						onclick="ShareToQQIM(document.title,location.href,document.title);"
+						class="tmblog"><img src="images/saas/qqim.gif"
+						border="0" alt="QQ"></a>
+					<div style="font-size: 10px;" title="QQ">QQ</div>
+				</div>
+				<div id="bp-qzone" style="float: left; width: 50px; margin: 15px;">
+					<a href="javascript:void(0)"
+						onclick="ShareToQzone(document.title,location.href,document.title);"
+						class="tmblog"><img
+						src="images/saas/qzone.gif" border="0" alt="QQ空间"></a>
+					<div style="font-size: 10px;" title="QQ空间">QQ空间</div>
+				</div>
+	
+				<div id="bp-baiduhi" style="float: left; width: 50px; margin: 15px;">
+					<a href="javascript:void(0)"
+						onclick="ShareToBaiduTieba(document.title,location.href,document.title);"
+						class="tmblog"><img
+						src="images/saas/baiduhi.gif" border="0" alt="百度"></a>
+					<div style="font-size: 10px;" title="百度贴吧">百度贴吧</div>
+				</div>
+				<div id="bp-douban" style="float: left; width: 50px; margin: 15px;">
+					<a href="javascript:void(0)"
+						onclick="ShareToDouban(document.title,location.href,document.title);"
+						class="tmblog"><img
+						src="images/saas/douban.gif" border="0" alt="豆瓣网"></a>
+					<div style="font-size: 10px;" title="豆瓣网">豆瓣网</div>
+				</div>
+				<div id="bp-wechart" style="float: left; width: 50px; margin: 15px;">
+					<a href="javascript:void(0)" onclick="ShareToWeChart();"
+						class='tmblog'> <img
+						src="images/saas/wechart.png" border="0"
+						alt="微信分享">
+					</a>
+					<div style="font-size: 10px;" title="微信分享">微信</div>
+				</div>
+			</ul>
+		</div>
+		
+		<!-- 二维码展示层 -->
+		<div id="qrcode"
+			style="display: none; position: absolute; top: 300px; left: 40%; padding: 16px; border: 2px solid gray; background-color: white; z-index: 1003; overflow: auto;">
+			<a href="javascript:void(0)"
+				onclick="document.getElementById('qrcode').style.display='none'">
+				<img src="images/saas/x.png" border="0"
+				style="float: right;" alt="关闭">
+			</a>
+		</div>
+		<!--end分享层 -->	
+		
+	</div>
+</div>

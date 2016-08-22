@@ -19,22 +19,22 @@ module.exports = function(appPath, appName) {
 	// Copy over some of the devDependencies
 	appPackage.dependencies = appPackage.dependencies || {};
 	appPackage.devDependencies = appPackage.devDependencies || {};
-	['react', 'react-dom'].forEach(function(key) {
+	[].forEach(function(key) {
 		appPackage.dependencies[key] = ownPackage.devDependencies[key];
 	});
-	['react-test-renderer'].forEach(function(key) {
+	[].forEach(function(key) {
 		appPackage.devDependencies[key] = ownPackage.devDependencies[key];
 	});
 
 	// Setup the script rules
 	appPackage.scripts = {};
-	['start', 'build', 'test','publish'].forEach(function(command) {
+	['start', 'build', 'test','publish-maven'].forEach(function(command) {
 		appPackage.scripts[command] = 'uba-scripts ' + command;
 	});
 
 	// explicitly specify ESLint config path for editor plugins
 	appPackage.eslintConfig = {
-		extends: './node_modules/uba-scripts/config/eslint.js',
+		//extends: './node_modules/uba-scripts/config/eslint.js',
 	};
 
 	fs.writeFileSync(

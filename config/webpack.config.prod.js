@@ -6,6 +6,8 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var url = require("url");
 var paths = require("./paths");
 var env = require("./env");
+
+console.log("======================");
 if(env["process.env.NODE_ENV"] !== '"production"') {
 	throw new Error("Production builds must have NODE_ENV=production.")
 }
@@ -17,7 +19,7 @@ if(!publicPath.endsWith("/")) {
 module.exports = {
 	bail: true,
 	devtool: "source-map",
-	entry: [require.resolve("./polyfills"), path.join(paths.appSrc, "index")],
+	entry: [path.join(paths.appSrc, "index")],
 	output: {
 		path: paths.appBuild,
 		filename: "static/js/[name].[chunkhash:8].js",
@@ -36,11 +38,7 @@ module.exports = {
 		moduleTemplates: ["*-loader"]
 	},
 	module: {
-		preLoaders: [{
-			test: /\.js$/,
-			loader: "eslint",
-			include: paths.appSrc
-		}],
+		preLoaders: [],
 		loaders: [{
 			test: /\.js$/,
 			include: paths.appSrc,
@@ -77,18 +75,9 @@ module.exports = {
 				limit: 10000,
 				name: "static/media/[name].[hash:8].[ext]"
 			}
-		}, {
-			test: /\.html$/,
-			loader: "html",
-			query: {
-				attrs: ["link:href"],
-			}
 		}]
 	},
-	eslint: {
-		configFile: path.join(__dirname, "eslint.js"),
-		useEslintrc: false
-	},
+	eslint: {},
 	postcss: function() {
 		return [autoprefixer({
 			browsers: [">1%", "last 4 versions", "Firefox ESR", "not ie < 9", ]

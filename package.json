@@ -1,6 +1,6 @@
 {
   "name": "uba-scripts",
-  "version": "1.2.7",
+  "version": "1.2.18",
   "description": "uba scripts template",
   "main": "./bin/uba-scripts.js",
   "bin": {
@@ -10,7 +10,7 @@
     "build": "node scripts/build.js",
     "start": "node scripts/start.js",
     "test": "node scripts/test.js",
-    "publish": "node scripts/publish.js"
+    "publish-maven": "node scripts/publish.js"
   },
   "files": [
     "bin",
@@ -69,6 +69,8 @@
     "file-loader": "0.9.0",
     "filesize": "3.3.0",
     "fs-extra": "0.30.0",
+    "gulp": "^3.9.1",
+    "gulp-zip": "^3.2.0",
     "gzip-size": "3.0.0",
     "html-loader": "0.4.3",
     "html-webpack-plugin": "2.22.0",
@@ -90,12 +92,7 @@
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
-    "bundle-deps": "1.0.0",
-    "gulp": "^3.9.1",
-    "gulp-zip": "^3.2.0",
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0",
-    "react-test-renderer": "^15.3.0"
+    "bundle-deps": "1.0.0"
   },
   "optionalDependencies": {
     "fsevents": "1.0.14"

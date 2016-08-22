@@ -116,7 +116,7 @@ switch (commands[0]){
 	case 'publish':
 		var args = [
 			'run',
-			'publish'
+			'publish-maven'
 		].filter(function(e) {
 			return e;
 		});
