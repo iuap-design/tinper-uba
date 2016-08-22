@@ -28,7 +28,7 @@ module.exports = function(appPath, appName) {
 
 	// Setup the script rules
 	appPackage.scripts = {};
-	['start', 'build', 'test'].forEach(function(command) {
+	['start', 'build', 'test','publish'].forEach(function(command) {
 		appPackage.scripts[command] = 'uba-scripts ' + command;
 	});
 
@@ -75,9 +75,6 @@ module.exports = function(appPath, appName) {
 			return;
 		}
 
-		var cdpath;
-		cdpath = appPath;
-
 		console.log();
 		console.log(chalk.green('Success! Created ' + appName + ' at ' + appPath + '.'));
 		console.log('Inside that directory, you can run several commands:');
@@ -87,7 +84,7 @@ module.exports = function(appPath, appName) {
 		console.log();
 		console.log('We suggest that you begin by typing:');
 		console.log();
-		console.log('  cd', cdpath + ' && uba start');
+		console.log('  cd', appName + ' && uba start');
 		console.log();
 		console.log('uba say: Success  :) ');
 	});

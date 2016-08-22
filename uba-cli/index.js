@@ -114,7 +114,20 @@ switch (commands[0]){
 		});
 		break;
 	case 'publish':
-		console.log(chalk.red('publish'));
+		var args = [
+			'run',
+			'publish'
+		].filter(function(e) {
+			return e;
+		});
+		var proc = spawn('npm', args, {
+			stdio: 'inherit'
+		});
+		proc.on('close', function(code) {
+			if(code!==0){
+				console.log(chalk.red('run publish error ! Please run in the uba Project folder'));
+			}
+		});
 		break;
 	default:
 		console.log(chalk.red('command error! tips : uba --help'));
