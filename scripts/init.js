@@ -1,10 +1,16 @@
+/**
+ * module : Uba-Scripts uba init
+ * author : Kvkens(yueming@yonyou.com)
+ * update : 2016-08-22 10:37:31
+ */
+
 var fs = require('fs-extra');
 var path = require('path');
 var spawn = require('cross-spawn');
 var pathExists = require('path-exists');
 var chalk = require('chalk');
 
-module.exports = function(appPath, appName, verbose, originalDirectory) {
+module.exports = function(appPath, appName) {
 	var ownPath = path.join(appPath, 'node_modules', 'uba-scripts');
 
 	var appPackage = require(path.join(appPath, 'package.json'));
@@ -36,10 +42,6 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
 		JSON.stringify(appPackage, null, 2)
 	);
 
-	var readmeExists = pathExists.sync(path.join(appPath, 'README.md'));
-	if(readmeExists) {
-		fs.renameSync(path.join(appPath, 'README.md'), path.join(appPath, 'README.old.md'));
-	}
 
 	// Copy the files for the user
 	fs.copySync(path.join(ownPath, 'template'), appPath);
@@ -57,11 +59,10 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
 	});
 
 	// Run another npm install for react and react-dom
-	console.log('Installing package from npm...');
+	console.log(chalk.yellow('Installing package from npm...'));
 	console.log();
 	var args = [
-		'install',
-		verbose && '--verbose'
+		'install'
 	].filter(function(e) {
 		return e;
 	});
@@ -74,15 +75,8 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
 			return;
 		}
 
-		// Display the most elegant way to cd.
-		// This needs to handle an undefined originalDirectory for
 		var cdpath;
-		if(originalDirectory &&
-			path.join(originalDirectory, appName) === appPath) {
-			cdpath = appName;
-		} else {
-			cdpath = appPath;
-		}
+		cdpath = appPath;
 
 		console.log();
 		console.log(chalk.green('Success! Created ' + appName + ' at ' + appPath + '.'));
@@ -94,10 +88,6 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
 		console.log('We suggest that you begin by typing:');
 		console.log();
 		console.log('  cd', cdpath + ' && uba start');
-		if(readmeExists) {
-			console.log();
-			console.log(chalk.yellow('You had a `README.md` file, we renamed it to `README.old.md`'));
-		}
 		console.log();
 		console.log('uba say: Success  :) ');
 	});
