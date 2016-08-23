@@ -1,3 +1,5 @@
+console.log("进入到webpack");
+
 var path = require("path");
 var autoprefixer = require("autoprefixer");
 var webpack = require("webpack");
@@ -7,7 +9,7 @@ var url = require("url");
 var paths = require("./paths");
 var env = require("./env");
 
-console.log("======================");
+
 if(env["process.env.NODE_ENV"] !== '"production"') {
 	throw new Error("Production builds must have NODE_ENV=production.")
 }
@@ -46,16 +48,16 @@ module.exports = {
 			query: require("./babel.prod")
 		}, {
 			test: /\.css$/,
-			include: [paths.appSrc, paths.appNodeModules],
+			//include: [paths.appSrc],
 			loader: ExtractTextPlugin.extract("style", "css?-autoprefixer!postcss")
 		}, {
 			test: /\.json$/,
-			include: [paths.appSrc, paths.appNodeModules],
+			//include: [paths.appSrc, paths.appNodeModules],
 			loader: "json"
 		}, {
 			test: /\.(ico|jpg|png|gif|eot|svg|ttf|woff|woff2)(\?.*)?$/,
 			exclude: /\/favicon.ico$/,
-			include: [paths.appSrc, paths.appNodeModules],
+			//include: [paths.appSrc, paths.appNodeModules],
 			loader: "file",
 			query: {
 				name: "static/media/[name].[hash:8].[ext]"
@@ -67,16 +69,19 @@ module.exports = {
 			query: {
 				name: "favicon.ico?[hash:8]"
 			}
-		}, {
-			test: /\.(mp4|webm)(\?.*)?$/,
-			include: [paths.appSrc, paths.appNodeModules],
-			loader: "url",
-			query: {
-				limit: 10000,
-				name: "static/media/[name].[hash:8].[ext]"
-			}
 		}]
 	},
+	externals: {
+        // require("jquery") 是引用自外部模块的
+        // 对应全局变量 jQuery
+       	 "jquery": true,
+        //"knockout" : "knockout",
+        //"director":"director",
+        //"polyfill":"polyfill",
+        //"bdtpl" : "bdtpl",
+        //"text":"text",
+        //"text!js/menumgr/menulist.html" : "text!js/menumgr/menulist.html"
+    },
 	eslint: {},
 	postcss: function() {
 		return [autoprefixer({

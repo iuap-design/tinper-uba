@@ -6,11 +6,11 @@ module.exports = {
 	cacheDirectory: true,
 	presets: [
 		// let, const, destructuring, classes, modules
-		require.resolve('babel-preset-es2015'),
+		require.resolve('babel-preset-es2015')
 		// exponentiation
-		require.resolve('babel-preset-es2016'),
+		//require.resolve('babel-preset-es2016'),
 		// JSX, Flow
-		require.resolve('babel-preset-react')
+		//require.resolve('babel-preset-react')
 	],
 	plugins: [
 		// function x(a, b, c,) { }
