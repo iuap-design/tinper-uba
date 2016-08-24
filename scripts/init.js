@@ -1,7 +1,7 @@
 /**
  * module : Uba-Scripts uba init
  * author : Kvkens(yueming@yonyou.com)
- * update : 2016-08-22 10:37:31
+ * update : 2016-08-24 08:40:09
  */
 
 var fs = require('fs-extra');

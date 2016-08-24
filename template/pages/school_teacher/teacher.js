@@ -1,6 +1,6 @@
-define([ 'text!pages/school_teacher/teacher.html',  'print', 'share', 'qrcode','ajaxfileupload','ossupload','jquery_cookie','interface_file','interface_file_impl'], function(  template) {
-
-	var ctrlBathPath = ctx+'/school_teacher';
+//define([ 'text!pages/school_teacher/teacher.html',  'print', 'share', 'qrcode','ajaxfileupload','ossupload','jquery_cookie','interface_file','interface_file_impl'], function(  template) {
+$.get("./pages/school_teacher/teacher.html",function(template){
+	var ctrlBathPath = '/school_teacher';
 	var app, viewModel, datas;
 	var viewModel = {
 		md: document.querySelector('#demo-mdlayout'),
@@ -379,9 +379,6 @@ define([ 'text!pages/school_teacher/teacher.html',  'print', 'share', 'qrcode','
 	    viewModel.events.queryMain();
 	};
 
-	return {
-		'model': viewModel,
-		'template': template,
-		'init': init
-	};
-});
+	init(document.getElementById('content'));
+
+},"html");

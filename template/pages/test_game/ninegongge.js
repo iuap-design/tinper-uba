@@ -1,6 +1,6 @@
-define([ 'text!pages/test_game/ninegongge.html',  'print', 'share', 'qrcode'], function( template) {    //xzn
-
-	var ctrlBathPath = ctx+'/test_game';     //xzn
+//define([ 'text!pages/test_game/ninegongge.html',  'print', 'share', 'qrcode'], function( template) {    //xzn
+$.get("./pages/test_game/ninegongge.html",function(template){
+	var ctrlBathPath = '/test_game';     //xzn
 	var app, viewModel, datas;
 	var viewModel = {
 		md: document.querySelector('#demo-mdlayout'),
@@ -755,9 +755,6 @@ define([ 'text!pages/test_game/ninegongge.html',  'print', 'share', 'qrcode'], f
 	    viewModel.events.queryMain();
 	};
 
-	return {
-		'model': viewModel,
-		'template': template,
-		'init': init
-	};
-});
+	init(document.getElementById('content'));
+
+},"html");

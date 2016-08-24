@@ -10,25 +10,26 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-    <link rel="apple-touch-icon-precomposed" href="./static/ios-desktop.png">
+    <!--<link rel="apple-touch-icon-precomposed" href="./static/ios-desktop.png">-->
     <meta name="msapplication-TileColor" content="#3372DF">
-    <link rel="shortcut icon" href="./static/favicon.png">
-    <link rel="stylesheet" type="text/css" href="vendor/fontAwesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="vendor/googleapis/roboto.css">
-    <link rel="stylesheet" type="text/css" href="vendor/googleapis/icon.css">
-    <link rel="stylesheet" type="text/css" href="vendor/uui/css/u.css">
-    <link rel="stylesheet" type="text/css" href="vendor/uui/css/u-extend.css">
-    <link rel="stylesheet" type="text/css" href="style/style.css">
-    <!--<script type="text/javascript" src="vendor/jquery/jquery-1.11.2.js"></script>-->
-    <!--<script type="text/javascript" charset="utf-8" src="vendor/html5shiv.min.js"></script>-->
-    <!--<script type="text/javascript" charset="utf-8" src="vendor/uui/js/u-polyfill.js"></script>-->
+    <!--<link rel="shortcut icon" href="./static/favicon.png">-->
+    <!--<link rel="stylesheet" type="text/css" href="vendor/fontAwesome/css/font-awesome.min.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="vendor/googleapis/roboto.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="vendor/googleapis/icon.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="vendor/uui/css/u.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="vendor/uui/css/u-extend.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="style/style.css">-->
+    <script type="text/javascript" src="vendor/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" charset="utf-8" src="vendor/html5shiv.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="vendor/uui/js/u-polyfill.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/baiduTemplate/baiduTemplate.js"></script>
 </head>
 
 <body>
     <div class="demo-layout  u-navlayout u-navlayout-fixed-drawer u-navlayout-fixed-header">
         <header class="demo-header u-navlayout-header">
             <div class="u-navlayout-header-row" >
-               <span class="u-navlayout-title" id='navTag'>用户信息用户信息用户信息用户信息</span>
+               <span class="u-navlayout-title" id='navTag'>欢迎使用</span>
                 <div class="u-navlayout-spacer"></div>
                 <button class="u-button u-button-icon" id="hdrbtn">
                   <i class="fa fa-ellipsis-v"></i>
@@ -62,12 +63,25 @@
         
         <!-- 内容 -->
         <main id='content' class="demo-content u-navlayout-content u-color-grey-100">
+            <h2>欢迎使用本系统
+                <small>从左侧当行选择您的操作</small>
+                <span class="u-tag u-tag-success u-tag-round">beta</span>
+            </h2>
         </main>
     </div>
     
     <!--<script type="text/javascript" src="vendor/requirejs/require.js"></script>-->
     <!--<script type="text/javascript" src="config/require.config.js"></script>-->
-    <!--<script type="text/javascript" src="vendor/uui/js/u.js"></script>-->
+    <script type="text/javascript" src="vendor/uui/js/u.js"></script>
+    <script type="text/javascript" src="vendor/knockout/knockout-3.2.0.debug.js"></script>
+    <script type="text/javascript" src="vendor/director/director.js"></script>
+    <script type="text/javascript" src="js/share.js"></script>
+    <script type="text/javascript" src="js/qrcode.js"></script>
+    <script type="text/javascript" src="js/print.js"></script>
+    
+    
+    
+    
     
     <!--<script type="text/javascript" src="index.js"></script>-->
    

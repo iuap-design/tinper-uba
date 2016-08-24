@@ -1,6 +1,6 @@
-define([  'text!pages/school_student/student.html', 'uui', 'print', 'share', 'qrcode'], function( template) {
 
-	var ctrlBathPath = ctx+'/school_student';
+$.get("./pages/school_student/student.html",function(template){
+	var ctrlBathPath = '/school_student';
 	var app, viewModel, datas;
 	var viewModel = {
 		md: document.querySelector('#demo-mdlayout'),
@@ -310,9 +310,6 @@ define([  'text!pages/school_student/student.html', 'uui', 'print', 'share', 'qr
 	    viewModel.events.queryMain();
 	};
 
-	return {
-		'model': viewModel,
-		'template': template,
-		'init': init
-	};
-});
+	init(document.getElementById('content'));
+
+},"html");

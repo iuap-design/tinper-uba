@@ -1,0 +1,3 @@
+var nodeNames = {};
+
+export {nodeNames};

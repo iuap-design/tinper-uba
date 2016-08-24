@@ -1,4 +1,3 @@
-console.log("进入到webpack");
 
 var path = require("path");
 var autoprefixer = require("autoprefixer");
@@ -69,6 +68,9 @@ module.exports = {
 			query: {
 				name: "favicon.ico?[hash:8]"
 			}
+		},{
+			test: /\.html$/,
+        		loader: "html"
 		}]
 	},
 	externals: {

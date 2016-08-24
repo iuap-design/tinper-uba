@@ -1,6 +1,6 @@
-define([ 'text!pages/school_classcourse/classcourse.html', 'uui', 'print', 'share', 'qrcode'], function(  template) {
-
-	var ctrlBathPath = ctx+'/school_classcourse';
+//define([ 'text!pages/school_classcourse/classcourse.html', 'uui', 'print', 'share', 'qrcode'], function(  template) {
+$.get("./pages/school_classcourse/classcourse.html",function(template){
+	var ctrlBathPath = '/school_classcourse';
 	var app, viewModel, datas;
 	var viewModel = {
 		md: document.querySelector('#demo-mdlayout'),
@@ -297,9 +297,6 @@ define([ 'text!pages/school_classcourse/classcourse.html', 'uui', 'print', 'shar
 	    viewModel.events.queryMain();
 	};
 
-	return {
-		'model': viewModel,
-		'template': template,
-		'init': init
-	};
-});
+	init(document.getElementById('content'));
+
+},"html");

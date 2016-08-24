@@ -1,6 +1,6 @@
-define([  'text!pages/school_class/class.html' ], function(  template) {    //xzn
-
-	var ctrlBathPath = ctx+'/school_class';     //xzn
+//define([  'text!pages/school_class/class.html' ], function(  template) {    //xzn
+$.get("./pages/school_class/class.html",function(template){
+	var ctrlBathPath = '/school_class';     //xzn
 	var app, viewModel, datas;
 	var viewModel = {
 		md: document.querySelector('#demo-mdlayout'),
@@ -237,9 +237,6 @@ define([  'text!pages/school_class/class.html' ], function(  template) {    //xz
 	    viewModel.events.queryMain();
 	};
 
-	return {
-		'model': viewModel,
-		'template': template,
-		'init': init
-	};
-});
+	init(document.getElementById('content'));
+
+},"html");

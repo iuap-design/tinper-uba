@@ -82,7 +82,7 @@ body {
     box-sizing: border-box;
     padding: 16px;
     height: 151px;
-    background-image: url('../static/images/bg.png');
+    background-image: url('../static/bg.png');
     background-size: cover;
 }
 
@@ -192,7 +192,7 @@ _:-ms-input-placeholder,
 
 .demo-updates .u-card-title {
     min-height: 200px;
-    background-image: url('../static/images/dog.png');
+    background-image: url('../static/dog.png');
     background-position: 90% 100%;
     background-repeat: no-repeat;
 }

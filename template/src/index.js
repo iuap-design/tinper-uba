@@ -5,8 +5,8 @@ import '../vendor/uui/css/u.css';
 import '../vendor/uui/css/u-extend.css';
 import '../style/style.css';
 
+import initMenu from './config/initMenu';
 
+window.router = Router();
 
-import {getName} from './demo.js';
-console.log(getName());
-
+initMenu();

@@ -8,7 +8,7 @@ var paths = require("./paths");
 var env = require("./env");
 module.exports = {
 	devtool: "eval",
-	entry: [require.resolve("webpack-dev-server/client") + "?/", require.resolve("webpack/hot/dev-server"), require.resolve("./polyfills"), path.join(paths.appSrc, "index")],
+	entry: [require.resolve("webpack-dev-server/client") + "?/", require.resolve("webpack/hot/dev-server"), path.join(paths.appSrc, "index")],
 	output: {
 		path: paths.appBuild,
 		pathinfo: true,
