@@ -1,5 +1,5 @@
 //define([ 'text!pages/school_classcourse/classcourse.html', 'uui', 'print', 'share', 'qrcode'], function(  template) {
-$.get("./pages/school_classcourse/classcourse.html",function(template){
+$.get("./src/pages/school_classcourse/classcourse.html",function(template){
 	var ctrlBathPath = '/school_classcourse';
 	var app, viewModel, datas;
 	var viewModel = {

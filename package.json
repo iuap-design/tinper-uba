@@ -1,6 +1,6 @@
 {
   "name": "uba-scripts",
-  "version": "1.2.35",
+  "version": "1.2.39",
   "description": "uba scripts template",
   "main": "./bin/uba-scripts.js",
   "bin": {

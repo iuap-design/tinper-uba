@@ -1,5 +1,5 @@
 //define([ 'text!pages/goods/page.html', 'print', 'share', 'qrcode'], function(  template) {
-$.get("./pages/goods/page.html",function(template){
+$.get("./src/pages/goods/page.html",function(template){
 	var ctrlBathPath = '/goods';
 	var app, viewModel, datas;
 	var viewModel = {

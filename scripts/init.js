@@ -79,12 +79,12 @@ module.exports = function(appPath, appName) {
 		console.log(chalk.green('Success! Created ' + appName + ' at ' + appPath + '.'));
 		console.log('Inside that directory, you can run several commands:');
 		console.log();
-		console.log('  * uba start: Starts the development server.');
+		console.log('  * uba server: Starts the development server.');
 		console.log('  * uba build: Bundles the app into static files for production.');
 		console.log();
 		console.log('We suggest that you begin by typing:');
 		console.log();
-		console.log('  cd', appName + ' && uba start');
+		console.log('  cd', appName + ' && uba server');
 		console.log();
 		console.log('uba say: Success  :) ');
 	});

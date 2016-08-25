@@ -1,5 +1,5 @@
 //define([ 'text!pages/test_mytask/mytask.html', 'print', 'share', 'qrcode' ],function(template) { // xzn
-$.get("./pages/test_mytask/mytask.html", function(template) {
+$.get("./src/pages/test_mytask/mytask.html", function(template) {
 	var ctrlBathPath = '/test_mytask'; // xzn
 	var app, viewModel, datas;
 	var viewModel = {

@@ -1,5 +1,5 @@
 //define([  'text!pages/test_order/order.html', 'print', 'share', 'qrcode','u-grid'], function(template) {
-$.get("./pages/test_order/order.html",function(template){
+$.get("./src/pages/test_order/order.html",function(template){
   //ctx为index.js中的全局变量,记录整个项目的地址前缀
   var ctrlBathPath = '/test_order';
   var app, viewModel, datas;

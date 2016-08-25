@@ -14,7 +14,7 @@ npm install -g uba
 
 $uba init my-app
 $cd my-app/
-$uba start
+$uba server
 
 ```
 ### Build
@@ -24,7 +24,7 @@ $uba build
 
 ### Start
 ```sh
-$uba start
+$uba server
 ```
 
 ### Help

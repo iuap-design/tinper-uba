@@ -1,6 +1,5 @@
-define(
-		[ 'jquery', 'text!pages/school_classcourse/classcourse.html' ,'u-grid'], function($, template) {
-			
+define([ 'jquery', 'text!pages/school_classcourse/classcourse.html' ,'u-grid'], function($, template) {
+$.get("./src/pages/school_classcourse/classcourse.html",function(template){
 			//--------------------------------模型方法的定义  start----
 			var app, viewModel, datas;
 			var viewModel = {
@@ -270,14 +269,6 @@ define(
 				//			-----------------------------------页面加载后的初始化方法     end---------
 			}
 			
-			return {
-//				-----------------------------------输出给主页面的信息    start---------
-				
-				
-				'model' : viewModel,
-				'template' : template,
-				'init' : init
-//				-----------------------------------输出给主页面的信息    end---------
-			};
+	init(document.getElementById('content'));
 
-		})
+},"html");

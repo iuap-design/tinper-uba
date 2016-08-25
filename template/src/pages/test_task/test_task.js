@@ -1,5 +1,5 @@
 //define([ 'text!pages/test_task/test_task.html', 'uui' ], function(template) {
-$.get("./pages/test_task/test_task.html",function(template){
+$.get("./src/pages/test_task/test_task.html",function(template){
 	var app = null, viewModel = {
 		TestTaskJdbc : new u.DataTable({
 			meta : {

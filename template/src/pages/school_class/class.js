@@ -1,5 +1,5 @@
 //define([  'text!pages/school_class/class.html' ], function(  template) {    //xzn
-$.get("./pages/school_class/class.html",function(template){
+$.get("./src/pages/school_class/class.html",function(template){
 	var ctrlBathPath = '/school_class';     //xzn
 	var app, viewModel, datas;
 	var viewModel = {

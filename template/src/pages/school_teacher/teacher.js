@@ -1,5 +1,5 @@
 //define([ 'text!pages/school_teacher/teacher.html',  'print', 'share', 'qrcode','ajaxfileupload','ossupload','jquery_cookie','interface_file','interface_file_impl'], function(  template) {
-$.get("./pages/school_teacher/teacher.html",function(template){
+$.get("./src/pages/school_teacher/teacher.html",function(template){
 	var ctrlBathPath = '/school_teacher';
 	var app, viewModel, datas;
 	var viewModel = {

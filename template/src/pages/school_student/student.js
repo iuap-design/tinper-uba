@@ -1,5 +1,5 @@
 
-$.get("./pages/school_student/student.html",function(template){
+$.get("./src/pages/school_student/student.html",function(template){
 	var ctrlBathPath = '/school_student';
 	var app, viewModel, datas;
 	var viewModel = {

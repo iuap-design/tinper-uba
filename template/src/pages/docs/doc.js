@@ -1,5 +1,5 @@
 //define([  'text!pages/docs/doc.html'  ], function( template) {
-$.get("./pages/docs/doc.html",function(template){
+$.get("./src/pages/docs/doc.html",function(template){
 	var ctrlBathPath = '/docsjpa';
 	var app, viewModel, datas;
 	var viewModel = {

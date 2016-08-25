@@ -32,7 +32,7 @@ $ uba build
 
 create a server for develop
 ```
-$ uba start
+$ uba server
 ```
 
 publish your public resource

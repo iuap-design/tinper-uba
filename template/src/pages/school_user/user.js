@@ -1,4 +1,4 @@
-$.get("./pages/school_user/user.html",function(template){
+$.get("./src/pages/school_user/user.html",function(template){
 	var ctrlBathPath = '/school_user';     //xzn
 	var app, viewModel, datas;
 	var viewModel = {
