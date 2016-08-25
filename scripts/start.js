@@ -69,10 +69,6 @@ function setupCompiler(port) {
 	// It lets us listen to some events and provide our own custom messages.
 	compiler = webpack(config, handleCompile);
 
-	// "invalid" event fires when you have changed a file, and Webpack is
-	// recompiling a bundle. WebpackDevServer takes care to pause serving the
-	// bundle, so if you refresh, it'll wait instead of serving the old one.
-	// "invalid" is short for "bundle invalidated", it doesn't imply any errors.
 	compiler.plugin('invalid', function() {
 		clearConsole();
 		console.log('Compiling...');
@@ -97,9 +93,6 @@ function setupCompiler(port) {
 			return;
 		}
 
-		// We have switched off the default Webpack output in WebpackDevServer
-		// options so we are going to "massage" the warnings and errors and present
-		// them in a readable focused way.
 		var json = stats.toJson({}, true);
 		var formattedErrors = json.errors.map(message =>
 			'Error in ' + formatMessage(message)
@@ -184,12 +177,6 @@ function addMiddleware(devServer) {
 			process.exit(1);
 		}
 
-		// Otherwise, if proxy is specified, we will let it handle any request.
-		// There are a few exceptions which we won't send to the proxy:
-		// - /index.html (served as HTML5 history API fallback)
-		// - /*.hot-update.json (WebpackDevServer uses this too for hot reloading)
-		// - /sockjs-node/* (WebpackDevServer uses this for hot reloading)
-		// Tip: use https://www.debuggex.com/ to visualize the regex
 		var mayProxy = /^(?!\/(index\.html$|.*\.hot-update\.json$|sockjs-node\/)).*$/;
 		devServer.use(mayProxy,
 			// Pass the scope regex both to Express and to the middleware for proxying
@@ -206,21 +193,15 @@ function addMiddleware(devServer) {
 	// It may be /index.html, so let the dev server try serving it again.
 	devServer.use(devServer.middleware);
 }
-
 function runDevServer(port) {
 	var devServer = new WebpackDevServer(compiler, {
-		// Enable hot reloading server. It will provide /sockjs-node/ endpoint
-		// for the WebpackDevServer client so it can learn when the files were
-		// updated. The WebpackDevServer client is included as an entry point
-		// in the Webpack development configuration. Note that only changes
-		// to CSS are currently hot reloaded. JS changes will refresh the browser.
 		hot: true,
-		// It is important to tell WebpackDevServer to use the same "root" path
-		// as we specified in the config. In development, we always serve from /.
 		publicPath: config.output.publicPath,
-		// WebpackDevServer is noisy by default so we emit custom message instead
-		// by listening to the compiler events with `compiler.plugin` calls above.
 		quiet: true,
+		proxy: [{
+            path: "/api/*",
+            target: "http://127.0.0.1:3000/"
+          }],
 		watchOptions: {
 			ignored: /node_modules/
 		}
@@ -229,7 +210,6 @@ function runDevServer(port) {
 	// Our custom middleware proxies requests to /index.html or a remote API.
 	addMiddleware(devServer);
 
-	// Launch WebpackDevServer.
 	devServer.listen(port, (err, result) => {
 		if(err) {
 			return console.log(err);

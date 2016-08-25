@@ -15,7 +15,7 @@ const addRouter = function (path, func) {
     func = func || function () {
         document.getElementById("navTag").innerText = nodeNames["#" + path];
         var params = arguments;
-        initPage('./pages/' + truePath, params);
+        initPage('../src/pages/' + truePath, params);
     }
     var tmparray = truePath.split("/");
     if (tmparray[1] in router.routes && tmparray[2] in router.routes[tmparray[1]] && tmparray[3] in router.routes[tmparray[1]][tmparray[2]]) {
