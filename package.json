@@ -1,6 +1,6 @@
 {
   "name": "uba",
-  "version": "1.2.15",
+  "version": "1.2.17",
   "description": "uba tools global cli",
   "main": "./bin/uba.js",
   "bin": {
@@ -36,6 +36,8 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "fs-extra": "^0.30.0",
+    "gulp": "^3.9.1",
+    "gulp-zip": "^3.2.0",
     "html-webpack-plugin": "^2.22.0",
     "imports-loader": "^0.6.5",
     "json-loader": "^0.5.4",

@@ -45,12 +45,6 @@ module.exports = () => {
 			// require("jquery") 是引用自外部模块的
 			// 对应全局变量 jQuery
 			//"jquery": true,
-			//"knockout" : "knockout",
-			//"director":"director",
-			//"polyfill":"polyfill",
-			//"bdtpl" : "bdtpl",
-			//"text":"text",
-			//"text!js/menumgr/menulist.html" : "text!js/menumgr/menulist.html"
 		},
 		plugins: [new HtmlWebpackPlugin({
 			inject: true,

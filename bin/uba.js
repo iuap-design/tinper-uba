@@ -13,6 +13,7 @@ const help = require('../lib/help');
 const init = require('../lib/init');
 const server = require('../lib/server');
 const build = require('../lib/build');
+const publish = require('../lib/publish');
 
 
 if(commands.length === 0) {
@@ -43,9 +44,11 @@ switch(commands[0]) {
 		server(port);
 		break;
 	case 'build':
-		
 		build();
-		break;	
+		break;
+	case 'publish':
+		publish();
+		break;
 	default:
 		help.red('命令不正确!');
 		break;
