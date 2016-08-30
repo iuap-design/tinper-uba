@@ -1,6 +1,6 @@
 {
   "name": "uba",
-  "version": "1.2.17",
+  "version": "1.2.18",
   "description": "uba tools global cli",
   "main": "./bin/uba.js",
   "bin": {
@@ -49,5 +49,8 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.0"
+  },
+  "devDependencies": {
+    
   }
 }
