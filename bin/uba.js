@@ -5,7 +5,6 @@
 const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
-const semver = require('semver');
 const argv = require('minimist')(process.argv.slice(2));
 const pathExists = require('path-exists');
 const commands = argv._;
