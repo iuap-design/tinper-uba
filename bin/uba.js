@@ -10,9 +10,9 @@ const pathExists = require('path-exists');
 const commands = argv._;
 const help = require('../lib/help');
 const init = require('../lib/init');
-const server = require('../lib/server');
-const build = require('../lib/build');
-const publish = require('../lib/publish');
+
+
+
 
 
 if(commands.length === 0) {
@@ -40,12 +40,15 @@ switch(commands[0]) {
 		if(argv.p !== undefined && !isNaN(argv.p) && argv.p !== true) {
 			port = argv.p;
 		}
+		const server = require('../lib/server');
 		server(port);
 		break;
 	case 'build':
+		const build = require('../lib/build');
 		build();
 		break;
 	case 'publish':
+		const publish = require('../lib/publish');
 		publish();
 		break;
 	default:
