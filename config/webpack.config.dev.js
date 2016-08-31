@@ -49,7 +49,7 @@ module.exports = (param) => {
 				}
 			}),
 			new HtmlwebpackPlugin({
-				template: path.resolve('src/entries/index.html'),
+				template: path.resolve('src/index.html'),
 				inject: true
 			}),
 			new webpack.HotModuleReplacementPlugin(),

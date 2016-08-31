@@ -1,6 +1,6 @@
 {
-	"devEntry" : "./src/entries/index.js",
+	"devEntry" : "./src/index.js",
 	"devOutPath" : "/",
-	"buildEntry" : "./src/entries/index.js",
+	"buildEntry" : "./src/index.js",
 	"buildOutPath" : "build"
 }

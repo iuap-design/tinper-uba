@@ -1,6 +1,5 @@
-import {Router} from '../js/director';
+import {Router} from '../lib/director';
 import {changePage} from '../js/changePage.js';
-//const content = document.querySelector('.content');
 
 var page1 = function() {
 	changePage('.content','<h1>第一个演示页面</h1>');

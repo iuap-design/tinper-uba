@@ -48,7 +48,7 @@ module.exports = () => {
 		},
 		plugins: [new HtmlWebpackPlugin({
 			inject: true,
-			template: path.resolve('src/entries/index.html'),
+			template: path.resolve('src/index.html'),
 			minify: {
 				removeComments: true,
 				collapseWhitespace: true,
