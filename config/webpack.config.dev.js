@@ -22,6 +22,12 @@ module.exports = (param) => {
 		resolve: {
 			extensions: [".js", ".json", ""]
 		},
+		proxy: {
+			'/api/*': {
+				target: 'http://localhost:9000',
+				secure: false
+			}
+		},
 		module: {
 			loaders: [{
 				test: /\.css$/,

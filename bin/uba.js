@@ -52,6 +52,6 @@ switch(commands[0]) {
 		publish();
 		break;
 	default:
-		help.red('命令不正确!');
+		help.error('命令不正确!');
 		break;
 }
