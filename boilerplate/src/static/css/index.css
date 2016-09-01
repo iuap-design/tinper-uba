@@ -28,7 +28,7 @@ img {
 	margin-top: 30px;
 }
 .LOGO a{
-	background: url(images/logo2x.png) no-repeat center center;
+	background: url(../images/logo2x.png) no-repeat center center;
 	display: block;
     width: 242px;
     height: 133px;
@@ -116,7 +116,7 @@ img {
 	-o-transition: all 0.8s ease;
 }
 .li-current {
-	background: url(./images/arrow.png) no-repeat right center;
+	background: url(../images/arrow.png) no-repeat right center;
 	background-color: #00a1e9;
 }
 .li-current i.icon {
@@ -132,28 +132,28 @@ img {
 	vertical-align: middle;
 }
 .icon1 {
-	background: url(./images/1.png) no-repeat center;
+	background: url(../images/1.png) no-repeat center;
 }
 .icon2 {
-	background: url(./images/2.png) no-repeat center;
+	background: url(../images/2.png) no-repeat center;
 }
 .icon3 {
-	background: url(./images/3.png) no-repeat center;
+	background: url(../images/3.png) no-repeat center;
 }
 .icon4 {
-	background: url(./images/4.png) no-repeat center;
+	background: url(../images/4.png) no-repeat center;
 }
 .icon5 {
-	background: url(./images/5.png) no-repeat center;
+	background: url(../images/5.png) no-repeat center;
 }
 .icon6 {
-	background: url(./images/6.png) no-repeat center;
+	background: url(../images/6.png) no-repeat center;
 }
 .icon7 {
-	background: url(./images/7.png) no-repeat center;
+	background: url(../images/7.png) no-repeat center;
 }
 .icon-home {
-	background: url(./images/nav_icon_home.png) no-repeat center;
+	background: url(../images/nav_icon_home.png) no-repeat center;
 }
 .right {
 	width: 80%;

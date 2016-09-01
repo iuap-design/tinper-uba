@@ -1,2 +1,2 @@
-import './static/index.css';
-import './router/index.js';
+import './static/css/index.css';
+import './config/router.js';
