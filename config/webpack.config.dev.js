@@ -22,12 +22,6 @@ module.exports = (param) => {
 		resolve: {
 			extensions: [".js", ".json", ""]
 		},
-		proxy: {
-			'/api/*': {
-				target: 'http://localhost:9000',
-				secure: false
-			}
-		},
 		module: {
 			loaders: [{
 				test: /\.css$/,
@@ -61,7 +55,7 @@ module.exports = (param) => {
 			new webpack.HotModuleReplacementPlugin(),
 			new ExtractTextPlugin("static/css/[name].[contenthash:8].css"),
 			new OpenBrowserPlugin({
-				url: `http://localhost:${param.port}`
+				url: `http://127.0.0.1:${param.port}`
 			})
 		]
 	}
