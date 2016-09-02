@@ -1,3 +1,4 @@
+[Chinese](https://github.com/iuap-design/uba/blob/master/README_CN.md)
 # uba
 
 [![npm version](https://img.shields.io/npm/v/uba.svg)](https://www.npmjs.com/package/uba)
