@@ -6,74 +6,73 @@
 
 
 
-`uba` 是一个集项目初始化、本地服务、数据模拟、资源编译、发布部署于一体的前端集成开发工具。为您提供多种项目最佳实践，使用五条命令即可打通开发全过程。轻量小巧，上手简单
+`uba` is a front-end develop tool which consist of initialize,local service,mock server,deploy. Just 5 command then the development can be done. lite and simple. 
 
+## Installation
 
-## 如何安装
-uba是需要安装到全局npm环境使用.
 ```sh
 $ npm install uba -g
 ```
 
-## 如何使用
-1、首先初始化一个最佳实践工程
+## How to use
+1、first initialize the uba project.
 - `$ npm init uba-project`
-- uba会在我们当前运行的目录下创建一个`uba-project`文件夹.
+- `uba` will create the project.
 
-2、 进入我们创建的工程文件夹，来运行调试并自动开启服务
+2、 Enter the project to create the project run server.
 - `$ npm server -p 9000`
 
-> 这里配置了具体端口使用 `-p` 
+> If you want to modify the port `-p 5000` 
 
-- 这时候uba开启了本地`http://localhost:9000`的服务.
+- Now open the local service `http://localhost:9000`.
 
-3、 开发调试完成后，我们可以构建出最优化的工程.
+3、 After the development is completed to build an optimized version.
 - `$ npm build`
-- 这样在当前文件夹下会生成`build`的文件夹，里面有我们需要的优化过的资源项目.
+- Build projects in our current directory.
 
-4、 需要产出`.war`资源发布文件，需要做一个简单的操作.
+4、 publising `.war`.
 - `$ npm publish`
-- `uba` 会把我们当前构建出的静态资源进行一个打包操作
-- 打开你的`publish`文件夹看看，是不是有一个`publish.war`在那里?
+- `uba` will be generated in the current folder publish.
+- Open your `publish`folder to see if there is a.
 
-## API
+## API Documentation
 
 ---
-##### 查看帮助
+##### help
 
 ```sh
 $ uba --help or -h
 ```
 
 ```sh
-1. uba init <project name>     		初始化创建web工程
-2. uba server -p 3000          		运行当前web工程并调试
-3. uba build   						产出全部静态资源
-4. uba publish 						发布war包到maven
-5. uba --version       				显示当前uba工具版本
-6. uba --help  						查看帮助
+1. uba init <project name>     		Initialization best practices
+2. uba server -p 3000          		Start develop server
+3. uba build   						Constructing optimization static resources
+4. uba publish 						publish war
+5. uba --version       				current version
+6. uba --help  						check the help
 ```
-##### 查看当前版本
+##### version
 ```sh
 $ uba --help or -h
 ```
 
-##### 初始化最佳实践web工程
+##### Initialize
 ```sh
 $ uba init demo
 ```
 
-##### 运行一个调试服务
+##### Develop
 ```sh
 $ uba server
 ```
 
-##### 产出静态资源
+##### Build
 ```sh
 $ uba build
 ```
 
-##### 发布
+##### Publishing
 ```sh
 $ uba publish
 ```

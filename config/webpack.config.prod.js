@@ -9,7 +9,6 @@ module.exports = () => {
 	var ubaConfig = JSON.parse(fs.readFileSync(path.resolve('.', 'uba.config.js')));
 	var config = {
 		bail: true,
-		devtool: "source-map",
 		entry: [ubaConfig.buildEntry],
 		output: {
 			path: ubaConfig.buildOutPath,
