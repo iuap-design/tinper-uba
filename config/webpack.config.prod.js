@@ -46,33 +46,38 @@ module.exports = () => {
 			//"jquery": true,
 		},
 		plugins: [new HtmlWebpackPlugin({
-			inject: true,
-			template: path.resolve('src/index.html'),
-			minify: {
-				removeComments: true,
-				collapseWhitespace: true,
-				removeRedundantAttributes: true,
-				useShortDoctype: true,
-				removeEmptyAttributes: true,
-				removeStyleLinkTypeAttributes: true,
-				keepClosingSlash: true,
-				minifyJS: true,
-				minifyCSS: true,
-				minifyURLs: true
-			}
-		}), new webpack.optimize.OccurrenceOrderPlugin(), new webpack.optimize.DedupePlugin(), new webpack.optimize.UglifyJsPlugin({
-			compress: {
-				screw_ie8: true,
-				warnings: false
-			},
-			mangle: {
-				screw_ie8: true
-			},
-			output: {
-				comments: false,
-				screw_ie8: true
-			}
-		}), new ExtractTextPlugin("static/css/[name].[contenthash:8].css")]
+				inject: true,
+				template: path.resolve('src/index.html'),
+				minify: {
+					removeComments: true,
+					collapseWhitespace: true,
+					removeRedundantAttributes: true,
+					useShortDoctype: true,
+					removeEmptyAttributes: true,
+					removeStyleLinkTypeAttributes: true,
+					keepClosingSlash: true,
+					minifyJS: true,
+					minifyCSS: true,
+					minifyURLs: true
+				}
+			}), new webpack.optimize.OccurrenceOrderPlugin(), new webpack.optimize.DedupePlugin(), new webpack.optimize.UglifyJsPlugin({
+				compress: {
+					screw_ie8: true,
+					warnings: false
+				},
+				mangle: {
+					screw_ie8: true
+				},
+				output: {
+					comments: false,
+					screw_ie8: true
+				}
+			}), new ExtractTextPlugin("static/css/[name].[contenthash:8].css"),
+			new HtmlWebpackPlugin({
+				template: 'html-withimg-loader!' + path.resolve('./src/', 'index.html'),
+				filename: 'index.html'
+			})
+		]
 	}
 	return config;
 }
