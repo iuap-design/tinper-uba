@@ -1,31 +1,50 @@
-import {Router} from '../vendor/director/director.js';
-import {changePage} from '../static/js/changePage.js';
+import {Router} from '../vendor/director/director';
+import {changePage} from '../static/js/changePage';
 
-var page1 = function() {
-	changePage('.content','<h1>第一个演示页面</h1>');
-};
-var page2 = function() {
-	changePage('.content','<h1>第二个演示页面</h1>');
-};
-var page3 = function() {
-	changePage('.content','<h1>第三个演示页面</h1>');
-};
-var page4 = function() {
-	changePage('.content','<h1>第四个演示页面</h1>');
-};
-var page5 = function() {
-	changePage('.content','<h1>第五个演示页面</h1>');
-};
+var router = new Router();
 
+router.on('/page1', function () {
+	var pageHtml = require('../containers/page1/index.html');
+	var pageJs = require('../containers/page1/index.js');
+	require('../containers/page1/index.css');
+	changePage('.content', pageHtml);
+	pageJs.init();
+});
+router.on('/page2', function () {
+	var pageHtml = require('../containers/page2/index.html');
+	var pageJs = require('../containers/page2/index.js');
+	require('../containers/page2/index.css');
+	changePage('.content', pageHtml);
+	pageJs.init();
+});
+router.on('/page3', function () {
+	var pageHtml = require('../containers/page3/index.html');
+	var pageJs = require('../containers/page3/index.js');
+	require('../containers/page3/index.css');
+	changePage('.content', pageHtml);
+	pageJs.init();
+});
+router.on('/page4', function () {
+	var pageHtml = require('../containers/page4/index.html');
+	var pageJs = require('../containers/page4/index.js');
+	require('../containers/page4/index.css');
+	changePage('.content', pageHtml);
+	pageJs.init();
+});
+router.on('/page5', function () {
+	var pageHtml = require('../containers/page5/index.html');
+	var pageJs = require('../containers/page5/index.js');
+	require('../containers/page5/index.css');
+	changePage('.content', pageHtml);
+	pageJs.init();
+});
+router.on('/page6', function () {
+	var pageHtml = require('../containers/page6/index.html');
+	var pageJs = require('../containers/page6/index.js');
+	require('../containers/page6/index.css');
+	changePage('.content', pageHtml);
+	pageJs.init();
+});
 
-var routes = {
-	'/page1': page1,
-	'/page2': page2,
-	'/page3': page3,
-	'/page4': page4,
-	'/page5': page5
-};
-
-var router = Router(routes);
 
 router.init();
