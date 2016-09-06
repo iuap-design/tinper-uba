@@ -59,6 +59,11 @@ module.exports = (param) => {
 			new ExtractTextPlugin("static/css/[name].[contenthash:8].css"),
 			new OpenBrowserPlugin({
 				url: `http://127.0.0.1:${param.port}`
+			}),
+			new webpack.ProvidePlugin({
+				$: "jquery",
+				jQuery: "jquery",
+				"window.jQuery": "jquery"
 			})
 		]
 	}

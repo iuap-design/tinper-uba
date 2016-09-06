@@ -79,6 +79,11 @@ module.exports = () => {
 			new HtmlWebpackPlugin({
 				template: 'html-withimg-loader!' + path.resolve('./src/', 'index.html'),
 				filename: 'index.html'
+			}),
+			new webpack.ProvidePlugin({
+				$: "jquery",
+				jQuery: "jquery",
+				"window.jQuery": "jquery"
 			})
 		]
 	}
