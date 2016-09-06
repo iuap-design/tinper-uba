@@ -32,6 +32,9 @@ module.exports = () => {
 				test: /\.json$/,
 				loader: "json"
 			}, {
+				test: /\.(htm|html)$/i,
+				loader: 'html-withimg-loader'
+			}, {
 				test: /\.(ico|jpg|png|gif|eot|svg|ttf|woff|woff2)(\?.*)?$/,
 				exclude: /\/favicon.ico$/,
 				loader: "file",
