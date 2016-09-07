@@ -4,14 +4,15 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const fs = require('fs');
+const help = require('../lib/help');
 
 module.exports = () => {
-	var ubaConfig = JSON.parse(fs.readFileSync(path.resolve('.', 'uba.config.js')));
+	var ubaConfig = help.getUbaConfig();
 	var config = {
 		bail: true,
 		entry: [ubaConfig.buildEntry],
 		output: {
-			path: ubaConfig.buildOutPath,
+			path: "build",
 			filename: "static/js/[name].[chunkhash:8].js",
 			chunkFilename: "static/js/[name].[chunkhash:8].chunk.js",
 			publicPath: '/'

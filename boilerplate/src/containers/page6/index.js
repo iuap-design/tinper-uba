@@ -3,7 +3,7 @@ module.exports = {
 		this.getServerJson();
 	},
 	getServerJson: function() {
-		$.post("./api/demo/demo.json", function(msg) {
+		$.get("./api/demo/demo.json",{"action":"admin","join":"jace"}, function(msg) {
 			$("#page6").html("来自mock Server数据：" + JSON.stringify(msg));
 		}, "json");
 	}

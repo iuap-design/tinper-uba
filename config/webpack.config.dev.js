@@ -6,15 +6,15 @@ var webpack = require('webpack');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+var help = require('../lib/help');
 
 module.exports = (param) => {
-	var ubaConfig = JSON.parse(fs.readFileSync(path.resolve('.', 'uba.config.js')));
-
+	var ubaConfig = help.getUbaConfig();
 	var config = {
 		devtool: "eval",
 		entry: [require.resolve("webpack-dev-server/client") + "?/", require.resolve("webpack/hot/dev-server"), ubaConfig.devEntry],
 		output: {
-			path: ubaConfig.devOutPath,
+			path: "/",
 			pathinfo: true,
 			filename: "static/js/bundle.js",
 			publicPath: '/'
@@ -25,7 +25,6 @@ module.exports = (param) => {
 		module: {
 			loaders: [{
 				test: /\.css$/,
-				//loader: "style-loader!css-loader",
 				loader: ExtractTextPlugin.extract("style", "css")
 			}, {
 				test: /\.js$/,
