@@ -1,6 +1,15 @@
+/**
+ * uba config
+ */
 module.exports = {
 	//开发调试模式入口
 	"devEntry": "./src/index.js",
+	//调试webpack loader添加.
+	//如果自定义添加在这里，还需要npm install来安装依赖的Loader. npm install less less-loader --save
+	"devLoader": [{
+		test: /\.less$/,
+		loader: 'style!css!less'
+	}],
 	//执行构建的入口
 	"buildEntry": "./src/index.js",
 	//设置代理

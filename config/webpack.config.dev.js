@@ -66,5 +66,6 @@ module.exports = (param) => {
 			})
 		]
 	}
+	config.module.loaders = config.module.loaders.concat(ubaConfig.devLoader);
 	return config;
 }

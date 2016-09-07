@@ -41,7 +41,7 @@ router.on('/page5', function () {
 router.on('/page6', function () {
 	var pageHtml = require('../containers/page6/index.html');
 	var pageJs = require('../containers/page6/index.js');
-	require('../containers/page6/index.css');
+	
 	changePage('.content', pageHtml);
 	pageJs.init();
 });

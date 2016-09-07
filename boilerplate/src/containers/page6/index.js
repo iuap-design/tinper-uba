@@ -1,3 +1,4 @@
+require('./index.less');
 module.exports = {
 	init: function() {
 		this.getServerJson();
