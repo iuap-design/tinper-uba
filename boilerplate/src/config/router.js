@@ -16,10 +16,9 @@ router.on('/page1', function() {
 });
 router.on('/page2', function() {
     var pageHtml = require('../containers/page2/index.html');
-    var pageJs = require('../containers/page2/index.js');
-    require('../containers/page2/index.css');
     changePage('.content', pageHtml);
-    pageJs.init();
+    require('../containers/page2/index.js')();
+    require('../containers/page2/index.css');
 });
 router.on('/page3', function() {
     var pageHtml = require('../containers/page3/index.html');

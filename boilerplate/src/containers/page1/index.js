@@ -1,5 +1,4 @@
 module.exports = function() {
-    console.log("实例开始");
     var meta = {
         meta: {
             vyear: {
@@ -47,8 +46,8 @@ module.exports = function() {
             var row = viewModel.cardTable.createEmptyRow();
             viewModel.cardTable.setRowFocus(row);
 
-            // var a=document.getElementById('u_master');
-            // a.style.display="none";
+            var a = document.getElementById('u_master');
+            a.style.display = "none";
             var md = document.querySelector('#u_md')['u.MDLayout'];
             md.dGo('card_show');
         },

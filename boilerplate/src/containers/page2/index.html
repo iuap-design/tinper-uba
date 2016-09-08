@@ -1,4 +1,132 @@
-<div class="page2">
-	<h2>页面二</h2>
-	<div id="time"></div>
+<div class="u-mdlayout" id="u_md">
+	<!--
+			左侧界面布局结束
+		  -->
+	<div class="u-mdlayout-detail">
+		<div class="u-mdlayout-page current" id="list_show">
+			<div class="u-container-fluid u-widget">
+
+				<div class="u-row">
+					<div class="u-col-12">
+						<div class="u-widget" style="margin-bottom: 5px;">
+							<button class="u-button u-button-success" data-bind="click:addClick">增加</button>
+							<button class="u-button u-button-success" data-bind="click:delClick">删除</button>
+							<button class="u-button u-button-success" data-bind="click:updClick">修改</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="u-row">
+					<div class="u-col-12">
+						<div class="u-widget">
+							<div u-meta='{"id":"list_1","type":"grid","data":"listTable_1","editType":"form","showNumCol":true,"editable":true,"onRowSelected":"rowClick"}'>
+								<div options='{"field":"vyear","dataType":"date","title":"年份"}'></div>
+								<div options='{"field":"contractUnionId","dataType":"string","title":"联保合同号"}'></div>
+								<div options='{"field":"vstatus","dataType":"string","title":"表单状态"}'></div>
+							</div>
+							<div id='pagination' class='u-pagination pagination' u-meta='{"type":"pagination","data":"listTable_1","pageChange":"pageChangeFunc1","sizeChange":"sizeChangeFunc1"}'></div>
+						</div>
+
+					</div>
+				</div>
+				<div class="u-row">
+					<div class="u-col-12">
+						<div class="u-widget">
+							<div u-meta='{"id":"list_2","type":"grid","data":"listTable_2","editType":"form","showNumCol":true,"editable":true}'>
+								<div options='{"field":"unionContractPeople","dataType":"String","title":"联保方","editType":"string"}'></div>
+								<div options='{"field":"idNumber","dataType":"String","title":"身份证/统一社会信用代码","editType":"string"}'></div>
+								<div options='{"field":"vnote","dataType":"String","title":"备注","editType":"string"}'></div>
+							</div>
+							<div id='pagination' class='u-pagination pagination' u-meta='{"type":"pagination","data":"listTable_2","pageChange":"pageChangeFunc2","sizeChange":"sizeChangeFunc2"}'></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--
+				列表页面结束
+			  -->
+
+		<div class="u-mdlayout-page" id="card_show">
+			<div class="u-container-fluid u-widget">
+				<div class="u-widget-heading">
+					<h3 class="u-widget-title">基本卡片</h3>
+				</div>
+
+				<div class="u-widget-body">
+					<div class="u-row">
+						<div class="u-col-12" style="margin-bottom:10px;">
+							<button type="button" class="u-button u-button-success" data-bind="click:saveClick">保存</button>
+							<button type="button" class="u-button u-button-success" data-bind="click:backClick">返回</button>
+						</div>
+					</div>
+
+					<div class="u-row">
+
+						<div class="u-col-md-4">
+							<div class="u-form-group" u-meta='{"type":"u-year","data":"cardTable","field":"vyear"}'>
+								<div class="u-input-group u-has-feedback" style="width:100%">
+									<label>年份</label>
+									<input type="text" class="u-form-control" id="exampleInput3">
+								</div>
+							</div>
+						</div>
+
+						<div class="u-col-md-4">
+							<div class="u-form-group" u-meta='{"type":"u-text","data":"cardTable","field":"contractUnionId"}'>
+								<div class="u-input-group u-has-feedback" style="width:100%">
+									<label>担保合同号</label>
+									<input type="text" class="u-form-control" id="exampleInput3">
+								</div>
+							</div>
+						</div>
+
+						<div class="u-col-md-4">
+							<div class="u-form-group" u-meta='{"type":"u-combobox","datasource":"formState","data":"cardTable","field":"vstatus","onlySelect":true}'>
+								<div class="u-input-group u-has-feedback" style="width:100%">
+									<label>表单状态</label>
+									<input type="text" class="u-form-control" id="exampleInput3">
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<!--
+							卡片页面主表信息填写完毕
+						-->
+					<div class="u-row">
+						<div class="u-col-12" style="text-align: right;">
+							<button class="u-button u-button-success" data-bind="click:addItemClick">增加</button>
+							<button class="u-button u-button-success" data-bind="click:delItemClick">删除</button>
+							<button class="u-button u-button-success" data-bind="">修改</button>
+
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div u-meta='{"id":"card_item","type":"grid","data":"itemTable","multiSelect":true,"showNumCol":true,"editable":true}'>
+									<div options='{"field":"unionContractPeople","dataType":"String","title":"联保方","editType":"string"}'></div>
+									<div options='{"field":"idNumber","dataType":"String","title":"身份证/统一社会信用代码","editType":"string"}'></div>
+									<div options='{"field":"vnote","dataType":"String","title":"备注","editType":"string"}'></div>
+								</div>
+								<div id='pagination' class='u-pagination pagination' u-meta='{"type":"pagination","data":"itemTable","pageChange":"pageChangeFunc3","sizeChange":"sizeChangeFunc3"}'></div>
+							</div>
+						</div>
+					</div>
+					<!--
+							卡片页面子表列表结束
+						-->
+				</div>
+			</div>
+
+		</div>
+		<!--
+				卡片页面结束
+			   -->
+	</div>
+	<!--
+				u-mdLayout-detail结束
+			   -->
+
 </div>
