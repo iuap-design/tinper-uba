@@ -19,6 +19,9 @@ module.exports = (param) => {
             filename: "static/js/bundle.js",
             publicPath: '/'
         },
+        externals: {
+            //jquery: true
+        },
         resolve: {
             extensions: [".js", ".json", ""]
         },
@@ -47,7 +50,7 @@ module.exports = (param) => {
         plugins: [
             new webpack.optimize.UglifyJsPlugin({
                 compress: {
-                    warnings: false,
+                    warnings: false
                 }
             }),
             new HtmlwebpackPlugin({
