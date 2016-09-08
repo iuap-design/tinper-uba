@@ -11,8 +11,8 @@ module.exports = {
         loader: 'style!css!less'
     }],
     "devProvidePlugin": {
-        $: "jquery",
-        jQuery: "jquery"
+        //$: "jquery",
+        //jQuery: "jquery"
     },
     //执行构建的入口
     "buildEntry": "./src/index.js",

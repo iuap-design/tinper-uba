@@ -20,7 +20,10 @@ module.exports = (param) => {
             publicPath: '/'
         },
         externals: {
-            //jquery: true
+            //"jquery": true,
+            // require("jquery") 是引用自外部模块的
+            // 对应全局变量 jQuery
+            //"jQuery": true
         },
         resolve: {
             extensions: [".js", ".json", ""]
