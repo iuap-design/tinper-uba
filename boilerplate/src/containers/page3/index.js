@@ -1,9 +1,8 @@
-require('./index.css');
 module.exports = {
-    init: function() {
+    init : function(){
         document.querySelector('#time').innerHTML = this.getTimer();
     },
-    getTimer: function() {
+    getTimer : function(){
         return new Date();
     }
 }
