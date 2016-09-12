@@ -7,7 +7,7 @@
 
 
 
-`uba` is a front-end develop tool which consist of initialize,local service,mock server,deploy. Just 5 command then the development can be done. lite and simple. 
+`uba` is a front-end develop tool which consist of initialize,local service,mock server,deploy. Just 5 command then the development can be done. lite and simple.
 
 ## Installation
 
@@ -17,22 +17,22 @@ $ npm install uba -g
 
 ## How to use
 1、first initialize the uba project.
-- `$ npm init uba-project`
+- `$ uba init uba-project`
 - `uba` will create the project.
 
 2、 Enter the project to create the project run server.
-- `$ npm server -p 9000`
+- `$ uba server -p 9000`
 
-> If you want to modify the port `-p 5000` 
+> If you want to modify the port `-p 5000`
 
 - Now open the local service `http://localhost:9000`.
 
 3、 After the development is completed to build an optimized version.
-- `$ npm build`
+- `$ uba build`
 - Build projects in our current directory.
 
 4、 publising `.war`.
-- `$ npm publish`
+- `$ uba publish`
 - `uba` will be generated in the current folder publish.
 - Open your `publish`folder to see if there is a.
 
@@ -77,4 +77,3 @@ $ uba build
 ```sh
 $ uba publish
 ```
-

@@ -10,7 +10,7 @@ module.exports = () => {
     var ubaConfig = help.getUbaConfig();
     var config = {
         bail: true,
-        entry: [ubaConfig.buildEntry],
+        entry: [ubaConfig.entry],
         output: {
             path: "build",
             filename: "static/js/[name].[chunkhash:8].js",
@@ -83,6 +83,6 @@ module.exports = () => {
             new webpack.ProvidePlugin(ubaConfig.devProvidePlugin)
         ]
     }
-    config.module.loaders = config.module.loaders.concat(ubaConfig.devLoader);
+    config.module.loaders = config.module.loaders.concat(ubaConfig.loaders);
     return config;
 }

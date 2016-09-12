@@ -1,6 +1,6 @@
 import {
     Router
-} from '../vendor/director/director';
+} from '../../vendor/director/director';
 import {
     changePage
 } from '../static/js/changePage';

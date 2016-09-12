@@ -12,7 +12,7 @@ module.exports = (param) => {
     var ubaConfig = help.getUbaConfig();
     var config = {
         devtool: "eval",
-        entry: [require.resolve("webpack-dev-server/client") + "?/", require.resolve("webpack/hot/dev-server"), ubaConfig.devEntry],
+        entry: [require.resolve("webpack-dev-server/client") + "?/", require.resolve("webpack/hot/dev-server"), ubaConfig.entry],
         output: {
             path: "/",
             pathinfo: true,
@@ -68,6 +68,6 @@ module.exports = (param) => {
             new webpack.ProvidePlugin(ubaConfig.devProvidePlugin)
         ]
     }
-    config.module.loaders = config.module.loaders.concat(ubaConfig.devLoader);
+    config.module.loaders = config.module.loaders.concat(ubaConfig.loaders);
     return config;
 }

@@ -17,13 +17,13 @@ $ npm install uba -g
 
 ## 如何使用
 1、首先初始化一个最佳实践工程
-- `$ npm init uba-project`
+- `$ uba init uba-project`
 - uba会在我们当前运行的目录下创建一个`uba-project`文件夹.
 
 2、 进入我们创建的工程文件夹，来运行调试并自动开启服务
-- `$ npm server -p 9000`
+- `$ uba server -p 9000`
 
-> 这里配置了具体端口使用 `-p` 
+> 这里配置了具体端口使用 `-p`
 
 - 这时候uba开启了本地`http://localhost:9000`的服务.
 
@@ -77,4 +77,3 @@ $ uba build
 ```sh
 $ uba publish
 ```
-

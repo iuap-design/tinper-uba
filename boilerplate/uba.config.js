@@ -2,11 +2,11 @@
  * uba config
  */
 module.exports = {
-    //开发调试模式入口
-    "devEntry": "./src/index.js",
+    //webpack入口
+    "entry": "./src/index.js",
     //调试webpack loader添加.
     //如果自定义添加在这里，还需要npm install来安装依赖的Loader. npm install less less-loader --save
-    "devLoader": [{
+    "loaders": [{
         test: /\.less$/,
         loader: 'style!css!less'
     }],
@@ -14,8 +14,6 @@ module.exports = {
         //$: "jquery",
         //jQuery: "jquery"
     },
-    //执行构建的入口
-    "buildEntry": "./src/index.js",
     //设置代理
     "devProxy": {
         '/api/**': {
