@@ -1,8 +1,6 @@
-module.exports = {
-    init: function() {
-        document.querySelector('#time').innerHTML = this.getTimer();
-    },
-    getTimer: function() {
-        return new Date();
-    }
+require('./index.css');
+require('./index.less');
+var pageHtml = require('./index.html');
+module.exports = function () {
+    document.querySelector('.content').innerHTML = pageHtml;
 }
