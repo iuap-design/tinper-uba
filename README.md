@@ -47,7 +47,7 @@ $ uba --help or -h
 
 ```sh
 1. uba init <project name>     		初始化创建web工程
-2. uba page <myPage>              添加页面
+2. uba page <myPage>                添加页面
 3. uba server -p 3000          		运行当前web工程并调试
 4. uba build   						产出全部静态资源
 5. uba publish 						发布war包到maven
