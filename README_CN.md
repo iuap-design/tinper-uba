@@ -47,11 +47,12 @@ $ uba --help or -h
 
 ```sh
 1. uba init <project name>     		初始化创建web工程
-2. uba server -p 3000          		运行当前web工程并调试
-3. uba build   						产出全部静态资源
-4. uba publish 						发布war包到maven
-5. uba --version       				显示当前uba工具版本
-6. uba --help  						查看帮助
+2. uba page <myPage>              添加页面
+3. uba server -p 3000          		运行当前web工程并调试
+4. uba build   						产出全部静态资源
+5. uba publish 						发布war包到maven
+6. uba --version       				显示当前uba工具版本
+7. uba --help  						查看帮助
 ```
 ##### 查看当前版本
 ```sh
@@ -61,6 +62,11 @@ $ uba --help or -h
 ##### 初始化最佳实践web工程
 ```sh
 $ uba init demo
+```
+
+##### 添加页面
+```sh
+$ uba page myPage
 ```
 
 ##### 运行一个调试服务
