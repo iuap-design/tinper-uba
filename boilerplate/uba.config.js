@@ -29,5 +29,13 @@ module.exports = {
         "host": "127.0.0.1",
         //本地端口，不要和webpack-dev-server的端口相同.
         "port": 9000
+    },
+    publish: {
+        command: "mvn",
+        repositoryId: "iWeb",
+        repositoryURL: "http://maven.yonyou.com/nexus/content/repositories/iWeb/",
+        artifactId: "demo",
+        groupId: "iuap.web.test",
+        version: "0.0.1-SNAPSHOT"
     }
 }
