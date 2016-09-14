@@ -1,6 +1,6 @@
 {
   "name": "uba-init",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "uba resourse",
   "main": "./bin/uba-init.js",
   "bin": {

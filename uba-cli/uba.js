@@ -75,7 +75,7 @@ switch (commands[0]) {
             );
             // process.exit(0);
             fs.copySync(boilerplatePath, path.resolve('.'));
-
+            //fs.renameSync(path.join(path.resolve('.'), '/gitignore'), path.join(path.resolve('.'), '.gitignore'));
             let args = ['install'].filter(function(e) {
                 return e;
             });
@@ -129,20 +129,20 @@ switch (commands[0]) {
         page(name);
         break;
     default:
-        help.error('命令不正确!');
+        console.log(chalk.red('命令不正确!'));
         break;
 }
 
 
 function help() {
     console.log();
-    console.log(chalk.green('1. uba init <project name>   		初始化创建web工程'));
-    console.log(chalk.green('2. uba server -p 3000   		运行当前web工程并调试'));
-    console.log(chalk.green('3. uba page <myPage>   			添加页面'));
-    console.log(chalk.green('4. uba build				产出全部静态资源'));
-    console.log(chalk.green('5. uba publish				发布war包到maven'));
-    console.log(chalk.green('6. uba --version			显示当前uba工具版本'));
-    console.log(chalk.green('7. uba --help				查看帮助'));
+    console.log(chalk.green('1. uba init <project name>   		Initialization best practices'));
+    console.log(chalk.green('2. uba server -p 3000   		Start develop server'));
+    console.log(chalk.green('3. uba page <myPage>   			Add Page'));
+    console.log(chalk.green('4. uba build				Start develop server'));
+    console.log(chalk.green('5. uba publish				Publish war to Maven'));
+    console.log(chalk.green('6. uba --version			Version'));
+    console.log(chalk.green('7. uba --help				Help'));
     console.log();
     process.exit(1);
 }
