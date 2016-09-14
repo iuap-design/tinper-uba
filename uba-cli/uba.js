@@ -9,6 +9,7 @@ const spawn = require('cross-spawn');
 const argv = require('minimist')(process.argv.slice(2));
 const pathExists = require('path-exists');
 const commands = argv._;
+const currentPath = path.resolve('.');
 
 if (commands.length === 0) {
     if (argv.version || argv.v) {
@@ -55,6 +56,8 @@ switch (commands[0]) {
         ].filter(function(e) {
             return e;
         });
+
+
         var proc = spawn('npm', args, {
             stdio: 'inherit'
         });
@@ -63,15 +66,38 @@ switch (commands[0]) {
                 console.error('`npm ' + args.join(' ') + '` failed');
                 return;
             }
-            var scriptsPath = path.resolve(
+            //释放最佳实践
+            var boilerplatePath = path.resolve(
                 process.cwd(),
                 'node_modules',
                 'uba-init',
-                'lib',
-                'init.js'
+                'boilerplate'
             );
-            var init = require(scriptsPath);
-            init(name);
+            // process.exit(0);
+            fs.copySync(boilerplatePath, path.resolve('.'));
+
+            let args = ['install'].filter(function(e) {
+                return e;
+            });
+            let proc = spawn('npm', args, {
+                stdio: 'inherit'
+            });
+            proc.on('close', function(code) {
+                if (code !== 0) {
+                    console.error('`npm ' + args.join(' ') + '` failed');
+                    return;
+                }
+                console.log(`初始化 ${name} 成功并已经安装完相应依赖包. 执行 cd ${name} 进行开发操作`);
+            });
+            // var scriptsPath = path.resolve(
+            //     process.cwd(),
+            //     'node_modules',
+            //     'uba-init',
+            //     'lib',
+            //     'init.js'
+            // );
+            // var init = require(scriptsPath);
+            // init(name);
         });
 
         break;
@@ -80,15 +106,16 @@ switch (commands[0]) {
         if (argv.p !== undefined && !isNaN(argv.p) && argv.p !== true) {
             port = argv.p;
         }
-        const server = require('../lib/server');
+        const server = require(path.resolve(process.cwd(), 'node_modules', 'uba-init', 'lib', 'server'));
         server(port);
+
         break;
     case 'build':
-        const build = require('../lib/build');
+        const build = require(path.resolve(process.cwd(), 'node_modules', 'uba-init', 'lib', 'build'));
         build();
         break;
     case 'publish':
-        const publish = require('../lib/publish');
+        const publish = require(path.resolve(process.cwd(), 'node_modules', 'uba-init', 'lib', 'publish'));
         publish();
         break;
     case 'page':
@@ -98,7 +125,8 @@ switch (commands[0]) {
         } else {
             help.help();
         }
-        require('../lib/page')(name);
+        var page = require(path.resolve(process.cwd(), 'node_modules', 'uba-init', 'lib', 'page'));
+        page(name);
         break;
     default:
         help.error('命令不正确!');

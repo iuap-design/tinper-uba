@@ -1,6 +1,6 @@
 {
   "name": "uba-cli",
-  "version": "1.0.16",
+  "version": "1.0.21",
   "description": "uba tools global cli",
   "main": "./uba.js",
   "bin": {
