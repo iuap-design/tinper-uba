@@ -75,20 +75,21 @@ switch (commands[0]) {
             );
             // process.exit(0);
             fs.copySync(boilerplatePath, path.resolve('.'));
+            console.log(chalk.cyan(`初始化 ${name} 最佳实践生成完毕，请手动在项目内运行npm install来进行开发.`));
             //fs.renameSync(path.join(path.resolve('.'), '/gitignore'), path.join(path.resolve('.'), '.gitignore'));
-            let args = ['install'].filter(function(e) {
-                return e;
-            });
-            let proc = spawn('npm', args, {
-                stdio: 'inherit'
-            });
-            proc.on('close', function(code) {
-                if (code !== 0) {
-                    console.error('`npm ' + args.join(' ') + '` failed');
-                    return;
-                }
-                console.log(`初始化 ${name} 成功并已经安装完相应依赖包. 执行 cd ${name} 进行开发操作`);
-            });
+            // let args = ['install'].filter(function(e) {
+            //     return e;
+            // });
+            // let proc = spawn('npm', args, {
+            //     stdio: 'inherit'
+            // });
+            // proc.on('close', function(code) {
+            //     if (code !== 0) {
+            //         console.error('`npm ' + args.join(' ') + '` failed');
+            //         return;
+            //     }
+            //     console.log(`初始化 ${name} 成功并已经安装完相应依赖包. 执行 cd ${name} 进行开发操作`);
+            // });
             // var scriptsPath = path.resolve(
             //     process.cwd(),
             //     'node_modules',
