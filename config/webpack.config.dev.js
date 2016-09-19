@@ -11,22 +11,22 @@ var help = require('../lib/help');
 module.exports = (param) => {
     var ubaConfig = help.getUbaConfig();
     var config = {
-        devtool: "eval",
-        entry: [require.resolve("webpack-dev-server/client") + "?/", require.resolve("webpack/hot/dev-server"), ubaConfig.entry],
+        entry: {
+            index: [require.resolve("webpack-dev-server/client") + "?/", require.resolve("webpack/hot/dev-server"), ubaConfig.entry],
+            vendor: ubaConfig.vendor
+        },
         output: {
             path: "/",
             pathinfo: true,
-            filename: "static/js/bundle.js",
-            publicPath: '/'
-        },
-        externals: {
-            //"jquery": true,
-            // require("jquery") 是引用自外部模块的
-            // 对应全局变量 jQuery
-            //"jQuery": true
+            filename: "js/[name].bundle.js",
+            publicPath: '/',
+            chunkFilename: "vendor/[id].js"
         },
         resolve: {
-            extensions: [".js", ".json", ""]
+            extensions: [".js", ".json", ""],
+            alias: {
+
+            }
         },
         module: {
             loaders: [{
@@ -58,14 +58,18 @@ module.exports = (param) => {
             }),
             new HtmlwebpackPlugin({
                 template: path.resolve('src/index.html'),
-                inject: true
+                inject: true,
+                hash: false
             }),
             new webpack.HotModuleReplacementPlugin(),
             new ExtractTextPlugin("static/css/[name].[contenthash:8].css"),
             new OpenBrowserPlugin({
                 url: `http://127.0.0.1:${param.port}`
             }),
-            new webpack.ProvidePlugin(ubaConfig.devProvidePlugin)
+            new webpack.optimize.CommonsChunkPlugin({
+                names: ['vendor']
+            })
+            //new webpack.ProvidePlugin(ubaConfig.devProvidePlugin)
         ]
     }
     config.module.loaders = config.module.loaders.concat(ubaConfig.loaders);

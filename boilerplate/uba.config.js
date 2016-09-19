@@ -10,10 +10,8 @@ module.exports = {
         test: /\.less$/,
         loader: 'style!css!less'
     }],
-    "devProvidePlugin": {
-        //$: "jquery",
-        //jQuery: "jquery"
-    },
+    //引用第三方单独打包加载配置
+    "vendor": ['./vendor/director/director'],
     //设置代理
     "devProxy": {
         '/api/**': {
@@ -30,7 +28,7 @@ module.exports = {
         //本地端口，不要和webpack-dev-server的端口相同.
         "port": 9000
     },
-    publish: {
+    "publish": {
         command: "mvn",
         repositoryId: "iWeb",
         repositoryURL: "http://maven.yonyou.com/nexus/content/repositories/iWeb/",

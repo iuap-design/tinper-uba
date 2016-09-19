@@ -10,7 +10,10 @@ module.exports = () => {
     var ubaConfig = help.getUbaConfig();
     var config = {
         bail: true,
-        entry: [ubaConfig.entry],
+        entry: {
+            index: [ubaConfig.entry],
+            vendor: ubaConfig.vendor
+        },
         output: {
             path: "build",
             filename: "static/js/[name].[chunkhash:8].js",
@@ -80,7 +83,10 @@ module.exports = () => {
                 template: 'html-withimg-loader!' + path.resolve('./src/', 'index.html'),
                 filename: 'index.html'
             }),
-            new webpack.ProvidePlugin(ubaConfig.devProvidePlugin)
+            new webpack.optimize.CommonsChunkPlugin({
+                names: ['vendor']
+            })
+            //new webpack.ProvidePlugin(ubaConfig.devProvidePlugin)
         ]
     }
     config.module.loaders = config.module.loaders.concat(ubaConfig.loaders);
