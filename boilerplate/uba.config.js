@@ -11,7 +11,7 @@ module.exports = {
         loader: 'style!css!less'
     }],
     //引用第三方单独打包加载配置
-    "vendor": ['./vendor/director/director'],
+    "vendor": ['./vendor/director/director','./vendor/jquery/jquery'],
     //设置代理
     "devProxy": {
         '/api/**': {

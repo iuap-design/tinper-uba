@@ -1,5 +1,7 @@
-require('./index.css');
-var pageHtml = require('./index.html');
-module.exports = () => {
-    document.querySelector('.content').innerHTML = pageHtml;
-}
+module.exports = {
+    init: function () {
+        require(['./index.css', './index.html'], function (css, html) {
+            document.querySelector('.content').innerHTML = html;
+        });
+    }
+};
