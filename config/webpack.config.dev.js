@@ -11,6 +11,7 @@ var help = require('../lib/help');
 module.exports = (param) => {
     var ubaConfig = help.getUbaConfig();
     var config = {
+        devtool: "source-map",
         entry: {
             index: [require.resolve("webpack-dev-server/client") + "?/", require.resolve("webpack/hot/dev-server"), ubaConfig.entry],
             vendor: ubaConfig.vendor
