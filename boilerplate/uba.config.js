@@ -1,6 +1,9 @@
 /**
  * uba config
  */
+
+const process = require('process');
+console.log(process.cwd());
 module.exports = {
     //webpack入口
     "entry": "./src/index.js",
@@ -12,7 +15,7 @@ module.exports = {
         chunkFilename: "js/vendor/[id].js"
     },
     "alias": {
-        kvkens: "../../src/static/js/kvkens"
+        //test: process.cwd() + "/src/vendor/jquery/jquery"
     },
     //调试webpack loader添加.
     //如果自定义添加在这里，还需要npm install来安装依赖的Loader. npm install less less-loader --save
@@ -21,7 +24,10 @@ module.exports = {
         loader: 'style!css!less'
     }],
     //引用第三方单独打包加载配置
-    "vendor": ['./vendor/director/director', './vendor/jquery/jquery'],
+    "vendor": [
+        './vendor/director/director',
+        './vendor/jquery/jquery.nicescroll'
+    ],
     //设置代理
     "devProxy": {
         '/api/**': {

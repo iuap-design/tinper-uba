@@ -1,7 +1,8 @@
-module.exports = {
-    init: function () {
-        require(['./index.css', './index.html'], function (css, html) {
-            document.querySelector('.content').innerHTML = html;
-        });
-    }
-};
+require('./index.css');
+
+module.exports = function() {
+    require(['./index.html', 'jquery'], function(html, K) {
+        console.log(K.fn.jquery);
+        document.querySelector('.content').innerHTML = html;
+    });
+}
