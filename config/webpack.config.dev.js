@@ -72,6 +72,8 @@ module.exports = (param) => {
             //new webpack.ProvidePlugin(ubaConfig.devProvidePlugin)
         ]
     }
+    config.output = help.merge(config.output, ubaConfig.devOutput);
+    config.resolve.alias = help.merge(config.resolve.alias, ubaConfig.alias);
     config.module.loaders = config.module.loaders.concat(ubaConfig.loaders);
     return config;
 }

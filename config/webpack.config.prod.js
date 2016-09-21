@@ -21,7 +21,8 @@ module.exports = () => {
             publicPath: '/'
         },
         resolve: {
-            extensions: [".js", ".json", ""]
+            extensions: [".js", ".json", ""],
+            alias: {}
         },
         module: {
             loaders: [{
@@ -89,6 +90,7 @@ module.exports = () => {
             //new webpack.ProvidePlugin(ubaConfig.devProvidePlugin)
         ]
     }
+    config.resolve.alias = help.merge(config.resolve.alias, ubaConfig.alias);
     config.module.loaders = config.module.loaders.concat(ubaConfig.loaders);
     return config;
 }
