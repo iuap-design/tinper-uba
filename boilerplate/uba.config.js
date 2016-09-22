@@ -3,7 +3,6 @@
  */
 
 const process = require('process');
-console.log(process.cwd());
 module.exports = {
     //webpack入口
     "entry": "./src/index.js",
@@ -15,7 +14,7 @@ module.exports = {
         chunkFilename: "js/vendor/[id].js"
     },
     "alias": {
-        //test: process.cwd() + "/src/vendor/jquery/jquery"
+
     },
     //调试webpack loader添加.
     //如果自定义添加在这里，还需要npm install来安装依赖的Loader. npm install less less-loader --save
@@ -25,9 +24,14 @@ module.exports = {
     }],
     //引用第三方单独打包加载配置
     "vendor": [
-        './vendor/director/director',
-        './vendor/jquery/jquery.nicescroll'
+        './vendor/director/director.min',
+        './vendor/jquery/jquery.min',
+        './vendor/jquery/jquery.nicescroll.min',
+        './vendor/ui/uui/u.min'
     ],
+    "externals": {
+        jQuery: 'jquery'
+    },
     //设置代理
     "devProxy": {
         '/api/**': {

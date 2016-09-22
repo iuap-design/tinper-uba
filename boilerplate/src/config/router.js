@@ -1,4 +1,7 @@
-require(['../../vendor/director/director'], function(director) {
+require(['../../vendor/director/director','../components/home/home'], function(director,home) {
+
+    home();
+
     var router = new director.Router();
 
     router.on('/page1', function() {

@@ -23,6 +23,9 @@ module.exports = (param) => {
             publicPath: '/',
             chunkFilename: "vendor/[id].js"
         },
+        externals: {
+
+        },
         resolve: {
             extensions: [".js", ".json", ""],
             alias: {
@@ -74,6 +77,7 @@ module.exports = (param) => {
         ]
     }
     config.output = help.merge(config.output, ubaConfig.devOutput);
+    config.externals = help.merge(config.externals, ubaConfig.externals);
     config.resolve.alias = help.merge(config.resolve.alias, ubaConfig.alias);
     config.module.loaders = config.module.loaders.concat(ubaConfig.loaders);
     return config;
