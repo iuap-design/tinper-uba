@@ -13,8 +13,8 @@ module.exports = (param) => {
     var config = {
         devtool: "source-map",
         entry: {
-            index: [require.resolve("webpack-dev-server/client") + "?/", require.resolve("webpack/hot/dev-server"), ubaConfig.entry],
-            vendor: ubaConfig.vendor
+            index: [require.resolve("webpack-dev-server/client") + "?/", require.resolve("webpack/hot/dev-server"), ubaConfig.index]
+                //vendor: ubaConfig.vendor
         },
         output: {
             path: "/",
@@ -77,6 +77,7 @@ module.exports = (param) => {
         ]
     }
     config.output = help.merge(config.output, ubaConfig.devOutput);
+    config.entry = help.merge(config.entry, ubaConfig.entry);
     config.externals = help.merge(config.externals, ubaConfig.externals);
     config.resolve.alias = help.merge(config.resolve.alias, ubaConfig.alias);
     config.module.loaders = config.module.loaders.concat(ubaConfig.loaders);

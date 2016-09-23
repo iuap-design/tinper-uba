@@ -1,4 +1,4 @@
-require(['../../vendor/director/director','../components/home/home'], function(director,home) {
+require(['director', '../components/home/home'], function(director, home) {
 
     home();
 

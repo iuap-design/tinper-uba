@@ -1,84 +1,84 @@
 module.exports = function() {
     require(['jquery'], function($) {
-        var setCookie = function (c_name, value, expiredays) {
-            if (getCookie(c_name) && getCookie(c_name) == value) {
-                return;
-            }
-            // console.log('getCookie:' + c_name + '|' + getCookie(c_name));
-            c_name = _getCookieName(c_name);
-            // console.log('setCookie:' + c_name + '|' + value);
-            expiredays = expiredays ? expiredays : 1;
-            var exdate = new Date();
-            exdate.setDate(exdate.getDate() + expiredays);
-            document.cookie = c_name + "=" + escape(value) + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString()) + ";path=/";
-        },
-        // get cookie
-        getCookie = function (c_name) {
-            var c_name = _getCookieName(c_name);
-            if (document.cookie.length > 0) {
-                var c_start = document.cookie.indexOf(c_name + "=");
-                if (c_start !== -1) {
-                    c_start = c_start + c_name.length + 1;
-                    var c_end = document.cookie.indexOf(";", c_start);
-                    if (c_end === -1) {
-                        c_end = document.cookie.length;
-                    }
-                    return unescape(document.cookie.substring(c_start, c_end));
+        var setCookie = function(c_name, value, expiredays) {
+                if (getCookie(c_name) && getCookie(c_name) == value) {
+                    return;
                 }
-            }
-            return null;
-        },
-
-        // delete cookie
-        delCookie = function (c_name, value) {
-
-            if (c_name !== 'csrftoken') {
+                // console.log('getCookie:' + c_name + '|' + getCookie(c_name));
                 c_name = _getCookieName(c_name);
-            }
-            var expiredays = -30;
-            var exdate = new Date();
-            exdate.setDate(exdate.getDate() + expiredays);
-            if (c_name === 'csrftoken') {
-                document.cookie = c_name + "=" + escape(value) + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString()) + ";path=/;domain=.tenxcloud.com";
-            } else {
+                // console.log('setCookie:' + c_name + '|' + value);
+                expiredays = expiredays ? expiredays : 1;
+                var exdate = new Date();
+                exdate.setDate(exdate.getDate() + expiredays);
                 document.cookie = c_name + "=" + escape(value) + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString()) + ";path=/";
-            }
+            },
+            // get cookie
+            getCookie = function(c_name) {
+                var c_name = _getCookieName(c_name);
+                if (document.cookie.length > 0) {
+                    var c_start = document.cookie.indexOf(c_name + "=");
+                    if (c_start !== -1) {
+                        c_start = c_start + c_name.length + 1;
+                        var c_end = document.cookie.indexOf(";", c_start);
+                        if (c_end === -1) {
+                            c_end = document.cookie.length;
+                        }
+                        return unescape(document.cookie.substring(c_start, c_end));
+                    }
+                }
+                return null;
+            },
 
-        },
+            // delete cookie
+            delCookie = function(c_name, value) {
 
-        // get cookie name
-        _getCookieName = function (c_name) {
-            var userName = $('.nav-bar .use .nav-t .username').attr('title');
-            userName = userName ? userName : 'normal_user';
-            c_name = userName + '_' + c_name;
-            return c_name;
-        },
+                if (c_name !== 'csrftoken') {
+                    c_name = _getCookieName(c_name);
+                }
+                var expiredays = -30;
+                var exdate = new Date();
+                exdate.setDate(exdate.getDate() + expiredays);
+                if (c_name === 'csrftoken') {
+                    document.cookie = c_name + "=" + escape(value) + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString()) + ";path=/;domain=.tenxcloud.com";
+                } else {
+                    document.cookie = c_name + "=" + escape(value) + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString()) + ";path=/";
+                }
 
-        // left nav shrink 收缩
-        _shrink = function () {
-            $('.nav-li').addClass('live-hover');
-            $('.foldingpad').addClass('rotate');
-            // $('.nav-item-list').css('left','-180px');
-            $('.page-container').css('margin-left', '55px');
-            $('.foldingpad').css('left', '65px')
-            $('.page-sidebar').css('margin-left', '-200px');
-            $('.page-small-sidebar').css('margin-left', '0px');
-            $('.global-notice').css('left', '90px')
-            setCookie('menu', '2');
-        },
-        // left nav unfold 展开
-        _unfold = function () {
-            var https = window.location.pathname;
-            setCookie('menu', '1');
-            $('.nav-li').removeClass('live-hover');
-            $('.foldingpad').removeClass('rotate');
-            // $('.nav-item-list').css('left','75px');
-            $('.page-container').css('margin-left', '200px');
-            $('.page-sidebar').css('margin-left', '0px');
-            $('.page-small-sidebar').css('margin-left', '-55px');
-            $('.global-notice').css('left', '235px')
-            $('.foldingpad').css('left', '210px')
-        };
+            },
+
+            // get cookie name
+            _getCookieName = function(c_name) {
+                var userName = $('.nav-bar .use .nav-t .username').attr('title');
+                userName = userName ? userName : 'normal_user';
+                c_name = userName + '_' + c_name;
+                return c_name;
+            },
+
+            // left nav shrink 收缩
+            _shrink = function() {
+                $('.nav-li').addClass('live-hover');
+                $('.foldingpad').addClass('rotate');
+                // $('.nav-item-list').css('left','-180px');
+                $('.page-container').css('margin-left', '55px');
+                $('.foldingpad').css('left', '65px')
+                $('.page-sidebar').css('margin-left', '-200px');
+                $('.page-small-sidebar').css('margin-left', '0px');
+                $('.global-notice').css('left', '90px')
+                setCookie('menu', '2');
+            },
+            // left nav unfold 展开
+            _unfold = function() {
+                var https = window.location.pathname;
+                setCookie('menu', '1');
+                $('.nav-li').removeClass('live-hover');
+                $('.foldingpad').removeClass('rotate');
+                // $('.nav-item-list').css('left','75px');
+                $('.page-container').css('margin-left', '200px');
+                $('.page-sidebar').css('margin-left', '0px');
+                $('.page-small-sidebar').css('margin-left', '-55px');
+                $('.global-notice').css('left', '235px')
+                $('.foldingpad').css('left', '210px')
+            };
         u.on(window, 'load', function() {
             'use strict';
             $('.foldingpad').click(function() {
@@ -112,17 +112,6 @@ module.exports = function() {
                     $(self).find('.nav-item-list').hide();
                 }
             });
-
-            // 左侧内容
-            $(".nav-menu").niceScroll({
-                cursorcolor: "#2FA4FC",
-                cursorborder: "0px solid #fff",
-                cursorborderradius: "0px",
-                cursorwidth: "3px"
-            });
-
-            $(".nav-menu").getNiceScroll().resize();
-            $(".nav-menu").getNiceScroll().show();
 
             getCookie('menu') ? getCookie('menu') : setCookie('menu', '1');
             var shrinkStatus = getCookie('menu');
