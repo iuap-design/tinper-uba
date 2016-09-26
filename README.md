@@ -1,4 +1,4 @@
-[Chinese](https://github.com/iuap-design/uba/blob/master/README_CN.md)
+[中文版本](https://github.com/iuap-design/uba/blob/master/README_CN.md)
 # uba
 
 [![npm version](https://img.shields.io/npm/v/uba.svg)](https://www.npmjs.com/package/uba)
@@ -20,18 +20,22 @@ $ npm install uba -g
 - `$ uba init uba-project`
 - `uba` will create the project.
 
+2、create a web page template
+- `uba page web01`
+- look the `src/containers/`
+
 2、 Enter the project to create the project run server.
-- `$ uba server -p 9000`
+- `$ uba server -p 5000`
 
-> If you want to modify the port `-p 5000`
+> If you want to modify the port `-p 5000` default:port 3000
 
-- Now open the local service `http://localhost:9000`.
+- Now open the local service `http://localhost:5000`.
 
 3、 After the development is completed to build an optimized version.
 - `$ uba build`
 - Build projects in our current directory.
 
-4、 publising `.war`.
+4、 publising `.war` to maven.
 - `$ uba publish`
 - `uba` will be generated in the current folder publish.
 - Open your `publish`folder to see if there is a.
@@ -79,7 +83,7 @@ $ uba server
 $ uba build
 ```
 
-##### Publishing
+##### Publishing Maven
 ```sh
 $ uba publish
 ```
