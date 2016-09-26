@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
+    <meta content="_csrf" name="csrf-param">
+    <meta content="EpdUamZM-zcHtnr-QvbsSxhcSJGaELorXTvg" name="csrf-token">
 </head>
 
 <body>
@@ -22,7 +24,7 @@
                             <a class="cursor nav-t">
                                 <div class="namespace">
                                     yunweipingtai</div>
-                                <img src="https://dn-tenx-avatars.qbox.me/user_avatar.png?imageView2/1/w/10/h/10" style="height:36px" class="username hide"><b class="caret username"></b>
+                                <img src="https://dn-tenx-avatars.qbox.me/user_avatar.png?imageView2/1/w/10/h/10" style="height:36px" class="username hide" ><b class="caret username"></b>
                             </a>
                             <input type="hidden" id="is_tenxcloud_user_guide_on" name="is_tenxcloud_user_guide_on" value="off">
                             <div class="userList">
@@ -59,7 +61,7 @@
                             <a class="nav-t">消费记录</a>
                         </li>
                         <li class="ticket">
-                            <a data-permalink onclick="_permalink(this);" class="nav-t">工单
+                            <a data-permalink class="nav-t">工单
 
                   <h id="ticketsNum" class="badge"></h>
 
@@ -79,7 +81,7 @@
         </div>
         <ul class="nav-menu">
             <li class="nav-li">
-                <a href="/" data-permalink onclick="_permalink(this);">
+                <a href="#page1" data-permalink>
                     <i class="nav-icon-dashboard nav-icon"></i>
                     <span class="nav-title">总览</span>
                 </a>
@@ -196,7 +198,7 @@
                 </div>
             </li>
             <li class="nav-li">
-                <a id="nav_accelerator" data-permalink onclick="_permalink(this);">
+                <a id="nav_accelerator" data-permalink>
                     <i class="nav-icon-rocket nav-icon"></i>
                     <span class="nav-title">免费加速器</span>
                 </a>
@@ -210,12 +212,12 @@
         </div>
         <ul id="nav-zone">
             <li class="nav-li-small">
-                <a href="/" data-permalink onclick="_permalink(this);">
+                <a href="/" data-permalink>
                     <i class="nav-icon-dashboard nav-icon"></i>
                 </a>
             </li>
             <li class='nav-li-small'>
-                <a data-permalink onclick="_permalink(this);">
+                <a data-permalink>
                     <i class="nav-icon-container nav-icon"></i>
                 </a>
                 <ul class="nav-item-hover" dataid="containers">
@@ -233,7 +235,7 @@
                 </ul>
             </li>
             <li class='nav-li-small'>
-                <a data-permalink onclick="_permalink(this);">
+                <a data-permalink>
                     <i class="nav-icon-build nav-icon"></i>
                 </a>
                 <ul class="nav-item-hover" dataid="ci">
@@ -242,7 +244,7 @@
                 </ul>
             </li>
             <li class='nav-li-small'>
-                <a data-permalink onclick="_permalink(this);">
+                <a data-permalink>
                     <i class="nav-icon-speed nav-icon"></i>
                 </a>
                 <ul class="nav-item-hover" dataid="docker-registry">
@@ -252,7 +254,7 @@
                 </ul>
             </li>
             <li class="nav-li-small">
-                <a data-permalink onclick="_permalink(this);">
+                <a data-permalink>
                     <i class="nav-icon-extend nav-icon"></i>
                 </a>
                 <ul class="nav-item-hover">
@@ -261,7 +263,7 @@
                 </ul>
             </li>
             <li class='nav-li-small'>
-                <a data-permalink onclick="_permalink(this);">
+                <a data-permalink>
                     <i class="nav-icon-mirror nav-icon"></i>
                 </a>
                 <ul class="nav-item-hover" dataid="server-arrange">
@@ -270,14 +272,13 @@
                 </ul>
             </li>
             <li class="nav-li-small">
-                <a data-permalink onclick="_permalink(this);">
+                <a data-permalink>
                     <i class="nav-icon-rocket nav-icon"></i>
                 </a>
             </li>
         </ul>
     </div>
-    <div id="designerEdit" style="margin-top:70px">
-
+    <div id="yunwei" class="page-container" style="background:#f5f6f6">
     </div>
 </body>
 

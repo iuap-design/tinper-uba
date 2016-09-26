@@ -26,18 +26,32 @@ module.exports = {
         test: path.resolve(path.join(__dirname), './vendor/jquery/jquery.js'),
         loader: "expose?$!expose?jQuery"
     }, {
-        test: path.resolve(path.join(__dirname), './vendor/director/director.min'),
+        test: path.resolve(path.join(__dirname), './vendor/director/director.min.js'),
         loader: "expose?director"
     }, {
-        test: path.resolve(path.join(__dirname), './vendor/knockout/knockout-latest'),
+        test: path.resolve(path.join(__dirname), './vendor/knockout/knockout-latest.js'),
         loader: "expose?ko"
     }],
+    // , {
+    //     test: path.resolve(path.join(__dirname), './vendor/ui/uui/u-grid.min.js'),
+    //     loader: "expose?grid"
+    // }
     //引用第三方单独打包加载配置
     "entry": {
-        "vendor": ['./vendor/jquery/jquery', './vendor/director/director.min', './vendor/knockout/knockout-latest', './vendor/ui/uui/u.min']
+        "vendor": [
+            './vendor/jquery/jquery.js',
+            './vendor/director/director.min.js',
+            './vendor/knockout/knockout-latest.js',
+            './vendor/ui/uui/u.js',
+            './vendor/ui/uui/u-grid.js'
+        ]
     },
+    "ProvidePlugin": {
+
+    },
+    //key:内部变量，如：require("jquery")，value:外部变量，如window.jQuery
     "externals": {
-        jQuery: 'jquery',
+        jquery: 'jQuery',
         director: 'director',
         ko: 'ko'
     },

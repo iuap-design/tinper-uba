@@ -1,1 +1,30 @@
-{"success":true,"msg":"来自page1的后台模拟数据"}
+{
+    "success": true,
+    "hh":"xx",
+    "msg": [{
+        "vyear": "2016",
+        "contractUnionId": "20160101",
+        "vstatus": "开立"
+    }, {
+        "vyear": "2016",
+        "contractUnionId": "20160102",
+        "vstatus": "关闭"
+    }, {
+        "vyear": "2017",
+        "contractUnionId": "20160102",
+        "vstatus": "关闭"
+    }],
+    "msg1":[{
+        "unionContractPeople": "张三",
+        "idNumber": "20160101",
+        "vnote": "开立"
+    }, {
+        "unionContractPeople": "李四",
+        "idNumber": "20160101",
+        "vnote": "开立"
+    }, {
+        "unionContractPeople": "王五",
+        "idNumber": "20160101",
+        "vnote": "开立"
+    }]
+}

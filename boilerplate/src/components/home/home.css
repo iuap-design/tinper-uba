@@ -391,6 +391,7 @@ li.last>h5 {
 }
 
 .page-container {
+    padding-top: 70px;
     margin-left: 200px;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;

@@ -72,8 +72,8 @@ module.exports = (param) => {
             }),
             new webpack.optimize.CommonsChunkPlugin({
                 names: ['vendor']
-            })
-            //new webpack.ProvidePlugin(ubaConfig.devProvidePlugin)
+            }),
+            new webpack.ProvidePlugin(ubaConfig.ProvidePlugin)
         ]
     }
     config.output = help.merge(config.output, ubaConfig.devOutput);
