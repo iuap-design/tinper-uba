@@ -42,6 +42,10 @@ $ npm install uba -g
 - `uba` 会把我们当前构建出的静态资源进行一个打包操作并且会执行mvn命令发布到指定配置的Maven.
 - 打开你的`publish`文件夹看看，是不是有一个`dist.war`在那里?
 
+## 文件说明
+
+待补充...
+
 ## API
 
 ---
@@ -110,10 +114,29 @@ $ uba publish
 
 **注:(修改uba.config文件必须重新启动服务`uba server`)**
 
+
 **2、我想使用一个第三方的脚本库需要怎么去做？**
 
 目前uba内置了几款Neoui最佳实践所必须的插件：`jQuery`、`director.js`、`knockout`、`u.js`.
 
-如果需要使用别的第三方插件，需要知道该插件是否为正规npm + github开源方式，比如需要加载`lodash.js`
+如果需要使用别的第三方插件，需要知道该插件是否为正规npm + github开源方式，比如需要加载`lodash.js`它是有在npm发布的开源插件，可以按照如下：
+
+`npm install lodash --save`
+
+在入口的js里面这样去使用采用amd方式，uba推荐使用这种方式去开发.
+```js
+require(['lodash'],function(_){
+    console.log(_.bind);
+});
+```
+如果不想第三方插件和自己写的脚本混在一起打包，可以单独设置第三方统一打包在vendor里面：
+```js
+"entry": {
+        "vendor": ['jquery', 'backbone']
+    }
+```
+这样jQuery和Backbone就都会在单独的vendor里面存放，不会影响我们自己写的脚本.
+
+通常来说，能通过npm install加载的插件是极好的，但是总有一些是不那么正规的插件，这样就需要手动来做一些库的存放等.
 
 
