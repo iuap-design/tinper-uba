@@ -1,5 +1,4 @@
 'use strict';
-
 var path = require('path');
 var fs = require('fs');
 var webpack = require('webpack');
@@ -14,7 +13,6 @@ module.exports = (param) => {
         devtool: "source-map",
         entry: {
             index: [require.resolve("webpack-dev-server/client") + "?/", require.resolve("webpack/hot/dev-server"), ubaConfig.index]
-                //vendor: ubaConfig.vendor
         },
         output: {
             path: "/",
