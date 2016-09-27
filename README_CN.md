@@ -89,3 +89,31 @@ $ uba build
 ```sh
 $ uba publish
 ```
+
+## uba 开发指南
+**1、我想用uba开发react应用，不支持jsx语法怎么办？**
+
+首先在生成完的最佳实践内找到`uba.config.js`文件，找到`loaders`字段，添加如下配置：
+```js
+"loaders": [{
+        test: /\.(js|jsx)$/,
+        loader: 'babel',
+        query: {
+            presets: ['es2015', 'react']
+        },
+        exclude: /node_modules/
+    }]
+```
+然后需要安装此解析jsx react的loader即可.
+
+`npm install babel-preset-react --save`
+
+**注:(修改uba.config文件必须重新启动服务`uba server`)**
+
+**2、我想使用一个第三方的脚本库需要怎么去做？**
+
+目前uba内置了几款Neoui最佳实践所必须的插件：`jQuery`、`director.js`、`knockout`、`u.js`.
+
+如果需要使用别的第三方插件，需要知道该插件是否为正规npm + github开源方式，比如需要加载`lodash.js`
+
+
