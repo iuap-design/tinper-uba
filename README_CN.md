@@ -1,9 +1,9 @@
-[English](https://github.com/iuap-design/uba/blob/master/README_CN.md)
-# uba
+[English](https://github.com/iuap-design/tinper-uba/blob/master/README_CN.md)
+# tinper-uba
 
-[![npm version](https://img.shields.io/npm/v/uba.svg)](https://www.npmjs.com/package/uba)
-[![Build Status](https://img.shields.io/travis/iuap-design/uba/master.svg)](https://travis-ci.org/iuap-design/uba)
-[![devDependency Status](https://img.shields.io/david/dev/iuap-design/uba.svg)](https://david-dm.org/iuap-design/uba#info=devDependencies)
+[![npm version](https://img.shields.io/npm/v/tinper-uba.svg)](https://www.npmjs.com/package/uba)
+[![Build Status](https://img.shields.io/travis/iuap-design/tinper-uba/master.svg)](https://travis-ci.org/iuap-design/tinper-uba)
+[![devDependency Status](https://img.shields.io/david/dev/iuap-design/tinper-uba.svg)](https://david-dm.org/iuap-design/tinper-uba#info=devDependencies)
 
 
 
@@ -218,8 +218,3 @@ uba在这里非常不提倡这种打破内部工作机制去实现非常不优�
 }
 ```
 externals对象内的key代表的是通过`require('backbone')`方式所使用的名字，value对应的就是我们外部暴露的全局名字.做一下这样的外部到内部的关联后，就可以使用了.
-
-
-
-
-
