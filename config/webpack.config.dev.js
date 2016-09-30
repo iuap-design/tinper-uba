@@ -35,10 +35,6 @@ module.exports = (param) => {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract("style", "css")
             }, {
-                test: /\.js$/,
-                loader: "babel-loader?presets[]=es2015",
-                exclude: /node_modules/
-            }, {
                 test: /\.json$/,
                 loader: "json"
             }, {
@@ -50,6 +46,13 @@ module.exports = (param) => {
                 query: {
                     name: "static/media/[name].[hash:8].[ext]"
                 }
+            }, {
+                test: /\.(js|jsx)$/,
+                loader: 'babel',
+                query: {
+                    presets: ['es2015', 'react']
+                },
+                exclude: /node_modules/
             }]
         },
         plugins: [
