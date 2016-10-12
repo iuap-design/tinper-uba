@@ -75,7 +75,7 @@ switch (commands[0]) {
             );
             // process.exit(0);
             fs.copySync(boilerplatePath, path.resolve('.'));
-            console.log(chalk.cyan(`初始化 ${name} 最佳实践生成完毕，请手动在项目内运行npm install来进行开发.`));
+            console.log(chalk.cyan(`初始化 ${name} 最佳实践生成完毕，请手动在项目内运行npm install安装依赖包.`));
             //fs.renameSync(path.join(path.resolve('.'), '/gitignore'), path.join(path.resolve('.'), '.gitignore'));
             // let args = ['install'].filter(function(e) {
             //     return e;

@@ -1,24 +1,6 @@
 {
-  "name": "uba-init",
+  "name": "web",
   "private": true,
-  "description": "uba resourse",
-  "author": "Yonyou FED",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iuap-design/uba.git"
-  },
-  "bugs": {
-    "url": "https://github.com/iuap-design/uba/issues"
-  },
-  "homepage": "https://github.com/iuap-design/uba#readme",
-  "keywords": [
-    "uba",
-    "design",
-    "iuap",
-    "yyuap",
-    "yonyou"
-  ],
   "dependencies": {
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
@@ -43,6 +25,7 @@
     "path-exists": "^3.0.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "uba-init":"latest",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",

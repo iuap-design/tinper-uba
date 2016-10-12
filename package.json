@@ -1,24 +1,17 @@
 {
   "name": "uba-init",
-  "version": "0.0.46",
-  "description": "uba resourse",
-  "main": "./bin/uba-init.js",
-  "bin": {
-    "uba-init": "./bin/uba-init.js"
-  },
-  "scripts": {
-
-  },
+  "version": "0.0.48",
+  "description": "uba libs",
   "author": "Yonyou FED",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iuap-design/uba.git"
+    "url": "git+https://github.com/iuap-design/tinper-uba.git"
   },
   "bugs": {
-    "url": "https://github.com/iuap-design/uba/issues"
+    "url": "https://github.com/iuap-design/tinper-uba/issues"
   },
-  "homepage": "https://github.com/iuap-design/uba#readme",
+  "homepage": "https://github.com/iuap-design/tinper-uba#readme",
   "keywords": [
     "uba",
     "design",
