@@ -1,7 +1,12 @@
 {
-  "name": "uba-init",
-  "version": "0.0.48",
-  "description": "uba libs",
+  "name": "uba",
+  "version": "1.4.0",
+  "description": "uba tools global cli",
+  "main": "bin/uba.js",
+  "bin": {
+    "uba": "bin/uba.js"
+  },
+  "scripts": {},
   "author": "Yonyou FED",
   "license": "ISC",
   "repository": {
@@ -20,9 +25,11 @@
     "yonyou"
   ],
   "dependencies": {
-
+    "chalk": "^1.1.3",
+    "cross-spawn": "^4.0.0",
+    "fs-extra": "^0.30.0",
+    "minimist": "^1.2.0",
+    "path-exists": "^3.0.0"
   },
-  "devDependencies": {
-
-  }
+  "devDependencies": {}
 }
