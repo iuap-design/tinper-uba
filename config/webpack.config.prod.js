@@ -1,3 +1,10 @@
+/**
+ * Module : uba webpack build
+ * Author : Kvkens(yueming@yonyou.com)
+ * Date	  : 2016-10-13 19:51:37
+ * Update : 2016-10-13 19:51:43
+ */
+
 'use strict';
 const path = require("path");
 const webpack = require("webpack");

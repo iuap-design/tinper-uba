@@ -1,3 +1,10 @@
+/**
+ * Module : uba webpack develop server
+ * Author : Kvkens(yueming@yonyou.com)
+ * Date	  : 2016-10-13 19:57:28
+ * Update : 2016-10-13 19:57:34
+ */
+
 'use strict';
 var path = require('path');
 var fs = require('fs');
