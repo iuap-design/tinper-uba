@@ -20,6 +20,7 @@ $ npm install uba -g
 
 **第一次使用之前需要查看uba官方提供哪些最佳实践模板**
 - `$ uba list`
+- [uba-templates](https://github.com/uba-templates)仓库用于存放最佳实践模板.
 
 > 目前只有一个iuap最佳实践模板
 

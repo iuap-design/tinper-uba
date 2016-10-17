@@ -1,10 +1,10 @@
 {
-  "name": "uba-cli",
-  "version": "1.4.3",
+  "name": "uba",
+  "version": "1.4.0",
   "description": "uba tool",
   "main": "bin/uba.js",
   "bin": {
-    "uba-cli": "bin/uba.js"
+    "uba": "bin/uba.js"
   },
   "scripts": {},
   "author": "Yonyou FED",
@@ -22,7 +22,10 @@
     "design",
     "iuap",
     "yyuap",
-    "yonyou"
+    "yonyou",
+    "sparrow",
+    "neoui",
+    "tinper-uba"
   ],
   "dependencies": {
     "chalk": "^1.1.3",
