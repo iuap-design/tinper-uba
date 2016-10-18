@@ -57,7 +57,9 @@ switch (commands[0]) {
         if (commands[1]) {
             name = commands[1];
         } else {
-            help.help();
+            // help.help();
+            console.log(chalk.red('命令不正确!  语法：uba page name'));
+            process.exit(1);
         }
         const page = require('../lib/page');
         page(name);
