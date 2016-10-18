@@ -2,7 +2,7 @@
  * Module : uba webpack build
  * Author : Kvkens(yueming@yonyou.com)
  * Date	  : 2016-10-13 19:51:37
- * Update : 2016-10-13 19:51:43
+ * Update : 2016-10-18 14:41:34
  */
 
 'use strict';
@@ -24,7 +24,7 @@ module.exports = () => {
                 path: "build",
                 filename: "static/js/[name].[chunkhash:8].js",
                 chunkFilename: "static/js/[name].[chunkhash:8].chunk.js",
-                publicPath: '/'
+                publicPath: './'
             },
             resolve: {
                 extensions: [".js", ".json", ""],
@@ -32,8 +32,11 @@ module.exports = () => {
             },
             module: {
                 loaders: [{
-                    test: /\.js$/,
-                    loader: "babel-loader?presets[]=es2015",
+                    test: /\.(js|jsx)$/,
+                    loader: 'babel',
+                    query: {
+                        presets: ['es2015', 'react']
+                    },
                     exclude: /node_modules/
                 }, {
                     test: /\.css$/,
@@ -99,7 +102,7 @@ module.exports = () => {
         // config.resolve.alias = help.merge(config.resolve.alias, ubaConfig.alias);
         // config.module.loaders = config.module.loaders.concat(ubaConfig.loaders);
 
-    // config.output = help.merge(config.output, ubaConfig.devOutput);
+    config.output = help.merge(config.output, ubaConfig.buildOutput);
     config.entry = help.merge(config.entry, ubaConfig.entry);
     config.externals = help.merge(config.externals, ubaConfig.externals);
     config.resolve.alias = help.merge(config.resolve.alias, ubaConfig.alias);
