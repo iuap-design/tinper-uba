@@ -20,7 +20,7 @@ const help = require('../lib/help');
 
 if (commands.length === 0) {
     if (argv.version || argv.v) {
-        console.log(require('../package.json').version);
+        console.log(chalk.green(require('../package.json').version));
     } else {
         help.help();
     }
@@ -58,13 +58,13 @@ switch (commands[0]) {
             name = commands[1];
         } else {
             // help.help();
-            console.log(chalk.red('命令不正确!  语法：uba page name'));
+            help.error('命令不正确!\n语法:uba page name');
             process.exit(1);
         }
         const page = require('../lib/page');
         page(name);
         break;
     default:
-        console.log(chalk.red('命令不正确!'));
+        help.error('命令不正确!\n语法:uba --help');
         break;
 }
