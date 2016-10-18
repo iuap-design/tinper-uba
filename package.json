@@ -1,6 +1,6 @@
 {
   "name": "uba",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "uba tool",
   "main": "bin/uba.js",
   "bin": {
@@ -36,6 +36,7 @@
     "gulp": "^3.9.1",
     "gulp-zip": "^3.2.0",
     "html-webpack-plugin": "^2.22.0",
+    "minimist": "^1.2.0",
     "open-browser-webpack-plugin": "0.0.2",
     "request": "^2.75.0",
     "webpack": "^1.13.2",
