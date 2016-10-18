@@ -1,6 +1,6 @@
 #1.4.0
 
-+ uba新的架构调整.
++ uba新的架构调整,本地端->远程端的模式来加载.
 + 增加在线最佳实践浏览命令 `uba list`.
 + 创建单独[uba-templates](https://github.com/uba-templates)仓库用于存放最佳实践模板.
 * 修改初始化命令参数 `uba init iuap name` (iuap最佳实践名称是通过uba list所查询得到).

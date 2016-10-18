@@ -53,16 +53,8 @@ switch (commands[0]) {
         publish();
         break;
     case 'page':
-        var name = null;
-        if (commands[1]) {
-            name = commands[1];
-        } else {
-            // help.help();
-            help.error('命令不正确!\n语法:uba page name');
-            process.exit(1);
-        }
         const page = require('../lib/page');
-        page(name);
+        page(commands);
         break;
     default:
         help.error('命令不正确!\n语法:uba --help');
