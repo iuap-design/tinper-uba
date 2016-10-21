@@ -61,7 +61,8 @@ module.exports = () => {
                 // 对应全局变量 jQuery
                 //"jquery": true
             },
-            plugins: [new HtmlWebpackPlugin({
+            plugins: [
+              new HtmlWebpackPlugin({
                     inject: true,
                     template: path.resolve('src/index.html'),
                     minify: {
@@ -76,7 +77,10 @@ module.exports = () => {
                         minifyCSS: true,
                         minifyURLs: true
                     }
-                }), new webpack.optimize.OccurrenceOrderPlugin(), new webpack.optimize.DedupePlugin(), new webpack.optimize.UglifyJsPlugin({
+                }),
+                new webpack.optimize.OccurrenceOrderPlugin(),
+                new webpack.optimize.DedupePlugin(),
+                new webpack.optimize.UglifyJsPlugin({
                     compress: {
                         screw_ie8: true,
                         warnings: false
@@ -88,7 +92,8 @@ module.exports = () => {
                         comments: false,
                         screw_ie8: true
                     }
-                }), new ExtractTextPlugin("static/css/[name].[contenthash:8].css"),
+                }),
+                new ExtractTextPlugin("static/css/[name].[contenthash:8].css"),
                 new HtmlWebpackPlugin({
                     template: 'html-withimg-loader!' + path.resolve('./src/', 'index.html'),
                     filename: 'index.html'
