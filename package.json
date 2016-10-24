@@ -42,7 +42,9 @@
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "path-exists": "^3.0.0"
+  },
   "engines": {
     "node": ">=4.0.0"
   }
