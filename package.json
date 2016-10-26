@@ -1,12 +1,14 @@
 {
   "name": "uba",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "uba tool",
   "main": "bin/uba.js",
   "bin": {
     "uba": "bin/uba.js"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "mocha --require babel-register -w --colors ./test/*.spec.js"
+  },
   "author": "Yonyou FED",
   "license": "ISC",
   "repository": {
