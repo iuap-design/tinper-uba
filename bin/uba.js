@@ -13,10 +13,10 @@ const path = require('path');
 const chalk = require('chalk');
 const spawn = require('cross-spawn');
 const argv = require('minimist')(process.argv.slice(2));
+
 const commands = argv._;
 const currentPath = path.resolve('.');
 const help = require('../lib/help');
-
 
 if (commands.length === 0) {
     if (argv.version || argv.v) {
