@@ -1,14 +1,5 @@
 #!/usr/bin/env node
 
-/**
- * Module : uba boots
- * Author : Kvkens(yueming@yonyou.com)
- * Date	  : 2016-10-13 19:51:37
- * Update : 2016-10-13 19:51:43
- */
-
-'use strict';
-
 const path = require('path');
 const chalk = require('chalk');
 const spawn = require('cross-spawn');
