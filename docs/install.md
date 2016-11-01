@@ -1,6 +1,6 @@
 ## 如何安装
 
-uba是需要安装到全局npm环境使用.
+推荐使用 `npm` 将 `uba` 进行全局安装使用.
 
 ```sh
 $ npm install uba -g

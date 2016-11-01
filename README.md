@@ -1,4 +1,4 @@
-[中文版本](https://github.com/iuap-design/tinper-uba/blob/master/README_CN.md)
+[中文版本](https://github.com/iuap-design/tinper-uba/blob/master/docs/README.md)
 # tinper-uba
 
 [![npm version](https://img.shields.io/npm/v/uba.svg)](https://www.npmjs.com/package/uba)
