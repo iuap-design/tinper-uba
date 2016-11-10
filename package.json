@@ -42,10 +42,10 @@
     "open-browser-webpack-plugin": "0.0.2",
     "request": "^2.75.0",
     "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "path-exists": "^3.0.0"
   },
   "devDependencies": {
-    "path-exists": "^3.0.0"
   },
   "engines": {
     "node": ">=4.0.0"
