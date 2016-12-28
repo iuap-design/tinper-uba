@@ -17,8 +17,16 @@ $ npm install uba -g
 
 ## How to use
 1、first initialize the uba project.
-- `$ uba init uba-project`
+
+**Before the first use need to see what UBA official best practice template**
+- `$ uba list`
+- [uba-templates](https://github.com/uba-templates) Warehouse for best practice template.
+- `uba list` view online project.
+- `$ uba init iuap my-project`
 - `uba` will create the project.
+
+> If you want to use third party best practices`uba init username/project my-project`To use GitHub's own warehouse as best practice.
+
 
 2、create a web page template
 - `uba page web01`
@@ -50,22 +58,29 @@ $ uba --help or -h
 ```
 
 ```sh
-1. uba init <project name>     		Initialization best practices
-2. uba page <myPage>                Add Page
-3. uba server -p 3000          		Start develop server
-4. uba build   						Constructing optimization static resources
-5. uba publish 						Publish war to Maven
-6. uba --version       				Version
-7. uba --help  						Help
+1. uba init <template-name> <project-name>   Generate best practices
+2. uba list   		                     List available official templates
+3. uba server   		             Start develop server
+4. uba page <my-page>   		     Add Page
+5. uba build				     Build static resource
+6. uba publish				     Publish war to Maven
+7. uba --version or -v		   	     Version
+8. uba --help or -h			     Help
 ```
 ##### version
 ```sh
 $ uba --help or -h
 ```
 
+##### View online
+```sh
+$ uba list
+```
+
+
 ##### Initialize
 ```sh
-$ uba init demo
+$ uba init iuap my-page
 ```
 
 ##### Add page

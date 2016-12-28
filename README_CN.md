@@ -22,12 +22,13 @@ $ npm install uba -g
 - `$ uba list`
 - [uba-templates](https://github.com/uba-templates)仓库用于存放最佳实践模板.
 
-> 目前只有一个iuap最佳实践模板
 
 
 1、首先初始化一个最佳实践工程
 - `$ uba init iuap uba-project`
 - uba会在我们当前运行的目录下创建一个`uba-project`文件夹来自iuap模板.
+
+> 如果想使用第三方最佳实践的话`uba init username/project my-project`来使用github自己的仓库作为最佳实践.
 
 2、使用`uba page web01`来创建基本的页面结构组织.
 
