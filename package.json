@@ -1,6 +1,6 @@
 {
   "name": "uba",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "description": "a font-end develop tool for tinper",
   "main": "bin/uba.js",
   "bin": {
