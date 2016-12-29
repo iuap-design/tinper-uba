@@ -1,3 +1,13 @@
+#2.0.0
+
++ `uba`架构调整拆分过多依赖模块如：`webpack`
++ `uba`初始化最佳实践模式优化，采用人机交互方式选择.
++ `uba`核心模块拆分.
++ [uba-templates](https://github.com/uba-templates) 新的开发规范.
++ `uba`原有命令拆分.剖离出`uba init`,`uba server`,`uba list`直接输入`uba`命令来体验.
+
+---
+
 #1.4.0
 
 + uba新的架构调整,本地端->远程端的模式来加载.
