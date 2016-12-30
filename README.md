@@ -1,104 +1,50 @@
-[中文版本](https://github.com/iuap-design/tinper-uba/blob/master/docs/README.md)
 # tinper-uba
+![image](http://tinper.org/assets/images/about-us-uba.jpg)
 
 [![npm version](https://img.shields.io/npm/v/uba.svg)](https://www.npmjs.com/package/uba)
 [![Build Status](https://img.shields.io/travis/iuap-design/tinper-uba/master.svg)](https://travis-ci.org/iuap-design/tinper-uba)
 [![devDependency Status](https://img.shields.io/david/dev/iuap-design/tinper-uba.svg)](https://david-dm.org/iuap-design/tinper-uba#info=devDependencies)
 [![NPM downloads](http://img.shields.io/npm/dm/uba.svg?style=flat)](https://npmjs.org/package/uba)
 
+## 介绍
+uba 是一款前端开发工具，它可以为您提供多种最佳实践，通过[uba-templates](https://github.com/uba-templates)仓库来进行更新维护，提供多种多样风格技术功能点来选择所需要的最佳实践模板。
 
-`uba` is a front-end develop tool which consist of initialize,local service,mock server,deploy. Just 5 command then the development can be done. lite and simple.
+## 功能
+uba可以远程获取到uba-templates官方仓库内的最佳实践，通过人机交互的方式来选择所需要的最佳实践，步骤化的去引导用户来初始化使用，包括一些需要手工来完成的命令uba已经做到了自动化去处理。
 
-## Installation
+## 快速上手
 
+### 安装
+- 安装[node.js](http://nodejs.org/)开发环境.(node > 4.x && npm > 2.x)
+- `npm install uba -g` 进行全局命令行安装(需注意权限问题是否需要`sudo`)
+- 安装完成后输入`uba -v`如果出现版本号说明安装成功
+
+
+### 使用
+打开命令终端，直接输入`uba`即可.
+
+uba会显示目前在线可使用的最佳实践名字与介绍.
+
+远程信息加载完毕后，可以看到目前在线的最佳实践模板，通过操作小箭头上、下来选择我们想要的项目，，输入工程名以及是否要自动安装项目npm依赖包等便捷操作.
+
+
+## 文档
+### 创建最佳实践
 ```sh
-$ npm install uba -g
+uba
 ```
 
-## How to use
-1、first initialize the uba project.
-
-**Before the first use need to see what UBA official best practice template**
-- `$ uba list`
-- [uba-templates](https://github.com/uba-templates) Warehouse for best practice template.
-- `uba list` view online project.
-- `$ uba init iuap my-project`
-- `uba` will create the project.
-
-> If you want to use third party best practices`uba init username/project my-project`To use GitHub's own warehouse as best practice.
-
-
-2、create a web page template
-- `uba page web01`
-- look the `src/containers/`
-
-2、 Enter the project to create the project run server.
-- `$ uba server -p 5000`
-
-> If you want to modify the port `-p 5000` default:port 3000
-
-- Now open the local service `http://localhost:5000`.
-
-3、 After the development is completed to build an optimized version.
-- `$ uba build`
-- Build projects in our current directory.
-
-4、 publising `.war` to maven.
-- `$ uba publish`
-- `uba` will be generated in the current folder publish.
-- Open your `publish`folder to see if there is a.
-
-## API Documentation
-
----
-##### help
-
+### 当前版本
 ```sh
-$ uba --help or -h
+uba -v
 ```
 
+### 当前帮助
 ```sh
-1. uba init <template-name> <project-name>   Generate best practices
-2. uba list   		                     List available official templates
-3. uba server   		             Start develop server
-4. uba page <my-page>   		     Add Page
-5. uba build				     Build static resource
-6. uba publish				     Publish war to Maven
-7. uba --version or -v		   	     Version
-8. uba --help or -h			     Help
-```
-##### version
-```sh
-$ uba --help or -h
+uba -h
 ```
 
-##### View online
-```sh
-$ uba list
-```
+## 如何参与贡献
+fork我们的工程到您的repo里面，通过git来提交给我们pr，我们真诚希望您的参与,使我们变得更好
 
-
-##### Initialize
-```sh
-$ uba init iuap my-page
-```
-
-##### Add page
-```sh
-$ uba page myPage
-```
-
-##### Develop
-```sh
-$ uba server
-```
-
-##### Build
-```sh
-$ uba build
-```
-
-##### Publishing Maven
-```sh
-$ uba publish
-```
+## Licence
