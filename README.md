@@ -1,4 +1,3 @@
-# Tinper-uba
 ![image](http://tinper.org/assets/images/tinperlogos32.png)
 ----
 [![npm version](https://img.shields.io/npm/v/uba.svg)](https://www.npmjs.com/package/uba)
