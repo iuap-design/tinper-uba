@@ -1,6 +1,6 @@
 # Tinper-uba
-![image](http://tinper.org/assets/images/about-us-uba.jpg)
-
+![image](http://tinper.org/assets/images/tinperlogos32.png)
+----
 [![npm version](https://img.shields.io/npm/v/uba.svg)](https://www.npmjs.com/package/uba)
 [![Build Status](https://img.shields.io/travis/iuap-design/tinper-uba/master.svg)](https://travis-ci.org/iuap-design/tinper-uba)
 [![devDependency Status](https://img.shields.io/david/dev/iuap-design/tinper-uba.svg)](https://david-dm.org/iuap-design/tinper-uba#info=devDependencies)
