@@ -8,8 +8,6 @@
 ## 介绍
 `uba`是一款前端开发工具，它可以为您提供多种最佳实践，通过[uba-templates](https://github.com/uba-templates)仓库来进行更新维护，提供多种多样风格技术功能点来选择所需要的最佳实践模板。
 
-`uba`不光可以使用官方[uba-templates](https://github.com/uba-templates)所提供的最佳实践仓库，还可以使用第三方的仓库来初始化最佳实践。不局限于该仓库内的最佳实践。
-
 ## 功能
 `uba`可以远程获取到[uba-templates](https://github.com/uba-templates)官方仓库内的最佳实践，通过人机交互的方式来选择所需要的最佳实践，步骤化的去引导用户来初始化使用，包括一些需要手工来完成的命令uba已经做到了自动化去处理。
 
