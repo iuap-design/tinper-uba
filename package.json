@@ -1,6 +1,6 @@
 {
   "name": "uba",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "a font-end develop tool for tinper",
   "main": "bin/uba.js",
   "bin": {
@@ -32,6 +32,7 @@
     "commander": "^2.9.0",
     "cross-spawn": "^5.0.1",
     "download-git-repo": "^0.2.1",
+    "fs-extra": "^1.0.0",
     "inquirer": "^2.0.0",
     "minimist": "^1.2.0",
     "path-exists": "^3.0.0",

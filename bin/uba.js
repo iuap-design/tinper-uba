@@ -15,4 +15,12 @@ if (commands.length === 0) {
         const init = require('../lib/init');
         init();
     }
+} else {
+    switch (commands[0]) {
+        case 'init':
+            require('../lib/quick')(commands);
+            break;
+        default:
+            break;
+    }
 }
