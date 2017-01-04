@@ -5,3 +5,4 @@
 - [x] [快速上手](./getting-started.md)
 - [x] [uba 命令行说明](./how-to-use-cli.md)
 - [x] [最佳实践项目工程](./uba-templates-intro.md)
+- [x] [如何参与最佳实践开发](./how-to-boilerplate-in-development.md)

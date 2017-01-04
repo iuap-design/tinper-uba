@@ -1,3 +1,5 @@
+# tinper-uba
+---
 <img src="http://tinper.org/assets/images/uba.png" width="120" />
 ---
 [![npm version](https://img.shields.io/npm/v/uba.svg)](https://www.npmjs.com/package/uba)
@@ -9,7 +11,7 @@
 `uba`是一款前端开发工具，它可以为您提供多种最佳实践，通过[uba-templates](https://github.com/uba-templates)仓库来进行更新维护，提供多种多样风格技术功能点来选择所需要的最佳实践模板。
 
 ## 功能
-`uba`可以远程获取到[uba-templates](https://github.com/uba-templates)官方仓库内的最佳实践，通过人机交互的方式来选择所需要的最佳实践，步骤化的去引导用户来初始化使用，包括一些需要手工来完成的命令uba已经做到了自动化去处理。
+`uba`可以远程获取到[uba-templates](https://github.com/uba-templates)官方仓库内的最佳实践，通过人机交互的方式来选择所需要的最佳实践，步骤化的去引导用户来初始化使用，包括一些需要手工来完成的命令`uba`已经做到了自动化去处理。
 
 ## 快速上手
 
@@ -30,6 +32,7 @@
 
 ```sh
 # 打开uba界面
+
 $ uba
 ```
 
@@ -41,12 +44,13 @@ $ uba
 $ uba -v
 ```
 
-### 当前帮助
+### 帮助
 ```sh
 $ uba -h
 ```
 
 ## 如何参与贡献
-fork我们的工程到您的repo里面，通过git来提交给我们pr，我们真诚希望您的参与,使我们变得更好。
+fork我们的项目到您的repo里面，通过git来提交给我们pr，我们真诚希望您的参与,使我们变得更好。
 
 ## Licence
+[LICENSE](https://github.com/iuap-design/tinper-uba/blob/master/LICENSE)
