@@ -1,5 +1,4 @@
 # tinper-uba
----
 <img src="http://tinper.org/assets/images/uba.png" width="120" />
 ---
 [![npm version](https://img.shields.io/npm/v/uba.svg)](https://www.npmjs.com/package/uba)
@@ -23,10 +22,11 @@
 
 ### 使用
 
-1. 打开命令终端，输入`uba`命令等待加载结果.
+
 ```sh
 $ uba
 ```
+1. 打开命令终端，输入`uba`命令等待加载结果.
 2. `uba`会显示目前在线可使用的最佳实践名字与介绍.
 3. 通过操作小键盘的箭头`↑`、`↓`来选择我们想要的项目，下一步输入工程名后，`uba`会按步骤提示是否自动安装项目`npm`依赖包等便捷操作.
 
