@@ -1,7 +1,0 @@
-{
-  "file":"ftl/index.ftl",
-  "data":{
-    "ctx":"test",
-    "cusername":"admin"
-  }
-}
