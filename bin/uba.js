@@ -9,13 +9,13 @@ var argv = require('minimist')(process.argv.slice(2));
 var commands = argv._;
 
 var currentNodeVersion = process.versions.node;
-if (currentNodeVersion.split('.')[0] < 4) {
+if (currentNodeVersion.split('.')[0] < 6) {
   console.error(
     chalk.red(
       'You are running Node ' +
       currentNodeVersion +
       '.\n' +
-      'Create Uba App requires Node 4 or higher. \n' +
+      'Create Uba App requires Node 6 or higher. \n' +
       'Please update your version of Node.'
     )
   );
@@ -103,8 +103,11 @@ if (commands.length === 0) {
   checkConfig();
 } else {
   try {
-    // console.log(`uba-${commands[0]}`);
-    require(`uba-${commands[0]}`).plugin(commands);
+    var opts = {
+      cmd : commands,
+      name : require("../package.json").name
+    };
+    require(`uba-${commands[0]}`).plugin(opts);
   } catch (e) {
     console.log(chalk.red(`  Error: \'${commands[0]}\' command is not installed ! \n
   You can try to install it by uba install ${commands[0]} .`));

@@ -1,13 +1,13 @@
 {
   "name": "uba-cli",
-  "version": "3.0.0",
+  "version": "1.4.7",
   "description": "uba",
   "main": "./bin/uba.js",
   "bin": {
-    "uba": "./bin/uba.js"
+    "uba-cli": "./bin/uba.js"
   },
   "scripts": {
-    "start" : "node bin/uba"
+    "start": "node bin/uba"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "uba"
   ],
   "author": "Yonyou FED",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/iuap-design/uba/issues"
   },
@@ -27,6 +27,7 @@
     "co": "^4.6.0",
     "log4js": "^1.1.1",
     "minimist": "^1.2.0",
-    "npminstall": "^2.30.0"
+    "npminstall": "^2.30.0",
+    "uba-install": "latest"
   }
 }
