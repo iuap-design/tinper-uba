@@ -1,3 +1,11 @@
+/*
+ * @Author: Kvkens
+ * @Date:   2017-5-15 00:00:00
+ * @Last Modified by:   Kvkens
+ * @Last Modified time: 2017-5-19 22:01:20
+ */
+
+
 var os = require('os');
 var fs = require('fs');
 var chalk = require('chalk');
@@ -39,7 +47,6 @@ function updateConfig() {
     fs.writeFile(ubaVersionPath, JSON.stringify(configObj), (err) => {
       if (err) throw err;
     });
-
   });
 }
 
@@ -51,43 +58,39 @@ function checkConfig() {
           if (err) { //不存在配置文件
             fs.writeFile(ubaVersionPath, JSON.stringify(ubaVersion), (err) => { //创建配置文件
               if (err) throw err;
-              uba();
               updateConfig();
+              getHelp();
             });
           }
         });
-
       });
     } else {
-      uba();
       updateConfig();
+      getHelp();
     }
   });
 }
 
-function uba() {
+function getHelp() {
   fs.readFile(ubaVersionPath, "utf8", (err, data) => {
     if (err) throw err;
 
     var configObj = JSON.parse(data);
     console.log();
-    console.log(chalk.blue("  Usage: uba <command> [options]"));
+    console.log(chalk.green("  Usage: uba <command> [options]"));
     console.log();
     console.log();
-    console.log(chalk.blue(`  Command:`));
+    console.log(chalk.green(`  Command:`));
     console.log();
     for (var item in configObj.version) {
-      console.log(chalk.blue(`    ${item}\t\tv${configObj.version[item]}`));
-      // console.log(chalk.blue(`    \t\t\t`));
+      console.log(chalk.green(`    ${item}\t\tv${configObj.version[item]}`));
     }
     console.log();
-    console.log(chalk.blue("  Options:"));
+    console.log(chalk.green("  Options:"));
     console.log();
-    console.log(chalk.blue("    -h, --help     output usage information"));
-    console.log(chalk.blue("    -v, --version  output the version number"));
+    console.log(chalk.green("    -h, --help     output usage information"));
+    console.log(chalk.green("    -v, --version  output the version number"));
     console.log();
-
-
   });
 }
 
@@ -109,14 +112,14 @@ function findPluginPath(command) {
 //检查命令
 if (commands.length === 0) {
   if (argv.version || argv.v) {
-    console.log(chalk.blue(require("../package.json").version));
+    console.log(chalk.green(require("../package.json").version));
     process.exit(0);
   }
   checkConfig();
 } else {
-
   var opts = {
     cmd: commands,
+    argv: argv,
     name: require("../package.json").name
   };
   var pluginPath = findPluginPath(commands[0]);
@@ -124,7 +127,7 @@ if (commands.length === 0) {
     if (require(`uba-${commands[0]}`).plugin) {
       require(`uba-${commands[0]}`).plugin(opts);
     } else {
-      console.log(chalk.red("Error:plugin error!please check!"));
+      console.log(chalk.red("  Error : Plugin internal error."));
     }
   }
 }

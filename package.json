@@ -1,6 +1,6 @@
 {
   "name": "uba-cli",
-  "version": "1.4.12",
+  "version": "1.4.13",
   "description": "uba",
   "main": "./bin/uba.js",
   "bin": {
