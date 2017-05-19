@@ -5,6 +5,8 @@ var logger = log4js.getLogger();
 var chalk = require('chalk');
 var argv = require('minimist')(process.argv.slice(2));
 var commands = argv._;
+var resolve = require('resolve');
+var path = require('path');
 
 var currentNodeVersion = process.versions.node;
 if (currentNodeVersion.split('.')[0] < 6) {
@@ -91,6 +93,20 @@ function uba() {
   });
 }
 
+function findPluginPath(command) {
+  if (command && /^\w+$/.test(command)) {
+    try {
+      return resolve.sync('uba-' + command, {
+        paths: [path.join(__dirname, '..', 'node_modules')]
+      });
+    } catch (e) {
+      console.log('');
+      console.log('  ' + chalk.green(command) + ' command is not installed.');
+      console.log('  You can try to install it by ' + chalk.blue.bold('uba install ' + command) + '.');
+      console.log('');
+    }
+  }
+}
 
 //检查命令
 if (commands.length === 0) {
@@ -99,20 +115,16 @@ if (commands.length === 0) {
     process.exit(0);
   }
   checkConfig();
+
 } else {
-  try {
-    var opts = {
-      cmd: commands,
-      name: require("../package.json").name
-    };
+
+  var opts = {
+    cmd: commands,
+    name: require("../package.json").name
+  };
+  var pluginPath = findPluginPath(commands[0]);
+  if (pluginPath) {
     require(`uba-${commands[0]}`).plugin(opts);
-  } catch (e) {
-    console.log(chalk.red(`  Error: \'${commands[0]}\' command is not installed ! \n
-  You can try to install it by uba install ${commands[0]} .`));
-
-    process.exit(0);
-  } finally {
-
   }
 
 }
