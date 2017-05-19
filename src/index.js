@@ -1,7 +1,5 @@
 var os = require('os');
 var fs = require('fs');
-var log4js = require('log4js');
-var logger = log4js.getLogger();
 var chalk = require('chalk');
 var argv = require('minimist')(process.argv.slice(2));
 var commands = argv._;
@@ -115,7 +113,6 @@ if (commands.length === 0) {
     process.exit(0);
   }
   checkConfig();
-
 } else {
 
   var opts = {
@@ -124,7 +121,10 @@ if (commands.length === 0) {
   };
   var pluginPath = findPluginPath(commands[0]);
   if (pluginPath) {
-    require(`uba-${commands[0]}`).plugin(opts);
+    if (require(`uba-${commands[0]}`).plugin) {
+      require(`uba-${commands[0]}`).plugin(opts);
+    } else {
+      console.log(chalk.red("Error:plugin error!please check!"));
+    }
   }
-
 }
