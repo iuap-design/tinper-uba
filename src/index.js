@@ -2,9 +2,8 @@
  * @Author: Kvkens
  * @Date:   2017-5-15 00:00:00
  * @Last Modified by:   Kvkens
- * @Last Modified time: 2017-5-19 22:01:20
+ * @Last Modified time: 2017-5-27 21:26:20
  */
-
 
 var os = require('os');
 var fs = require('fs');
@@ -16,36 +15,30 @@ var path = require('path');
 
 var currentNodeVersion = process.versions.node;
 if (currentNodeVersion.split('.')[0] < 6) {
-  console.error(
-    chalk.red(
-      'You are running Node ' +
-      currentNodeVersion +
-      '.\n' +
-      'Create Uba App requires Node 6 or higher. \n' +
-      'Please update your version of Node.'
-    )
-  );
+  console.error(chalk.red('You are running Node ' + currentNodeVersion + '.\n' + 'Create Uba App requires Node 6 or higher. \n' + 'Please update your version of Node.'));
   process.exit(1);
 }
-
-
 
 var installDir = os.homedir() + "/.uba";
 var ubaVersionPath = installDir + "/uba-plugin.json";
 var ubaVersion = {
-  version: {
-
-  }
+  version: {}
 }
 
 function updateConfig() {
-  var version = require("../node_modules/uba-install/package.json").version;
   var configObj = {};
+  var pluginLists = ["install", "init", "plugin", "server"];
+
   fs.readFile(ubaVersionPath, "utf8", (err, data) => {
     configObj = JSON.parse(data);
-    configObj["version"]["install"] = version;
+    pluginLists.forEach(function(_plugin){
+      var version = require(`../node_modules/uba-${_plugin}/package.json`).version;
+      configObj["version"][_plugin] = version;
+    });
     fs.writeFile(ubaVersionPath, JSON.stringify(configObj), (err) => {
-      if (err) throw err;
+      if (err)
+        throw err;
+      getHelp();
     });
   });
 }
@@ -57,23 +50,23 @@ function checkConfig() {
         fs.access(ubaVersionPath, function(err) {
           if (err) { //不存在配置文件
             fs.writeFile(ubaVersionPath, JSON.stringify(ubaVersion), (err) => { //创建配置文件
-              if (err) throw err;
+              if (err)
+                throw err;
               updateConfig();
-              getHelp();
             });
           }
         });
       });
     } else {
       updateConfig();
-      getHelp();
     }
   });
 }
 
 function getHelp() {
   fs.readFile(ubaVersionPath, "utf8", (err, data) => {
-    if (err) throw err;
+    if (err)
+      throw err;
 
     var configObj = JSON.parse(data);
     console.log();

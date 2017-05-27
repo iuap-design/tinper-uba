@@ -5,5 +5,3 @@
 ```bash
 $npm install uba-cli -g
 ```
-
-1. `$uba-cli install init`
