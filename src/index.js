@@ -27,7 +27,7 @@ var ubaVersion = {
 
 function updateConfig() {
   var configObj = {};
-  var pluginLists = ["install", "init", "plugin", "server"];
+  var pluginLists = ["install", "init", "plugin", "server","build"];
 
   fs.readFile(ubaVersionPath, "utf8", (err, data) => {
     configObj = JSON.parse(data);
