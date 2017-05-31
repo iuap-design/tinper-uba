@@ -1,10 +1,10 @@
 {
-  "name": "uba-cli",
-  "version": "1.4.19",
+  "name": "uba",
+  "version": "2.1.0",
   "description": "a font-end develop tool for tinper",
   "main": "./bin/uba.js",
   "bin": {
-    "uba-cli": "./bin/uba.js"
+    "uba": "./bin/uba.js"
   },
   "scripts": {},
   "repository": {
