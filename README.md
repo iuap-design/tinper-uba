@@ -51,7 +51,19 @@ $ uba init
 6. 😆 It is convenient to enjoy uba for pleasure!
 
 ## show
+
+### uba or uba -h
+<img width="476" alt="uba" src="https://user-images.githubusercontent.com/12147318/27854369-27241b56-6199-11e7-9176-95609a7069a8.png">
+
+### uba init
 ![uba_init](https://cloud.githubusercontent.com/assets/12147318/23543379/e74ec512-002c-11e7-9e39-74b3b5975638.gif)
+
+### uba server
+![uba_server](https://user-images.githubusercontent.com/12147318/27854264-c1233968-6198-11e7-8d4d-746b00ec8902.gif)
+
+### uba build
+![uba_build](https://user-images.githubusercontent.com/12147318/27854191-5d87f5ce-6198-11e7-861d-879a8e40e726.gif)
+
 
 ## API
 
