@@ -50,6 +50,9 @@ $ uba init
 
 6. 😆 It is convenient to enjoy uba for pleasure!
 
+## show
+![uba_init](https://cloud.githubusercontent.com/assets/12147318/23543379/e74ec512-002c-11e7-9e39-74b3b5975638.gif)
+
 ## API
 
 ### Version
