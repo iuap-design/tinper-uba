@@ -47,6 +47,8 @@ $ uba init
 
 5. 输入命令 `uba build`去打包和构建工程
 
+## 演示效果
+![uba_init](https://cloud.githubusercontent.com/assets/12147318/23543379/e74ec512-002c-11e7-9e39-74b3b5975638.gif)
 
 ## API
 
