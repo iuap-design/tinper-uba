@@ -1,6 +1,5 @@
 # uba 使用说明
 
-uba 是一款基于 webpack 封装的 CLI 命令行工具，提供一站式工程初始化、本地服务调试、数据模拟、资源编译和打包、性能优化等功能。
 <img src="http://tinper.org/assets/images/uba.png" width="120" />
 
 [![npm version](https://img.shields.io/npm/v/uba.svg)](https://www.npmjs.com/package/uba)
@@ -11,6 +10,7 @@ uba 是一款基于 webpack 封装的 CLI 命令行工具，提供一站式工�
 [英文文档](https://github.com/iuap-design/tinper-uba/blob/master/README.md)
 
 ## 介绍
+`uba` 是一款基于 webpack 封装的 CLI 命令行工具，提供一站式工程初始化、本地服务调试、数据模拟、资源编译和打包、性能优化等功能。
 `uba`是一个前端开发工具，可以提供多种开发场景。 开发人员可以使用 [uba-templates](https://github.com/uba-templates) 进行更新和维护，当然也可以根据所需的样式和功能提供不同的模板。
 
 ## 特点
