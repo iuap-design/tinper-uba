@@ -56,7 +56,7 @@ $ uba init
 ![uba_init](https://cloud.githubusercontent.com/assets/12147318/23543379/e74ec512-002c-11e7-9e39-74b3b5975638.gif)
 
 ### uba server
-![uba_server](https://user-images.githubusercontent.com/12147318/27854264-c1233968-6198-11e7-8d4d-746b00ec8902.gif)
+![uba_server](https://user-images.githubusercontent.com/12147318/27854525-b1196122-6199-11e7-9bcd-b6f14b886615.gif)
 
 ### uba build
 ![uba_build](https://user-images.githubusercontent.com/12147318/27854191-5d87f5ce-6198-11e7-861d-879a8e40e726.gif)
