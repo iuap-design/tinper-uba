@@ -14,7 +14,9 @@
 `uba`是一个前端开发工具，可以提供多种开发场景。 开发人员可以使用 [uba-templates](https://github.com/uba-templates) 进行更新和维护，当然也可以根据所需的样式和功能提供不同的模板。
 
 ## 特点
-`uba`可以远程访问 [uba-templates](https://github.com/uba-templates) 以获取开发环境所需代码，并选择通过用户交互所需的样板。 它可以引导用户逐步使用uba。 更令人兴奋的是，uba可以自动进行手动命令。
+`uba`可以远程访问 [uba-templates](https://github.com/uba-templates) 来初始化你需要的最佳实践模板，它可以引导你来一步步来安装、调试、构建等。
+
+`uba`是一种微内核、多插件的机制来设计的，当自身插件无法满足你的需求的时候，可以为`uba`来创造插件来增强使用功能。
 
 ### 安装
 
