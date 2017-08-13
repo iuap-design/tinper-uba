@@ -1,6 +1,6 @@
 {
   "name": "uba",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "a font-end develop tool for tinper",
   "main": "./bin/uba.js",
   "bin": {
@@ -32,10 +32,10 @@
     "minimist": "^1.2.0",
     "npminstall": "^2.30.0",
     "resolve": "^1.3.3",
-    "uba-init": "latest",
-    "uba-install": "latest",
-    "uba-plugin": "latest",
-    "uba-server": "latest",
-    "uba-build": "latest"
+    "uba-build": "0.0.2",
+    "uba-init": "0.0.50",
+    "uba-install": "0.0.17",
+    "uba-plugin": "0.0.4",
+    "uba-server": "0.0.18"
   }
 }
