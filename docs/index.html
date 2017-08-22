@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>uba 开始</title>
+    <link rel="stylesheet" href="source/app.css"/>
+    <link rel="stylesheet" href="source/highlight.min.css">
+</head>
+<body>
+<a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
+
+
+<!-- Docs master nav -->
+<header class="navbar navbar-static-top docs-nav" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <a href="http://tinper.org/" class="navbar-brand">tinper</a>
+            
+        </div>
+        <nav id="bs-navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-left">
+                
+                    
+                    <li class="active">
+                        
+                        <a href="index.html">开始</a>
+                        
+                    </li>
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Docs page layout -->
+
+<div class="docs-header" id="content" style="margin-bottom:0">
+    <div class="container">
+        <h1>uba</h1>
+        <p>如何使用</p>
+    </div>
+</div>
+
+
+
+<header style="height:20px"></header>
+
+
+<div class="container docs-container">
+    
+    
+    <div class="row">
+        <div class="col-md-9 markdown-body" role="main">
+            
+            <h1 id="uba 使用说明">uba 使用说明</h1><p><img src="http://tinper.org/assets/images/uba.png" width="120" /></p>
+<p><a href="https://www.npmjs.com/package/uba"><img src="https://img.shields.io/npm/v/uba.svg" alt="npm version"></a>
+<a href="https://travis-ci.org/iuap-design/tinper-uba"><img src="https://img.shields.io/travis/iuap-design/tinper-uba/master.svg" alt="Build Status"></a>
+<a href="https://david-dm.org/iuap-design/tinper-uba#info=devDependencies"><img src="https://img.shields.io/david/dev/iuap-design/tinper-uba.svg" alt="devDependency Status"></a>
+<a href="https://npmjs.org/package/uba"><img src="http://img.shields.io/npm/dm/uba.svg?style=flat" alt="NPM downloads"></a></p>
+<p><a href="https://github.com/iuap-design/tinper-uba/blob/master/README.md">英文文档</a></p>
+<h2 id="介绍">介绍</h2><p><code>uba</code> 是一款基于 webpack 封装的 CLI 命令行工具，提供一站式工程初始化、本地服务调试、数据模拟、资源编译和打包、性能优化等功能。
+<code>uba</code>是一个前端开发工具，可以提供多种开发场景。 开发人员可以使用 <a href="https://github.com/uba-templates">uba-templates</a> 进行更新和维护，当然也可以根据所需的样式和功能提供不同的模板。</p>
+<h2 id="特点">特点</h2><p><code>uba</code>可以远程访问 <a href="https://github.com/uba-templates">uba-templates</a> 来初始化你需要的最佳实践模板，它可以引导你来一步步来安装、调试、构建等。</p>
+<p><code>uba</code>是一种微内核、多插件的机制来设计的，当自身插件无法满足你的需求的时候，可以为<code>uba</code>来创造插件来增强使用功能。</p>
+<h2 id="插件">插件</h2><p>目前<code>uba</code>官方自带插件有以下几种：</p>
+<blockquote>
+<p>启动命令为：<code>uba &lt;init&gt;</code>、<code>uba &lt;server&gt;</code> 这种形式</p>
+</blockquote>
+<ol>
+<li><a href="https://www.npmjs.com/package/uba-init">uba-init</a> 使用<code>uba</code>初始化一个最佳实践。它可以在线访问远端的<a href="https://github.com/uba-templates">uba-templates</a>仓库，列举可以使用的最佳实践模板。它会根据已选择自动下载到本地，友好的提示是否自动安装依赖包等。</li>
+<li><a href="https://www.npmjs.com/package/uba-server">uba-server</a> 初始化最佳实践完毕后，可以使用该插件来启动web服务，该插件目前集成了代理服务、数据模拟、webpack开发调试。代理与模拟数据做到了无缝切换，开发时无需等候后端开发接口，前端可自行模拟开发，待后端接口完毕后无缝切入。数据模拟上面做到了初、中、高级玩法，初级直接加载静态json数据，中级是可以配置路由访问，高级是可以直接编程实现动态模拟数据。</li>
+<li><a href="https://www.npmjs.com/package/uba-build">uba-build</a> 开发完毕后就可以构建我们的最佳实践了，通过该插件可以构建静态资源打包出去。</li>
+<li><a href="https://www.npmjs.com/package/uba-install">uba-install</a> 如果要安装额外的<code>uba</code>插件，可以使用它来安装其他的插件，只针对为<code>uba</code>而开发的插件哦~</li>
+<li><a href="https://www.npmjs.com/package/uba-plugin">uba-plugin</a> 要施展你的才华和技艺？没问题，<code>uba</code>支持第三方插件开发，赋予它更强的能力！使用该插件来生成基本的插件规范目录，可以开发属于你的最强插件，这也是<code>uba</code>微内核、多插件的原则。</li>
+</ol>
+<h3 id="安装">安装</h3><ol>
+<li>安装 <a href="http://nodejs.org/">node.js</a> 开发环境.(node &gt; 6.x &amp;&amp; npm &gt; 2.x)。</li>
+<li><code>npm install uba -g</code> 全局安装。</li>
+<li>安装完成之后输入 <code>uba -v</code> ，如果输出了相应的版本号则表明安装成功。</li>
+<li><code>uba -h</code>查看帮助。</li>
+</ol>
+<h3 id="使用">使用</h3><pre><code class="lang-sh">$ uba init
+</code></pre>
+<ol>
+<li>打开命令行工具，输入 <code>uba</code> 查看。</li>
+<li><code>uba init</code> 会显示各个开发环境的名字和描述。</li>
+<li>通过小键盘的上下键来选择你想要的开发环境( <code>↑</code> , <code>↓</code> )</li>
+<li>按照提示一步一步的进行</li>
+</ol>
+<h2 id="快速上手">快速上手</h2><ol>
+<li><p><code>npm install uba -g</code>.</p>
+</li>
+<li><p><code>uba init</code> 选择 <code>template-react-multiple-pages</code> ，然后输入你的文件夹目录名称 <code>uba-react</code>.</p>
+</li>
+<li><p>稍等片刻，就会提示你是否安装项目相关依赖包，推荐输入： <code>y</code>.</p>
+</li>
+<li><p><code>cd uba-react</code> &amp;&amp; <code>uba server</code> or <code>npm run dev</code>,启动服务，uba随后就会自动打开调试页面.</p>
+</li>
+<li><p>输入命令 <code>uba build</code>去打包和构建工程</p>
+</li>
+</ol>
+<h2 id="演示效果">演示效果</h2><h3 id="uba or uba -h">uba or uba -h</h3><p><img width="476" alt="uba" src="https://user-images.githubusercontent.com/12147318/27854369-27241b56-6199-11e7-9176-95609a7069a8.png"></p>
+<h3 id="uba init">uba init</h3><p><img src="https://cloud.githubusercontent.com/assets/12147318/23543379/e74ec512-002c-11e7-9e39-74b3b5975638.gif" alt="uba_init"></p>
+<h3 id="uba server">uba server</h3><p><img src="https://user-images.githubusercontent.com/12147318/27854525-b1196122-6199-11e7-9bcd-b6f14b886615.gif" alt="uba_server"></p>
+<h3 id="uba build">uba build</h3><p><img src="https://user-images.githubusercontent.com/12147318/27854191-5d87f5ce-6198-11e7-861d-879a8e40e726.gif" alt="uba_build"></p>
+<h2 id="API">API</h2><h3 id="查看版本">查看版本</h3><pre><code class="lang-sh">$ uba -v
+</code></pre>
+<h3 id="帮助">帮助</h3><pre><code class="lang-sh">$ uba -h
+</code></pre>
+<h3 id="初始化">初始化</h3><pre><code class="lang-sh">$ uba init
+</code></pre>
+<h3 id="启动服务">启动服务</h3><pre><code class="lang-sh">$ uba server
+</code></pre>
+<h3 id="构建项目">构建项目</h3><pre><code class="lang-sh">$ uba build
+</code></pre>
+<h3 id="创建插件">创建插件</h3><pre><code class="lang-sh">$ uba plugin &lt;name&gt;
+</code></pre>
+<h3 id="安装插件">安装插件</h3><pre><code class="lang-sh">$ uba install init
+</code></pre>
+<h2 id="ToDo">ToDo</h2><p>to be continued...</p>
+<h2 id="贡献">贡献</h2><p>Please make sure to read the Contributing Guide before making a pull request.</p>
+<h2 id="版权">版权</h2><p><a href="https://github.com/iuap-design/tinper-uba/blob/master/LICENSE">MIT</a></p>
+
+        </div>
+        <div class="col-md-3" role="complementary">
+            <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                <ul class="nav docs-sidenav">
+                    
+                    
+                    <li>
+                        
+                        <a href="#介绍" >介绍</a>
+                        
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        
+                        <a href="#特点" >特点</a>
+                        
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        
+                        <a href="#插件" >插件</a>
+                        
+                    </li>
+                    
+                    
+                    
+                    
+                    <ul class="nav" style="display:block">
+                    
+                        <li>
+                            <a href="#安装" >安装</a>
+                        </li>
+                    
+                    
+                    
+                    
+                    
+                        <li>
+                            <a href="#使用" >使用</a>
+                        </li>
+                    
+                    </ul>
+                    
+                    
+                    
+                    
+                    <li>
+                        
+                        <a href="#快速上手" >快速上手</a>
+                        
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        
+                        <a href="#演示效果" >演示效果</a>
+                        
+                    </li>
+                    
+                    
+                    
+                    
+                    <ul class="nav" style="display:block">
+                    
+                        <li>
+                            <a href="#uba or uba -h" >uba or uba -h</a>
+                        </li>
+                    
+                    
+                    
+                    
+                    
+                        <li>
+                            <a href="#uba init" >uba init</a>
+                        </li>
+                    
+                    
+                    
+                    
+                    
+                        <li>
+                            <a href="#uba server" >uba server</a>
+                        </li>
+                    
+                    
+                    
+                    
+                    
+                        <li>
+                            <a href="#uba build" >uba build</a>
+                        </li>
+                    
+                    </ul>
+                    
+                    
+                    
+                    
+                    <li>
+                        
+                        <a href="#API" >API</a>
+                        
+                    </li>
+                    
+                    
+                    
+                    
+                    <ul class="nav" style="display:block">
+                    
+                        <li>
+                            <a href="#查看版本" >查看版本</a>
+                        </li>
+                    
+                    
+                    
+                    
+                    
+                        <li>
+                            <a href="#帮助" >帮助</a>
+                        </li>
+                    
+                    
+                    
+                    
+                    
+                        <li>
+                            <a href="#初始化" >初始化</a>
+                        </li>
+                    
+                    
+                    
+                    
+                    
+                        <li>
+                            <a href="#启动服务" >启动服务</a>
+                        </li>
+                    
+                    
+                    
+                    
+                    
+                        <li>
+                            <a href="#构建项目" >构建项目</a>
+                        </li>
+                    
+                    
+                    
+                    
+                    
+                        <li>
+                            <a href="#创建插件" >创建插件</a>
+                        </li>
+                    
+                    
+                    
+                    
+                    
+                        <li>
+                            <a href="#安装插件" >安装插件</a>
+                        </li>
+                    
+                    </ul>
+                    
+                    
+                    
+                    
+                    <li>
+                        
+                        <a href="#ToDo" >ToDo</a>
+                        
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        
+                        <a href="#贡献" >贡献</a>
+                        
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        
+                        <a href="#版权" >版权</a>
+                        
+                    </li>
+                    
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    
+</div>
+
+<!-- Footer
+================================================== -->
+<footer class="docs-footer" role="contentinfo">
+    <div class="container">
+        <p>Made By YonYouFED. © 2017</p>
+    </div>
+</footer>
+
+<script src="source/jquery.min.js"></script>
+<script src="source/bootstrap.min.js"></script>
+<script src="source/docs.min.js"></script>
+<script src="source/highlight.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('code').each(function(i, block) {
+            if (block.innerHTML.indexOf('\n') != -1) {
+                var pn = block.parentNode;
+                if (pn.tagName.toUpperCase() == 'PRE') {
+                    try {
+                        hljs.highlightBlock(block);
+                    } catch(e) {}
+                } else {
+                    pn.innerHTML = '<pre><code>' + block.innerHTML + '</code></pre>';
+                    try {
+                        hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
+                    } catch(e) {}
+                }
+            }
+        });
+
+        var winHeight = $(window).height() - 40,
+            sidebar = $('.docs-sidebar');
+
+        if (sidebar.height() > winHeight) {
+
+            sidebar.css('max-height', winHeight + 'px');
+            sidebar.css('overflow', 'scroll');
+
+            var activeMenu,
+                barScroll = false;
+
+            sidebar.on('mouseover', function() {
+                barScroll = true;
+            });
+
+            sidebar.on('mouseout', function() {
+                barScroll = false;
+            });
+            if (!barScroll) {
+                var activeItem = $('.docs-sidebar li.active a');
+                if (activeItem.length) {
+                    if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
+                        activeMenu = activeItem;
+                        var top = activeMenu.offset().top - sidebar.offset().top;
+                        if (top < 0) {
+                            sidebar.scrollTop(sidebar.scrollTop() + top);
+                        } else if (top > winHeight - 30) {
+                            sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 30);
+                        }
+                    }
+                }
+            }
+            $(window).on('scroll', function(e) {
+                if (!barScroll) {
+                    var activeItem = $('.docs-sidebar li.active a');
+                    if (activeItem.length) {
+                        if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
+                            activeMenu = activeItem;
+                            var top = activeMenu.offset().top - sidebar.offset().top;
+                            if (top < 0) {
+                                sidebar.scrollTop(sidebar.scrollTop() + top);
+                            } else if (top > winHeight - 30) {
+                                sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 30);
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>
