@@ -1,123 +1,153 @@
-# uba 使用说明
-
 <img src="http://tinper.org/assets/images/uba.png" width="120" />
+
+# 前端集成开发工具 - uba
 
 [![npm version](https://img.shields.io/npm/v/uba.svg)](https://www.npmjs.com/package/uba)
 [![Build Status](https://img.shields.io/travis/iuap-design/tinper-uba/master.svg)](https://travis-ci.org/iuap-design/tinper-uba)
 [![devDependency Status](https://img.shields.io/david/dev/iuap-design/tinper-uba.svg)](https://david-dm.org/iuap-design/tinper-uba#info=devDependencies)
 [![NPM downloads](http://img.shields.io/npm/dm/uba.svg?style=flat)](https://npmjs.org/package/uba)
 
-[英文文档](https://github.com/iuap-design/tinper-uba/blob/master/README.md)
-
 ## 介绍
-`uba` 是一款基于 webpack 封装的 CLI 命令行工具，提供一站式工程初始化、本地服务调试、数据模拟、资源编译和打包、性能优化等功能。
-`uba`是一个前端开发工具，可以提供多种开发场景。 开发人员可以使用 [uba-templates](https://github.com/uba-templates) 进行更新和维护，当然也可以根据所需的样式和功能提供不同的模板。
 
-## 特点
-`uba`可以远程访问 [uba-templates](https://github.com/uba-templates) 来初始化你需要的最佳实践模板，它可以引导你来一步步来安装、调试、构建等。
+`uba`采用微内核、多插件开发，它基于 `webpack` 封装的 `cli` 命令行工具，为了解决目前前端快速开发不足而打造，提供一站式项目脚手架、最佳实践初始化、本地服务调试、数据模拟、远程代理、资源编译、静态产出、性能优化等功能。 `uba`是一个前端开发工具，可以提供多种开发场景。 核心开发人员会在远端最佳实践仓库 [uba-templates](https://github.com/uba-templates) 进行更新和维护，当然也可以根据所需的样式和功能提供不同的模板。可以给使用开发者提供轻量、简单、便捷的开发体验，让开发者从复杂的配置中脱离出来，这些复杂而又不易初学者学习的内容，就交给我`uba`来解决吧！
 
-`uba`是一种微内核、多插件的机制来设计的，当自身插件无法满足你的需求的时候，可以为`uba`来创造插件来增强使用功能。
+## 安装
 
-## 插件
-目前`uba`官方自带插件有以下几种：
+安装 node.js 开发环境.(node > 6.x && npm > 2.x)。
 
-> 启动命令为：`uba <init>`、`uba <server>` 这种形式
+> 基于国内开源的囧境，可以使用淘宝的CNPM
 
-1. [uba-init](https://www.npmjs.com/package/uba-init) 使用`uba`初始化一个最佳实践。它可以在线访问远端的[uba-templates](https://github.com/uba-templates)仓库，列举可以使用的最佳实践模板。它会根据已选择自动下载到本地，友好的提示是否自动安装依赖包等。
-2. [uba-server](https://www.npmjs.com/package/uba-server) 初始化最佳实践完毕后，可以使用该插件来启动web服务，该插件目前集成了代理服务、数据模拟、webpack开发调试。代理与模拟数据做到了无缝切换，开发时无需等候后端开发接口，前端可自行模拟开发，待后端接口完毕后无缝切入。数据模拟上面做到了初、中、高级玩法，初级直接加载静态json数据，中级是可以配置路由访问，高级是可以直接编程实现动态模拟数据。
-3. [uba-build](https://www.npmjs.com/package/uba-build) 开发完毕后就可以构建我们的最佳实践了，通过该插件可以构建静态资源打包出去。
-4. [uba-install](https://www.npmjs.com/package/uba-install) 如果要安装额外的`uba`插件，可以使用它来安装其他的插件，只针对为`uba`而开发的插件哦~
-5. [uba-plugin](https://www.npmjs.com/package/uba-plugin) 要施展你的才华和技艺？没问题，`uba`支持第三方插件开发，赋予它更强的能力！使用该插件来生成基本的插件规范目录，可以开发属于你的最强插件，这也是`uba`微内核、多插件的原则。
+#### cnpm
+
+你可以使用淘宝定制的 cnpm (gzip 压缩支持) 命令行工具代替默认的 npm:
+```bash
+$ npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+$ cnpm install uba -g
+```
+或者你直接通过添加 npm 参数 alias 一个新命令:
+```bash
+alias cnpm="npm --registry=https://registry.npm.taobao.org \
+--cache=$HOME/.npm/.cache/cnpm \
+--disturl=https://npm.taobao.org/dist \
+--userconfig=$HOME/.cnpmrc"
+
+# Or alias it in .bashrc or .zshrc
+$ echo '\n#alias for cnpm\nalias cnpm="npm --registry=https://registry.npm.taobao.org \
+  --cache=$HOME/.npm/.cache/cnpm \
+  --disturl=https://npm.taobao.org/dist \
+  --userconfig=$HOME/.cnpmrc"' >> ~/.zshrc && source ~/.zshrc
+```
+
+#### npm
+
+首先进行工具命令的安装，需要安装到全局环境上使用，后面项目开发中，`uba`是可以依赖包形式NodeAPI开发使用。
+```bash
+$ npm install uba -g
+```
+稍等片刻安装结束后，输入下面命令来确定是否安装成功：
+```bash
+$ uba
+```
+然后会出现当然命令使用帮助，以及官方依赖的插件版本。看到如下界面就是安装初始化完毕！
+```bash
+Usage: uba <command> [options]
 
 
-### 安装
+Command:
 
-1. 安装 [node.js](http://nodejs.org/) 开发环境.(node > 6.x && npm > 2.x)。
-2. `npm install uba -g` 全局安装。
-3. 安装完成之后输入 `uba -v` ，如果输出了相应的版本号则表明安装成功。
-4.  `uba -h`查看帮助。
+  install		v0.0.17
+  init		v0.0.51
+  plugin		v0.0.4
+  server		v0.0.20
+  build		v0.0.4
 
+Options:
 
-### 使用
+  -h, --help     output usage information
+  -v, --version  output the version number
+```
 
+## 使用
 
-```sh
+1. 如何使用前端集成工具`uba`来快速创建一个基本脚手架：
+
+```bash
 $ uba init
 ```
-1. 打开命令行工具，输入 `uba` 查看。
-2. `uba init` 会显示各个开发环境的名字和描述。
-3. 通过小键盘的上下键来选择你想要的开发环境( `↑` , `↓` )
-4. 按照提示一步一步的进行
+2. 使用`uba`插件`uba-init`来加载远端[uba-templates](https://github.com/uba-templates)最佳实践仓库下的可用的列表：
+```bash
+Available official templates:
+? Please select : (Use arrow keys)
+❯ template-react-multiple-pages - React多页应用脚手架
+  template-react-single-pages - React单页应用脚手架
+```
+可以通过小键盘的上箭头(↑)、下箭头(↓)来选择你需要的脚手架或基于业务的最佳实践项目，回车即可。
 
-## 快速上手
+3. 输入你的工程项目名称，默认不输入的名字为“uba-boilerplate”，我们输入“uba-webpack”
 
-1. `npm install uba -g`.
-
-2. `uba init` 选择 `template-react-multiple-pages` ，然后输入你的文件夹目录名称 `uba-react`.
-
-3. 稍等片刻，就会提示你是否安装项目相关依赖包，推荐输入： `y`.
-
-4.  `cd uba-react` && `uba server` or `npm run dev`,启动服务，uba随后就会自动打开调试页面.
-
-5. 输入命令 `uba build`去打包和构建工程
-
-## 演示效果
-
-### uba or uba -h
-<img width="476" alt="uba" src="https://user-images.githubusercontent.com/12147318/27854369-27241b56-6199-11e7-9176-95609a7069a8.png">
-
-### uba init
-![uba_init](https://cloud.githubusercontent.com/assets/12147318/23543379/e74ec512-002c-11e7-9e39-74b3b5975638.gif)
-
-### uba server
-![uba_server](https://user-images.githubusercontent.com/12147318/27854525-b1196122-6199-11e7-9bcd-b6f14b886615.gif)
-
-### uba build
-![uba_build](https://user-images.githubusercontent.com/12147318/27854191-5d87f5ce-6198-11e7-861d-879a8e40e726.gif)
-
-## API
-
-### 查看版本
-```sh
-$ uba -v
+```bash
+? Please select : template-react-single-pages - React单页应用脚手架
+? boilerplate name : uba-webpack
+Downloading template-react-single-pages please wait.
+Boilerplate uba-webpack done.
+? Automatically install NPM dependent packages? (Y/n)
+Install NPM dependent packages,please wait.
 ```
 
-### 帮助
-```sh
-$ uba -h
+下载完远端的脚手架或最佳实践后，`uba`会提示是否全自动安装依赖包，我们选择默认`Y`来继续。
+
+如果不选择的话后面也可以手动使用`npm install`或`cnpm install`去安装使用。
+
+4. 进入安装好的工程目录，并开启uba调试服务：
+
+```bash
+$ cd uba-webpack && uba server
 ```
 
-### 初始化
-```sh
-$ uba init
+开始调试服务是`uba`的插件`uba-server`的扩展能力。
+
+稍等片刻待`uba`就会自动打开你的默认浏览器显示页面的。并会打印一些工具日志，比如 数据模拟 代理访问等。
+
+```bash
+/******************** Start loading mock server ********************/
+
+[mock]:[/User/Get] to ./mock/api/user/get.json
+[mock]:[/User/Post] to ./mock/api/user/post.json
+[mock]:[/User/Put] to ./mock/api/user/put.json
+
+/******************** Mock server loaded completed *****************/
+
+
+/******************** Start dev server *****************/
+
+[uba] : Listening on port http://127.0.0.1:3000
+
+/******************** O(∩_∩)O *****************/
 ```
 
-### 启动服务
-```sh
-$ uba server
-```
+5. 需要构建静态资源发布的，需要执行下面命令即可：
 
-### 构建项目
-```sh
+```bash
 $ uba build
 ```
+稍等片刻后，就会在项目目录内产出`dist`文件夹，里面就是我们需要的构建完的资源，是不是很简单：）
 
-### 创建插件
-```sh
-$ uba plugin <name>
+以上就是基本使用的说明。
+
+## 命令
+
+```bash
+1. $ uba init                   # 拉取远端可用的脚手架和最佳实践
+2. $ uba server                 # 开启调试、代理服务、数据模拟服务
+3. $ uba build                  # 构建静态资源产出
+4. $ uba install <plugin name>  # 安装uba的插件
+5. $ uba plugin                 # 创建uba插件
+6. $ uba -v                     # 查看当前版本
+7. $ uba -h                     # 查看帮助
 ```
-### 安装插件
-```sh
-$ uba install init
-```
 
 
-## ToDo
+## 插件
 
-to be continued...
-
-## 贡献
-Please make sure to read the Contributing Guide before making a pull request.
-
-## 版权
-[MIT](https://github.com/iuap-design/tinper-uba/blob/master/LICENSE)
+`uba`的强大开发体验是离不开丰富多彩的插件的，之前拉取远端仓库是使用了`uba-init`插件所完成的，
