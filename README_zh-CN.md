@@ -163,3 +163,5 @@ $ uba build
 - [uba-plugin](https://github.com/tinper-uba/uba-plugin) - 当开发者的需求现有的插件无法满足实现等，我们需要自行开发插件来供`uba`来加载使用，本身开发插件是复杂的，需要有一系列规范才可以，该插件就是为了创造插件而生。
 
 - [uba-install](https://github.com/tinper-uba/uba-install) - 自身插件不满足需求，那么需要来为`uba`安装一款插件，赋予它安装插件的能力，通过`uba install mock`这样来安装，`uba-install`插件就会去[npm](https://www.npmjs.com/search?q=uba)上去下载`uba-mock`去安装使用的。
+
+## to be continued
