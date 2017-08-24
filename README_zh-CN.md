@@ -13,7 +13,7 @@
 
 ## 安装
 
-安装 node.js 开发环境.(node > 6.x && npm > 2.x)。
+安装 [node.js](https://nodejs.org) 开发环境.(node > 6.x && npm > 2.x)。
 
 > 基于国内开源的囧境，可以使用淘宝的CNPM
 
@@ -150,4 +150,16 @@ $ uba build
 
 ## 插件
 
-`uba`的强大开发体验是离不开丰富多彩的插件的，之前拉取远端仓库是使用了`uba-init`插件所完成的，
+`uba`所包含的插件在[tinper-uba](https://github.com/tinper-uba)下维护、开发。
+
+`uba`的强大开发体验是离不开丰富多彩的插件的，之前拉取远端仓库是使用了`uba-init`插件所完成的，下面介绍一下`uba`家族的核心兄弟都有谁~
+
+- [uba-init](https://github.com/tinper-uba/uba-init) - 一款可以帮助`uba`执行远程代码访问的能力，它基于`request`http请求方法去获得github的API数据，解析后把远端的数据展示给uba来操作，然后根据选择来最终下载到本地，然后安装使用。
+
+- [uba-server](https://github.com/tinper-uba/uba-server) - 帮助`uba`来加载本地配置文件，包括数据模拟、代理访问、`webpack`配置 等一系列需要集成开发使用的功能，最终通过`webpack-dev-middleware`来运行整个调试项目。
+
+- [uba-build](https://github.com/tinper-uba/uba-build) - 开发完毕后需要产出打包静态资源，该插件结合`webpack`核心打包功能，读取`uba`的配置文件最终产出我们需要上线的资源。
+
+- [uba-plugin](https://github.com/tinper-uba/uba-plugin) - 当开发者的需求现有的插件无法满足实现等，我们需要自行开发插件来供`uba`来加载使用，本身开发插件是复杂的，需要有一系列规范才可以，该插件就是为了创造插件而生。
+
+- [uba-install](https://github.com/tinper-uba/uba-install) - 自身插件不满足需求，那么需要来为`uba`安装一款插件，赋予它安装插件的能力，通过`uba install mock`这样来安装，`uba-install`插件就会去[npm](https://www.npmjs.com/search?q=uba)上去下载`uba-mock`去安装使用的。
