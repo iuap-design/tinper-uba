@@ -15,7 +15,17 @@
 
 安装 [node.js](https://nodejs.org) 开发环境.(node > 6.x && npm > 2.x)。
 
-> 基于国内开源的囧境，可以使用淘宝的CNPM
+> 基于国内开源的囧境，可以使用淘宝的CNPM或用友集团内网卫老板荣誉出品的ynpm
+
+#### ynpm
+
+公司内网通过使用`ynpm`,实现快速下载包，减少下载等待时间。详情请 [点击](https://github.com/iuap-design/ynpm-tool)
+
+```bash
+$ npm install ynpm-tool -g          # 安装内部NPM工具
+
+$ ynpm install uba -g               # 安装 uba 速度飞快在内网下
+```
 
 #### cnpm
 
