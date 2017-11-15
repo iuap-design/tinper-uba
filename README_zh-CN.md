@@ -112,7 +112,7 @@ Install NPM dependent packages,please wait.
 4. 进入安装好的工程目录，并开启uba调试服务：
 
 ```bash
-$ cd uba-webpack && uba server
+$ cd uba-webpack && npm run dev
 ```
 
 开始调试服务是`uba`的插件`uba-server`的扩展能力。
@@ -139,7 +139,7 @@ $ cd uba-webpack && uba server
 5. 需要构建静态资源发布的，需要执行下面命令即可：
 
 ```bash
-$ uba build
+$ npm run build
 ```
 稍等片刻后，就会在项目目录内产出`dist`文件夹，里面就是我们需要的构建完的资源，是不是很简单：）
 
@@ -156,7 +156,7 @@ $ uba build
 6. $ uba -v                     # 查看当前版本
 7. $ uba -h                     # 查看帮助
 ```
-
+一般开发不需要每个人都安装全局uba去初始化使用，团队内的核心开发人员初始化构建好项目后，参与开发者只需要安装`npm install`后，通过`npm run dev`开启调试服务、`npm run build`来构建项目即可。
 
 ## 插件
 
