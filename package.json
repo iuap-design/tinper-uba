@@ -1,6 +1,6 @@
 {
   "name": "uba",
-  "version": "2.2.4",
+  "version": "2.3.0",
   "preferGlobal": true,
   "description": "a font-end develop tool for tinper",
   "main": "./bin/uba.js",
@@ -14,13 +14,9 @@
   },
   "keywords": [
     "uba",
-    "design",
     "iuap",
     "yyuap",
-    "yonyou",
-    "sparrow",
-    "neoui",
-    "tinper-uba"
+    "yonyou"
   ],
   "author": "Yonyou FED",
   "license": "MIT",
@@ -34,8 +30,6 @@
     "resolve": "^1.5.0",
     "uba-build": "0.0.5",
     "uba-init": "0.0.51",
-    "uba-install": "0.0.17",
-    "uba-plugin": "0.0.7",
     "uba-server": "1.0.0"
   }
 }

@@ -6,7 +6,6 @@
  */
 
 var chalk = require("chalk");
-var api = require('api-npm');
 var resolve = require("resolve");
 var path = require("path");
 
@@ -43,14 +42,14 @@ exports.checkNodeVersion = function(number) {
 exports.findPluginPath = function(command) {
   if (command && /^\w+$/.test(command)) {
     try {
-      return resolve.sync('uba-' + command, {
-        paths: [path.join(__dirname, '..', 'node_modules')]
+      return resolve.sync("uba-" + command, {
+        paths: [path.join(__dirname, "..", "node_modules")]
       });
     } catch (e) {
       console.log(e);
-      console.log('  ' + chalk.green(command) + ' command is not installed.');
-      console.log('  You can try to install it by ' + chalk.blue.bold('npm install uba-' + command) + '.');
-      console.log('');
+      console.log("  " + chalk.green(command) + " command is not installed.");
+      console.log("  You can try to install it by " + chalk.blue.bold("npm install uba-" + command) + ".");
+      console.log("");
     }
   }
 }
