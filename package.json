@@ -2,7 +2,7 @@
   "name": "uba",
   "version": "2.3.4",
   "preferGlobal": true,
-  "description": "a font-end develop tool for tinper",
+  "description": "a front-end develop tool for tinper",
   "main": "./bin/uba.js",
   "bin": {
     "uba": "./bin/uba.js"
