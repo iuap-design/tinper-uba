@@ -1,6 +1,6 @@
 {
   "name": "uba",
-  "version": "2.3.5",
+  "version": "2.3.6",
   "preferGlobal": true,
   "description": "a front-end develop tool for tinper",
   "main": "./bin/uba.js",
@@ -30,6 +30,6 @@
     "resolve": "^1.5.0",
     "uba-build": "1.0.1",
     "uba-init": "0.0.51",
-    "uba-server": "1.1.5"
+    "uba-server": "1.1.6"
   }
 }
