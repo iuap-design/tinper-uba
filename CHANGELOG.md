@@ -1,3 +1,7 @@
+# 2.3.10
+
+1. `uba-build`增加取消查看进度条参数`--noProcess`。
+
 # 2.3.9
 
 1. 增加代理参数headers用于设置Proxy Server请求头参数
