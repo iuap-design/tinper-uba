@@ -11,6 +11,8 @@
 
 [中文文档](https://github.com/iuap-design/tinper-uba/blob/master/README_zh-CN.md)
 
+[可视化跨平台版本](https://github.com/tinper-uba/uba-gui)
+
 ## Introduction
 `uba` is a front-end development tool which can provide multipul boilerplates. Developers can update and do maintenance with [uba-templates](https://github.com/uba-templates), and of course different templates are provided according to the styles and functions which are needed.
 
