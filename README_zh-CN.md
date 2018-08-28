@@ -13,95 +13,51 @@
 
 ## 安装
 
-安装 [node.js](https://nodejs.org) 开发环境.(node > 6.x && npm > 2.x)。
+安装 [node.js](https://nodejs.org) 开发环境.(node > 8.x && npm > 3.x)
 
-> 基于国内开源的囧境，可以使用淘宝的CNPM或用友集团内网卫老板荣誉出品的ynpm
+> 网络不好的可以使用淘宝的CNPM镜像源
 
-#### ynpm
-
-公司内网通过使用`ynpm`,实现快速下载包，减少下载等待时间。详情请 [点击](https://github.com/iuap-design/ynpm-tool)
-
+进行工具命令的安装，需要安装到全局环境上使用，后面项目开发中，`uba`是可以依赖包形式`NodeAPI`开发使用。
 ```bash
-$ npm install ynpm-tool -g          # 安装内部NPM工具
-
-$ ynpm install uba -g               # 安装 uba 速度飞快在内网下
+$ npm install uba@2 -g      #全局安装使用，也可以在项目packages.json依赖使用
+```
+安装结束后，输入下面命令来确定是否安装成功：
+```bash
+$ uba -v      #查看版本
 ```
 
-#### cnpm
-
-你可以使用淘宝定制的 cnpm (gzip 压缩支持) 命令行工具代替默认的 npm:
 ```bash
-$ npm install -g cnpm --registry=https://registry.npm.taobao.org
-
-$ cnpm install uba -g
-```
-或者你直接通过添加 npm 参数 alias 一个新命令:
-```bash
-alias cnpm="npm --registry=https://registry.npm.taobao.org \
---cache=$HOME/.npm/.cache/cnpm \
---disturl=https://npm.taobao.org/dist \
---userconfig=$HOME/.cnpmrc"
-
-# Or alias it in .bashrc or .zshrc
-$ echo '\n#alias for cnpm\nalias cnpm="npm --registry=https://registry.npm.taobao.org \
-  --cache=$HOME/.npm/.cache/cnpm \
-  --disturl=https://npm.taobao.org/dist \
-  --userconfig=$HOME/.cnpmrc"' >> ~/.zshrc && source ~/.zshrc
-```
-
-#### npm
-
-首先进行工具命令的安装，需要安装到全局环境上使用，后面项目开发中，`uba`是可以依赖包形式NodeAPI开发使用。
-```bash
-$ npm install uba -g
-```
-稍等片刻安装结束后，输入下面命令来确定是否安装成功：
-```bash
-$ uba
-```
-然后会出现当然命令使用帮助，以及官方依赖的插件版本。看到如下界面就是安装初始化完毕！
-```bash
-Usage: uba <command> [options]
-
-
-Command:
-
-  install		v0.0.17
-  init		v0.0.51
-  plugin		v0.0.4
-  server		v0.0.20
-  build		v0.0.4
-
-Options:
-
-  -h, --help     output usage information
-  -v, --version  output the version number
+2.3.11
 ```
 
 ## 使用
 
-1. 如何使用前端集成工具`uba`来快速创建一个基本脚手架：
+1. 如何使用前端集成工具`uba`来快速初始化一个前端工程：
 
 ```bash
 $ uba init
 ```
-2. 使用`uba`插件`uba-init`来加载远端[uba-templates](https://github.com/uba-templates)最佳实践仓库下的可用的列表：
+2. 使用上下箭头按键来选择你要的前端工程
+
 ```bash
 Available official templates:
 ? Please select : (Use arrow keys)
-❯ template-react-multiple-pages - React多页应用脚手架
-  template-react-single-pages - React单页应用脚手架
+❯ template-iuap-react-solution - Iuap React整体解决方案脚手架
+  template-moli - template-moli
+  template-nc-multiple-pages - NC定制化需求多页面脚手架
+  template-react-multiple-pages - React多页应用脚手架
+  template-react-single-pages - 一款带组件库、状态管理并包含示例、参照的开发框架
+  template-tinper-bee-admin - 采用tinper-bee组件库所构建的管理系统
 ```
-可以通过小键盘的上箭头(↑)、下箭头(↓)来选择你需要的脚手架或基于业务的最佳实践项目，回车即可。
 
-3. 输入你的工程项目名称，默认不输入的名字为“uba-boilerplate”，我们输入“uba-webpack”
+
+3. 输入你的工程项目名称，默认不输入的名字为`uba-boilerplate`
 
 ```bash
-? Please select : template-react-single-pages - React单页应用脚手架
-? boilerplate name : uba-webpack
+? boilerplate name : uba-boilerplate
 Downloading template-react-single-pages please wait.
-Boilerplate uba-webpack done.
-? Automatically install NPM dependent packages? (Y/n)
+Boilerplate uba-boilerplate done.
+? Automatically install NPM dependent packages? Yes
 Install NPM dependent packages,please wait.
 ```
 
@@ -109,69 +65,150 @@ Install NPM dependent packages,please wait.
 
 如果不选择的话后面也可以手动使用`npm install`或`cnpm install`去安装使用。
 
-4. 进入安装好的工程目录，并开启uba调试服务：
+4. 进入安装好的工程根目录下，并执行启动服务命令：
 
 ```bash
-$ cd uba-webpack && npm run dev
+$ cd uba-boilerplate && npm run dev
 ```
 
-开始调试服务是`uba`的插件`uba-server`的扩展能力。
-
-稍等片刻待`uba`就会自动打开你的默认浏览器显示页面的。并会打印一些工具日志，比如 数据模拟 代理访问等。
+稍等`uba`就会自动打开你的默认浏览器显示页面的。并会打印一些工具日志，比如 数据模拟 代理访问等。
 
 ```bash
-/******************** Start loading mock server ********************/
-
-[mock]:[/User/Get] to ./mock/api/user/get.json
-[mock]:[/User/Post] to ./mock/api/user/post.json
-[mock]:[/User/Put] to ./mock/api/user/put.json
-
-/******************** Mock server loaded completed *****************/
-
-
-/******************** Start dev server *****************/
-
-[uba] : Listening on port http://127.0.0.1:3000
-
-/******************** O(∩_∩)O *****************/
+[HPM] Proxy created: /  ->  http://cnodejs.org
+[HPM] Proxy rewrite rule created: "^/mes" ~> ""
+[HPM] Subscribed to http-proxy events:  [ 'proxyRes', 'error', 'close' ]
+[proxy] : /api/ to http://cnodejs.org
+[HPM] Proxy created: /  ->  https://api.github.com
+[HPM] Subscribed to http-proxy events:  [ 'proxyRes', 'error', 'close' ]
+[proxy] : /users/,/orgs/ to https://api.github.com
+[mock]:[/local/user/get] to ./mock/user/get.json
+[mock]:[/local/user/post] to ./mock/user/post.json
+********************************************
+ ❤️  uba-develop-server
+ [core] : v1.2.0
+ [http] : http://127.0.0.1:3000
+ [http] : http://10.6.245.141:3000
+********************************************
 ```
+![image](https://user-images.githubusercontent.com/3817644/44698087-1e5aca80-aab1-11e8-864d-53e4d587caad.png)
 
-5. 需要构建静态资源发布的，需要执行下面命令即可：
+5. 构建静态资源，执行下面命令即可：
 
 ```bash
 $ npm run build
 ```
 稍等片刻后，就会在项目目录内产出`dist`文件夹，里面就是我们需要的构建完的资源，是不是很简单：）
+![image](https://user-images.githubusercontent.com/3817644/44701090-77c9f600-aabf-11e8-8d7a-98e3edc508e4.png)
 
 以上就是基本使用的说明。
 
-## 命令
 
-```bash
-1. $ uba init                   # 拉取远端可用的脚手架和最佳实践
-2. $ uba server                 # 开启调试、代理服务、数据模拟服务
-3. $ uba build                  # 构建静态资源产出
-4. $ uba install <plugin name>  # 安装uba的插件
-5. $ uba plugin                 # 创建uba插件
-6. $ uba -v                     # 查看当前版本
-7. $ uba -h                     # 查看帮助
+## 参数
+
+> uba server --port 4000 --noInfo --logLevel debug --chunks --noOpen
+
+- `--noProcess` 不显示进度百分比
+- `--logLevel` 日志级别，默认：info 其他为：trace,debug,info,warn,error,silent
+- `--chunks` 不显示详细的chunks信息
+- `--port` 服务器端口设置，默认：3000，如冲突改为随机端口
+- `--noOpen` 不自动打开浏览器
+
+## 说明
+
+- uba@2版本是基于`webpack2`稳定版本封装，使用的插件和加载器都是最稳定的，常用的稳定版本才能让项目开发走的更好
+
+- 一般开发不需要每个人都安装全局uba去初始化使用，团队内的核心开发人员初始化构建好项目后，参与开发者只需要安装`npm install`后，通过`npm run dev`开启调试服务、`npm run build`来构建项目即可。
+
+## 配置
+
+### uba.config.js (包含：代理、静态托管、webpack配置等)
+
+1. 代理设置
+```js
+//远程代理访问，可以配置多个代理服务
+//更多配置参考 https://www.npmjs.com/package/http-proxy-middleware#options
+const proxyConfig = [{
+  enable: true,                 //启动开关
+  router: "/api/",              //代理路由
+  headers: { "X-XSS": "X-XSS" },//设置响应请求头
+  pathRewrite: { '^/mes': '' }, //URL指定重写
+  url: "http://cnodejs.org"     //代理地址
+}, {
+  enable: true,
+  router: ["/users/", "/orgs/"],//指定多个路由代理
+  url: "https://api.github.com"
+}];
 ```
-一般开发不需要每个人都安装全局uba去初始化使用，团队内的核心开发人员初始化构建好项目后，参与开发者只需要安装`npm install`后，通过`npm run dev`开启调试服务、`npm run build`来构建项目即可。
+上面是项目里默认的一些设置，一般来说这个配置足够使用了，无非是我们按照后端给的接口去登录拿到Cookies，然后授权请求代理数据接口。我们需要代理到指定的路由就要去设置指定的路由地址即可
 
-## 插件
+下面的配置一个开发阶段的工程配置，可以按照不同的路由去请求不同的URL地址：
+```js
+const proxyConfig = [
+  {
+    enable: true,
+    headers: {
+      // 这是之前网页的地址，从中可以看到当前请求页面的链接。
+      "Referer": "http://10.10.24.43:8080/"
+    },
+    // context，如果不配置，默认就是代理全部。
+    router: [
+      '/iuap-example','/eiap-plus/','/newref/'
+    ],
+    url: 'http://10.10.24.43:8080'
+  },
+  // 应用平台
+  {
+    enable: true,
+    headers: {
+      // 这是之前网页的地址，从中可以看到当前请求页面的链接。
+      "Referer": "http://159.138.20.189:8080"
+    },
+    // context，如果不配置，默认就是代理全部。
+    router: [
+      '/wbalone'
+    ],
+    url: 'http://159.138.20.189:8080'
+  },
+  // 后台开发服务
+  {
+    enable: true,
+    headers: {
+      // 这是之前网页的地址，从中可以看到当前请求页面的链接。
+      "Referer": "http://159.138.20.189:8180"
+    },
+    // context，如果不配置，默认就是代理全部。
+    router: [
+      '/iuap_pap_quickstart'
+    ],
+    url: 'http://159.138.20.189:8180'
+  }
+];
+```
 
-`uba`所包含的插件在[tinper-uba](https://github.com/tinper-uba)下维护、开发。
+2. historyApiFallback 设置
 
-`uba`的强大开发体验是离不开丰富多彩的插件的，之前拉取远端仓库是使用了`uba-init`插件所完成的，下面介绍一下`uba`家族的核心兄弟都有谁~
+需要使用该功能，直接设置为true就好
+```js
+const svrConfig = {
+    historyApiFallback: true
+}
+```
 
-- [uba-init](https://github.com/tinper-uba/uba-init) [![npm version](https://img.shields.io/npm/v/uba-init.svg)](https://www.npmjs.com/package/uba-init) - 一款可以帮助`uba`执行远程代码访问的能力，它基于`request`http请求方法去获得github的API数据，解析后把远端的数据展示给uba来操作，然后根据选择来最终下载到本地，然后安装使用。
+3. 静态资源托管
 
-- [uba-server](https://github.com/tinper-uba/uba-server) [![npm version](https://img.shields.io/npm/v/uba-server.svg)](https://www.npmjs.com/package/uba-server) - 帮助`uba`来加载本地配置文件，包括数据模拟、代理访问、`webpack`配置 等一系列需要集成开发使用的功能，最终通过`webpack-dev-middleware`来运行整个调试项目。
+顾名思义，`uba`开启一个静态的`http`服务来把我们工程下的指定资源提供`http`访问
 
-- [uba-build](https://github.com/tinper-uba/uba-build) [![npm version](https://img.shields.io/npm/v/uba-build.svg)](https://www.npmjs.com/package/uba-build) - 开发完毕后需要产出打包静态资源，该插件结合`webpack`核心打包功能，读取`uba`的配置文件最终产出我们需要上线的资源。
+```js
+const staticConfig = {
+  folder: 'src/static'
+}
+```
+设置该项后，重启服务我们可以通过`http://127.0.0.1;3000/${src/static目录内的资源访问}`
 
-- [uba-plugin](https://github.com/tinper-uba/uba-plugin) [![npm version](https://img.shields.io/npm/v/uba-plugin.svg)](https://www.npmjs.com/package/uba-plugin) - 当开发者的需求现有的插件无法满足实现等，我们需要自行开发插件来供`uba`来加载使用，本身开发插件是复杂的，需要有一系列规范才可以，该插件就是为了创造插件而生。
+4. webpack2 配置
 
-- [uba-install](https://github.com/tinper-uba/uba-install) [![npm version](https://img.shields.io/npm/v/uba-install.svg)](https://www.npmjs.com/package/uba-install) - 自身插件不满足需求，那么需要来为`uba`安装一款插件，赋予它安装插件的能力，通过`uba install mock`这样来安装，`uba-install`插件就会去[npm](https://www.npmjs.com/search?q=uba)上去下载`uba-mock`去安装使用的。
+其他的配置就是我们普通的`webpack`配置，包含入口、出口、加载器、插件等。
 
-## to be continued
+可以根据官网的配置去个性化我们的工程配置，也可以使用uba默认集成好的无需设置。
+
+配置参考：https://webpack.docschina.org/concepts/
