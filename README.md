@@ -212,3 +212,30 @@ const staticConfig = {
 可以根据官网的配置去个性化我们的工程配置，也可以使用uba默认集成好的无需设置。
 
 配置参考：https://webpack.docschina.org/concepts/
+
+5. Mock 配置
+
+### uba.mock.js 包含各种HTTP请求方法
+
+模拟方法体可以是:`GET`,`POST`,`DELETE`,`PUT`,`HEAD`,`OPTIONS`等
+
+整体来说就是一个标准的`JSON`,`key`代表我们模拟的本地路由地址，`value`代表我们本地路径的模拟JSON文件
+
+```js
+module.exports = {
+  "GET": [
+    { "/local/user/get": "./mock/user/get.json" }, 
+    { "/order/delivery/list": "./mock/order/delivery/list.json" }, 
+    { "/order/manage/orderType": "./mock/order/manage/orderType.json" },
+    { "/route/data": "./mock/sidebar.json" }
+  ],
+  "POST": [
+    { "/system/role/list": "./mock/sys-manage/role-manage/list.json" }, 
+    { "/order/manage/list": "./mock/order/manage/list.json" }, 
+    { "/order/delivery/removelist": "./mock/order/delivery/removeList.json" },
+    // 销货通知单
+    { "/customer_credit/getAssoVo": "./mock/sales/customer-search.json" },
+    { "/sales/customer/create": "./mock/sales/customer-create.json" }
+  ]
+}
+```
