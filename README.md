@@ -217,6 +217,8 @@ const staticConfig = {
 
 ### uba.mock.js 包含各种HTTP请求方法
 
+> 如果`mock`和`proxy`混用，路由完全一致，那么`uba`的优先级是 webpack assets > mock > proxy
+
 模拟方法体可以是:`GET`,`POST`,`DELETE`,`PUT`,`HEAD`,`OPTIONS`等
 
 整体来说就是一个标准的`JSON`,`key`代表我们模拟的本地路由地址，`value`代表我们本地路径的模拟JSON文件
