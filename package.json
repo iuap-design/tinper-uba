@@ -1,6 +1,6 @@
 {
   "name": "uba",
-  "version": "2.3.11",
+  "version": "3.0.0",
   "preferGlobal": true,
   "description": "a front-end develop tool for tinper",
   "main": "./bin/uba.js",
@@ -25,11 +25,11 @@
   },
   "homepage": "https://github.com/iuap-design/tinper-uba#readme",
   "dependencies": {
-    "chalk": "^2.3.0",
+    "chalk": "^2.4.1",
     "minimist": "^1.2.0",
-    "resolve": "^1.5.0",
-    "uba-build": "1.0.2",
+    "resolve": "^1.8.1",
+    "uba-build": "3.0.0",
     "uba-init": "0.0.51",
-    "uba-server": "1.2.0"
+    "uba-server": "3.0.0"
   }
 }

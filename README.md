@@ -19,7 +19,7 @@
 
 进行工具命令的安装，需要安装到全局环境上使用，后面项目开发中，`uba`是可以依赖包形式`NodeAPI`开发使用。
 ```bash
-$ npm install uba@2 -g      #全局安装使用，也可以在项目packages.json依赖使用
+$ npm install uba@3 -g      #全局安装使用，也可以在项目packages.json依赖使用
 ```
 安装结束后，输入下面命令来确定是否安装成功：
 ```bash
@@ -27,7 +27,7 @@ $ uba -v      #查看版本
 ```
 
 ```bash
-2.3.11
+3.0.0
 ```
 
 ## 使用
@@ -85,7 +85,7 @@ $ cd uba-boilerplate && npm run dev
 [mock]:[/local/user/post] to ./mock/user/post.json
 ********************************************
  ❤️  uba-develop-server
- [core] : v1.2.0
+ [core] : v3.0.0
  [http] : http://127.0.0.1:3000
  [http] : http://10.6.245.141:3000
 ********************************************
