@@ -13,6 +13,8 @@
 
 ## 安装
 
+> uba有两种使用方式：全局安装方式，用于拉取远端脚手架。另一种是脚手架内依赖开发包的形式使用
+
 安装 [node.js](https://nodejs.org) 开发环境.(node > 8.x && npm > 3.x)
 
 > 网络不好的可以使用淘宝的CNPM镜像源
@@ -27,7 +29,7 @@ $ uba -v      #查看版本
 ```
 
 ```bash
-2.3.11
+2.x.x
 ```
 
 ## 使用
@@ -105,17 +107,27 @@ $ npm run build
 
 ## 参数
 
-> uba server --port 4000 --noInfo --logLevel debug --chunks --noOpen
+下面是在配置script命令传入的参数如下：
 
-- `--noProcess` 不显示进度百分比
-- `--logLevel` 日志级别，默认：info 其他为：trace,debug,info,warn,error,silent
-- `--chunks` 不显示详细的chunks信息
-- `--port` 服务器端口设置，默认：3000，如冲突改为随机端口
-- `--noOpen` 不自动打开浏览器
+```bash
+  "scripts": {
+    "dev": "uba server --port 4000 --noInfo --logLevel debug --chunks --noOpen --homepage=wbalone/pages/login/login.html"
+  }
+```
+
+
+名称 | 说明
+---|---
+noProcess | 不显示构建进度
+logLevel | 日志级别，默认：info 其他为：trace,debug,info,warn,error,silent
+chunks | 不显示详细的chunks信息
+port | 服务器端口设置，默认：3000，如冲突会随机没有使用的端口
+noOpen | 不自动打开浏览器
+homepage | 默认打开的页面相对路径
 
 ## 说明
 
-- uba@2版本是基于`webpack2`稳定版本封装，使用的插件和加载器都是最稳定的，常用的稳定版本才能让项目开发走的更好
+- uba@2版本是基于`webpack2`稳定版本封装，使用的插件和加载器都是最稳定的
 
 - 一般开发不需要每个人都安装全局uba去初始化使用，团队内的核心开发人员初始化构建好项目后，参与开发者只需要安装`npm install`后，通过`npm run dev`开启调试服务、`npm run build`来构建项目即可。
 
@@ -141,49 +153,6 @@ const proxyConfig = [{
 ```
 上面是项目里默认的一些设置，一般来说这个配置足够使用了，无非是我们按照后端给的接口去登录拿到Cookies，然后授权请求代理数据接口。我们需要代理到指定的路由就要去设置指定的路由地址即可
 
-下面的配置一个开发阶段的工程配置，可以按照不同的路由去请求不同的URL地址：
-```js
-const proxyConfig = [
-  {
-    enable: true,
-    headers: {
-      // 这是之前网页的地址，从中可以看到当前请求页面的链接。
-      "Referer": "http://10.10.24.43:8080/"
-    },
-    // context，如果不配置，默认就是代理全部。
-    router: [
-      '/iuap-example','/eiap-plus/','/newref/'
-    ],
-    url: 'http://10.10.24.43:8080'
-  },
-  // 应用平台
-  {
-    enable: true,
-    headers: {
-      // 这是之前网页的地址，从中可以看到当前请求页面的链接。
-      "Referer": "http://159.138.20.189:8080"
-    },
-    // context，如果不配置，默认就是代理全部。
-    router: [
-      '/wbalone'
-    ],
-    url: 'http://159.138.20.189:8080'
-  },
-  // 后台开发服务
-  {
-    enable: true,
-    headers: {
-      // 这是之前网页的地址，从中可以看到当前请求页面的链接。
-      "Referer": "http://159.138.20.189:8180"
-    },
-    // context，如果不配置，默认就是代理全部。
-    router: [
-      '/iuap_pap_quickstart'
-    ],
-    url: 'http://159.138.20.189:8180'
-  }
-];
-```
 
 2. historyApiFallback 设置
 
@@ -241,3 +210,8 @@ module.exports = {
   ]
 }
 ```
+
+## 说明
+
+1. 关于启动服务方面的使用请访问：[uba-server](https://github.com/tinper-uba/uba-server/blob/webpack2/README.md) 插件
+2. 关于构建服务方面的使用请访问：[uba-build](https://github.com/tinper-uba/uba-build/blob/webpack2/README.md) 插件
